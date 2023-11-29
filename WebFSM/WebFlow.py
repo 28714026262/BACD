@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-24 10:12:07
-LastEditTime: 2023-11-28 20:10:02
+LastEditTime: 2023-11-29 10:58:08
 LastEditors: Suez_kip
 Description: 
 '''
@@ -179,56 +179,6 @@ class FlowNode:
                 is_same_flag = False
         return is_same_flag
 
-class Global_Flow_Node_Analyser:
-    def __init__(self) -> None:
-        self.g_flow_node_container = FlowNode()
-        self.g_flow_container = Flow()
-        self.flow_node_stop_flag = True
-
-    # Request类目前适配Playwright的，需要修改；
-    def getDataFromTraffic(self, response: requests.Response):
-        tempRequest = response.request
-        url_str = tempRequest.url
-        if url_str.find("?") == -1:
-            url = url_str
-        else: 
-            url = url_str[0:url_str.find("?")]
-        if tempRequest.post_data:
-            logger.debug(tempRequest.post_data)
-        if self.g_flow_container.is_useful_url(url):
-            self.g_flow_node_container.clear()
-            self.flow_node_stop_flag = True
-            self.g_flow_node_container.method = tempRequest.method
-            self.g_flow_node_container.url = tempRequest.url
-            # self.g_flow_node_container.mimetype = ""
-            for header_item in tempRequest.headers_array():
-                self.g_flow_node_container.header[header_item['name']] = header_item['value']
-            self.g_flow_node_container.analyze_url_and_get_get_param()
-            self.g_flow_node_container.param_body = tempRequest.post_data
-            self.g_flow_node_container.params_post = {}
-            if self.g_flow_node_container.method.lower() == "post":
-                if "Content-Type" in self.g_flow_node_container.header:
-                    content_type_str = self.g_flow_node_container.header["Content-Type"]
-                    # self.g_flow_node_container.content_type = content_type_str[0: content_type_str.find(";")]
-                    self.g_flow_node_container.content_type = content_type_str
-                if self.g_flow_node_container.param_body:
-                    self.g_flow_node_container.params_post = self.g_flow_node_container.extract_param(self.g_flow_node_container.param_body, self.g_flow_node_container.content_type)
-            else:
-                self.g_flow_node_container.content_type = ""
-            # self.g_flow_node_container.cookies = {}  
-            self.g_flow_node_container.response = tempRequest.response()
-            if self.g_flow_node_container.response:
-                self.g_flow_node_container.status = self.g_flow_node_container.response.status
-                
-        self.g_flow_container.append_new_flow_node(self.g_flow_node_container)
-            # if self.g_flow_node_container.response.status == 200:
-            #     try:
-            #         self.g_flow_node_container.response_text = self.g_flow_node_container.response.text()
-            #     except Exception as e:
-            #         self.g_flow_node_container.show()
-            # else:
-            #     self.g_flow_node_container.response_text = ""
-
 class Flow:
     def __init__(self) -> None:
         self.flow_list = []
@@ -331,14 +281,69 @@ class FlowSet:
         self.Flowset.add(NewFlow)
 
     def getSameFlowNode(self, sourceFlowNode: FlowNode):
+        result = -1
         for targetFlows in self.Flowset:
-            for targetNode in targetFlows:
-                pass
+            for index, targetNode in targetFlows.flow_list:
+                compare_result = targetNode.is_same_flow_node(sourceFlowNode)
+                if compare_result:
+                    result = index
+        return result
 
 class FlowRoleGroup:
     def __init__(self) -> None:
-        pass
+        self.flowset = FlowSet()
+        self.role_name = ""
 
 class FlowAnalysis:
     def __init__(self) -> None:
         pass
+
+class Global_Flow_Node_Analyser:
+    def __init__(self) -> None:
+        self.g_flow_node_container = FlowNode()
+        self.g_flow_container = Flow()
+        self.flow_node_stop_flag = True
+
+    # Request类目前适配Playwright的，需要修改；
+    def getDataFromTraffic(self, response: requests.Response):
+        tempRequest = response.request
+        url_str = tempRequest.url
+        if url_str.find("?") == -1:
+            url = url_str
+        else: 
+            url = url_str[0:url_str.find("?")]
+        if tempRequest.post_data:
+            logger.debug(tempRequest.post_data)
+        if self.g_flow_container.is_useful_url(url):
+            self.g_flow_node_container.clear()
+            self.flow_node_stop_flag = True
+            self.g_flow_node_container.method = tempRequest.method
+            self.g_flow_node_container.url = tempRequest.url
+            # self.g_flow_node_container.mimetype = ""
+            for header_item in tempRequest.headers_array():
+                self.g_flow_node_container.header[header_item['name']] = header_item['value']
+            self.g_flow_node_container.analyze_url_and_get_get_param()
+            self.g_flow_node_container.param_body = tempRequest.post_data
+            self.g_flow_node_container.params_post = {}
+            if self.g_flow_node_container.method.lower() == "post":
+                if "Content-Type" in self.g_flow_node_container.header:
+                    content_type_str = self.g_flow_node_container.header["Content-Type"]
+                    # self.g_flow_node_container.content_type = content_type_str[0: content_type_str.find(";")]
+                    self.g_flow_node_container.content_type = content_type_str
+                if self.g_flow_node_container.param_body:
+                    self.g_flow_node_container.params_post = self.g_flow_node_container.extract_param(self.g_flow_node_container.param_body, self.g_flow_node_container.content_type)
+            else:
+                self.g_flow_node_container.content_type = ""
+            # self.g_flow_node_container.cookies = {}  
+            self.g_flow_node_container.response = tempRequest.response()
+            if self.g_flow_node_container.response:
+                self.g_flow_node_container.status = self.g_flow_node_container.response.status
+        # if self.g_flow_node_container.response.status == 200:
+        #     try:
+        #         self.g_flow_node_container.response_text = self.g_flow_node_container.response.text()
+        #     except Exception as e:
+        #         self.g_flow_node_container.show()
+        # else:
+        #     self.g_flow_node_container.response_text = ""        
+        self.g_flow_container.append_new_flow_node(self.g_flow_node_container)
+        
