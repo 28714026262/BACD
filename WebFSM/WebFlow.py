@@ -346,4 +346,3 @@ class Global_Flow_Node_Analyser:
         # else:
         #     self.g_flow_node_container.response_text = ""        
         self.g_flow_container.append_new_flow_node(self.g_flow_node_container)
-        

@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-28 15:31:37
-LastEditTime: 2023-11-29 11:48:00
+LastEditTime: 2023-11-29 17:07:59
 LastEditors: Suez_kip
 Description: 
 '''
@@ -11,8 +11,8 @@ import sys
 sys.path.append(r"..") 
 import logging
 import functools
-from configloader import *
-from ansistrm import ColorizingStreamHandler
+from Tools.configloader import *
+from Tools.ansistrm import ColorizingStreamHandler
 
 logger_initialized = {}
 
@@ -37,7 +37,8 @@ def get_logger(name='root', log_file=None, log_level=10):
     """
     if CONFIG_DICT == {}:
         config_init()
-    log_level = CONFIG_DICT['log_level']
+    if "log_level" in CONFIG_DICT:
+        log_level = CONFIG_DICT['log_level']
     logger = logging.getLogger(name)
     if name in logger_initialized:
         return logger
@@ -69,3 +70,7 @@ def get_logger(name='root', log_file=None, log_level=10):
         
     logger_initialized[name] = True
     return logger
+
+if __name__ == '__main__':
+    1 == 1
+    pass
