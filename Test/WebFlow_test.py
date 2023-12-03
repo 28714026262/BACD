@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-29 11:13:14
-LastEditTime: 2023-12-03 17:28:31
+LastEditTime: 2023-12-03 19:29:40
 LastEditors: Suez_kip
 Description: 
 '''
@@ -37,11 +37,24 @@ def test1():
 def test2():
     # Response Test
     GFNA = Global_Flow_Node_Analyser()
-    GFNA.getDataFromTrafficwithRequestPath(example_str_req, example_str_resp)
+    GFNA.getHRAInPath(example_str_req, example_str_resp)
+    GFNA.getDataFromTraffic()
     
     assert GFNA.g_flow_node_container.response.status == '200'
     assert GFNA.g_flow_node_container.response.status_str == 'OK'
-    headers_list = [{'name': 'Date', 'value': 'Sun, 03 Dec 2023 04:01:16 GMT'}, {'name': 'Server', 'value': 'nginx/1.23.4'}, {'name': 'Content-Type', 'value': 'text/javascript; charset=utf-8'}, {'name': 'Content-Disposition', 'value': 'inline; filename=performance.js'}, {'name': 'Last-Modified', 'value': 'Mon, 25 Sep 2023 07:29:06 GMT'}, {'name': 'Cache-Control', 'value': 'no-cache'}, {'name': 'ETag', 'value': '"1695626946.5698967-2881-299961987-gzip"'}, {'name': 'Access-Control-Allow-Origin', 'value': '*'}, {'name': 'Access-Control-Allow-Headers', 'value': 'Content-Type, Authorization'}, {'name': 'Access-Control-Allow-Methods', 'value': 'OPTIONS, HEAD, GET, POST, DELETE, PUT'}, {'name': 'Vary', 'value': 'Accept-Encoding'}, {'name': 'Content-Length', 'value': '2881'}, {'name': 'Connection', 'value': 'close'}]
+    headers_list = [{'name': 'Date', 'value': 'Sun, 03 Dec 2023 04:01:16 GMT'}, 
+                    {'name': 'Server', 'value': 'nginx/1.23.4'}, 
+                    {'name': 'Content-Type', 'value': 'text/javascript; charset=utf-8'}, 
+                    {'name': 'Content-Disposition', 'value': 'inline; filename=performance.js'}, 
+                    {'name': 'Last-Modified', 'value': 'Mon, 25 Sep 2023 07:29:06 GMT'}, 
+                    {'name': 'Cache-Control', 'value': 'no-cache'}, 
+                    {'name': 'ETag', 'value': '"1695626946.5698967-2881-299961987-gzip"'}, 
+                    {'name': 'Access-Control-Allow-Origin', 'value': '*'}, 
+                    {'name': 'Access-Control-Allow-Headers', 'value': 'Content-Type, Authorization'}, 
+                    {'name': 'Access-Control-Allow-Methods', 'value': 'OPTIONS, HEAD, GET, POST, DELETE, PUT'}, 
+                    {'name': 'Vary', 'value': 'Accept-Encoding'}, 
+                    {'name': 'Content-Length', 'value': '2881'}, 
+                    {'name': 'Connection', 'value': 'close'}]
     for index in range(0, len(GFNA.g_flow_node_container.response.headers_array())):
         assert GFNA.g_flow_node_container.response.headers_list[index]['name'] == headers_list[index]['name']
         assert GFNA.g_flow_node_container.response.headers_list[index]['value'] == headers_list[index]['value']

@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-24 10:12:07
-LastEditTime: 2023-12-03 16:29:33
+LastEditTime: 2023-12-03 19:32:35
 LastEditors: Suez_kip
 Description: 
 '''
@@ -311,53 +311,55 @@ class Global_Flow_Node_Analyser:
         self.g_flow_analyser = FlowAnalysis()
         self.flow_node_stop_flag = True
         self.HRA = HTMLRequestAnalyzer()
+        self.HRA_Init_Flag = False
 
     # Request类目前适配Playwright的，需要修改；
-    def getDataFromTrafficwithRequests(self, response: requests.Response):
-        tempRequest = response.request
-        url_str = tempRequest.url
-        if url_str.find("?") == -1:
-            url = url_str
-        else: 
-            url = url_str[0:url_str.find("?")]
-        if tempRequest.post_data:
-            logger.debug(tempRequest.post_data)
-        if self.g_flow_container.is_useful_url(url):
-            self.g_flow_node_container.clear()
-            self.flow_node_stop_flag = True
-            self.g_flow_node_container.method = tempRequest.method
-            self.g_flow_node_container.url = tempRequest.url
-            # self.g_flow_node_container.mimetype = ""
-            for header_item in tempRequest.headers_array():
-                self.g_flow_node_container.header[header_item['name']] = header_item['value']
-            self.g_flow_node_container.analyze_url_and_get_get_param()
-            self.g_flow_node_container.param_body = tempRequest.post_data
-            self.g_flow_node_container.params_post = {}
-            if self.g_flow_node_container.method.lower() == "post":
-                if "Content-Type" in self.g_flow_node_container.header:
-                    content_type_str = self.g_flow_node_container.header["Content-Type"]
-                    # self.g_flow_node_container.content_type = content_type_str[0: content_type_str.find(";")]
-                    self.g_flow_node_container.content_type = content_type_str
-                if self.g_flow_node_container.param_body:
-                    self.g_flow_node_container.params_post = self.g_flow_node_container.extract_param(self.g_flow_node_container.param_body, self.g_flow_node_container.content_type)
-            else:
-                self.g_flow_node_container.content_type = ""
-            # self.g_flow_node_container.cookies = {}  
-            self.g_flow_node_container.response = tempRequest.response()
-            if self.g_flow_node_container.response:
-                self.g_flow_node_container.status = self.g_flow_node_container.response.status
-        # if self.g_flow_node_container.response.status == 200:
-        #     try:
-        #         self.g_flow_node_container.response_text = self.g_flow_node_container.response.text()
-        #     except Exception as e:
-        #         self.g_flow_node_container.show()
-        # else:
-        #     self.g_flow_node_container.response_text = ""        
-        self.g_flow_container.append_new_flow_node(self.g_flow_node_container)
+    # def getDataFromTrafficwithRequests(self, response: requests.Response):
+    #     tempRequest = response.request
+    #     url_str = tempRequest.url
+    #     if url_str.find("?") == -1:
+    #         url = url_str
+    #     else: 
+    #         url = url_str[0:url_str.find("?")]
+    #     if tempRequest.post_data:
+    #         logger.debug(tempRequest.post_data)
+    #     if self.g_flow_container.is_useful_url(url):
+    #         self.g_flow_node_container.clear()
+    #         self.flow_node_stop_flag = True
+    #         self.g_flow_node_container.method = tempRequest.method
+    #         self.g_flow_node_container.url = tempRequest.url
+    #         # self.g_flow_node_container.mimetype = ""
+    #         for header_item in tempRequest.headers_array():
+    #             self.g_flow_node_container.header[header_item['name']] = header_item['value']
+    #         self.g_flow_node_container.analyze_url_and_get_get_param()
+    #         self.g_flow_node_container.param_body = tempRequest.post_data
+    #         self.g_flow_node_container.params_post = {}
+    #         if self.g_flow_node_container.method.lower() == "post":
+    #             if "Content-Type" in self.g_flow_node_container.header:
+    #                 content_type_str = self.g_flow_node_container.header["Content-Type"]
+    #                 # self.g_flow_node_container.content_type = content_type_str[0: content_type_str.find(";")]
+    #                 self.g_flow_node_container.content_type = content_type_str
+    #             if self.g_flow_node_container.param_body:
+    #                 self.g_flow_node_container.params_post = self.g_flow_node_container.extract_param(self.g_flow_node_container.param_body, self.g_flow_node_container.content_type)
+    #         else:
+    #             self.g_flow_node_container.content_type = ""
+    #         # self.g_flow_node_container.cookies = {}  
+    #         self.g_flow_node_container.response = tempRequest.response()
+    #         if self.g_flow_node_container.response:
+    #             self.g_flow_node_container.status = self.g_flow_node_container.response.status
+    #     # if self.g_flow_node_container.response.status == 200:
+    #     #     try:
+    #     #         self.g_flow_node_container.response_text = self.g_flow_node_container.response.text()
+    #     #     except Exception as e:
+    #     #         self.g_flow_node_container.show()
+    #     # else:
+    #     #     self.g_flow_node_container.response_text = ""        
+    #     self.g_flow_container.append_new_flow_node(self.g_flow_node_container)
 
-    def getDataFromTrafficwithRequestPath(self, req_path, resp_path):
-        self.HRA.getHTMLRequestLines(req_path)
-        self.HRA.getHTMLResponseLines(resp_path)
+    def getDataFromTraffic(self):
+        if not self.HRA_Init_Flag:
+            logger.debug("No HRA Init!")
+            return
         tempRequest = self.HRA.private_request
         url_str = tempRequest.url
         if url_str.find("?") == -1:
@@ -390,8 +392,15 @@ class Global_Flow_Node_Analyser:
             if tempRequest.response:
                 self.g_flow_node_container.response = tempRequest.response
                 self.g_flow_node_container.status = self.g_flow_node_container.response.status
-        self.g_flow_container.append_new_flow_node(self.g_flow_node_container)
 
-if __name__ == "__main__":
-    GFNA = Global_Flow_Node_Analyser()
-    GFNA.getDataFromTrafficwithRequestPath("", "")
+    def getHRAInPath(self, req_path, resp_path):
+        self.HRA.getRequestInPath(req_path)
+        self.HRA.getResponseInPath(resp_path)
+        self.HRA_Init_Flag = True
+
+    def getHRAInStr(self, req_str, resp_str):
+        pass
+        self.HRA_Init_Flag = True
+
+    def flowAppend(self):
+        self.HRA_Init_Flag = False
