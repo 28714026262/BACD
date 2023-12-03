@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-30 19:03:32
-LastEditTime: 2023-12-01 16:50:45
+LastEditTime: 2023-12-03 17:18:52
 LastEditors: Suez_kip
 Description: 
 '''
@@ -11,6 +11,12 @@ class HTMLResponse:
     def __init__(self) -> None:
         self.status = -1
         self.response_body = ""
+        self.status_str = ""
+        self.protocol = ""
+        self.headers_list = []
+    
+    def headers_array(self):
+        return self.headers_list
 
 class HTMLRequest:
     def __init__(self) -> None:
@@ -28,13 +34,14 @@ class HTMLRequest:
 class HTMLRequestAnalyzer:
     def __init__(self) -> None:
         self.private_request = HTMLRequest()
-        self.example_str = r"D:\Suez_kip\研究生毕设\Code\Tools\RequestsAnalyser\HTMLRequestAnalyzer\PostRequest.txt"
+        self.example_str_req = r"D:\Suez_kip\研究生毕设\Code\Test\Source\PostRequest.txt"
+        self.example_str_resp = r"D:\Suez_kip\研究生毕设\Code\Test\Source\PostResponse.txt"
 
     def getHTMLRequestLines(self, raw_data_path):
         file_path = ""
         tempListPoint = {"name": None, "value": None}
         if raw_data_path == "":
-            file_path = self.example_str
+            file_path = self.example_str_req
         else:
             file_path = raw_data_path
         with open(file_path, 'r') as file:
@@ -71,3 +78,41 @@ class HTMLRequestAnalyzer:
     def lineToDictPair(self, str_line):
         result_list = str_line.split(': ', 1)
         return result_list
+
+    def getHTMLResponseLines(self, raw_data_path):
+        file_path = ""
+        tempListPoint = {"name": None, "value": None}
+        content_flag = False
+        content_start_flag = False
+        if raw_data_path == "":
+            file_path = self.example_str_resp
+        else:
+            file_path = raw_data_path
+        with open(file_path, encoding="utf-8") as file:
+            lines = file.readlines()
+            for index in range(0, len(lines)):
+                line = lines[index].strip()
+                print(line.strip())  # strip() 用于移除行尾的换行符
+                if index == 0:
+                    requestType_and_URL_and_protocol = line.split(" ", 2)
+                    self.private_request.response.status_str = requestType_and_URL_and_protocol[2]
+                    self.private_request.response.status = requestType_and_URL_and_protocol[1]
+                    self.private_request.response.protocol = requestType_and_URL_and_protocol[0].upper()
+                elif content_start_flag and content_flag:
+                    if self.private_request.response.response_body:
+                        self.private_request.response.response_body = self.private_request.response.response_body + r"\n" + line
+                    else:
+                        self.private_request.response.response_body = line
+                else:
+                    if any(c.isalpha() for c in line) or any(c.isdigit() for c in line):
+                        temp_list = self.lineToDictPair(line.strip())
+                        print(temp_list)
+                        tempListPoint["name"] = temp_list[0]
+                        if "content" in temp_list[0] or "Content" in temp_list[0] or "CONTENT" in temp_list[0]:
+                            content_flag = True
+                        tempListPoint["value"] = temp_list[1]
+                        new_list_node = copy.deepcopy(tempListPoint)
+                        tempListPoint = {"name": None, "value": None}
+                        self.private_request.response.headers_list.append(new_list_node)
+                    else:
+                        content_start_flag = True

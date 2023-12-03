@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-24 10:12:07
-LastEditTime: 2023-12-01 16:53:54
+LastEditTime: 2023-12-03 16:29:33
 LastEditors: Suez_kip
 Description: 
 '''
@@ -355,8 +355,9 @@ class Global_Flow_Node_Analyser:
         #     self.g_flow_node_container.response_text = ""        
         self.g_flow_container.append_new_flow_node(self.g_flow_node_container)
 
-    def getDataFromTrafficwithRequestPath(self, path):
-        self.HRA.getHTMLRequestLines(path)
+    def getDataFromTrafficwithRequestPath(self, req_path, resp_path):
+        self.HRA.getHTMLRequestLines(req_path)
+        self.HRA.getHTMLResponseLines(resp_path)
         tempRequest = self.HRA.private_request
         url_str = tempRequest.url
         if url_str.find("?") == -1:
@@ -390,3 +391,7 @@ class Global_Flow_Node_Analyser:
                 self.g_flow_node_container.response = tempRequest.response
                 self.g_flow_node_container.status = self.g_flow_node_container.response.status
         self.g_flow_container.append_new_flow_node(self.g_flow_node_container)
+
+if __name__ == "__main__":
+    GFNA = Global_Flow_Node_Analyser()
+    GFNA.getDataFromTrafficwithRequestPath("", "")

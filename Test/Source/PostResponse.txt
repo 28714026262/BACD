@@ -1,7 +1,17 @@
-HTTP/1.1 302 
-Location: /jaccount/jalogin?sid=jaoauth220160718&client=CO401UhaKf%2FN1eJmNCA4wiIrEj8rpybtoGfTzR51nCZh&returl=CCNh6YOGTaMpCF7jL%2BPuWR%2F0f2XEmB%2FSJDseV4w04fM0yjjUGDF7lExwH%2FnoaimXzDUEM0htJJHCDBl4OZynQAr0PZM1ne9fSSWnfpofgN0u5OK8%2B2P6kqdfa2Od%2BfJxmy24%2FBIXJqmtqY4Ny6G%2B6q0%3D&se=CIYH%2BnoXC728F3FKsmwxRLz1qWB1ss4Qa%2BIh8Cy0p7jegDTnBEqKevPE06D%2B33pQxHZGUhrN4jHV&err=1
-Content-Language: zh-CN
-Content-Length: 0
-Date: Thu, 30 Nov 2023 04:05:30 GMT
+HTTP/1.1 200 OK
+Date: Sun, 03 Dec 2023 04:01:16 GMT
+Server: nginx/1.23.4
+Content-Type: text/javascript; charset=utf-8
+Content-Disposition: inline; filename=performance.js
+Last-Modified: Mon, 25 Sep 2023 07:29:06 GMT
+Cache-Control: no-cache
+ETag: "1695626946.5698967-2881-299961987-gzip"
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: Content-Type, Authorization
+Access-Control-Allow-Methods: OPTIONS, HEAD, GET, POST, DELETE, PUT
+Vary: Accept-Encoding
+Content-Length: 2881
 Connection: close
-X-Forwarded-Proto: https
+
+/*鏈郴缁熸祴閲忔偍鐨勭綉缁滃欢杩燂紝鐢ㄤ簬鍒嗘瀽鏍″洯缃戣川閲忥紝鍙戠幇缃戠粶鏁呴殰锛屼紭鍖栨湁绾垮拰鏃犵嚎缃戞帴鍏ャ€?鏈郴缁熼噰闆嗙殑淇℃伅涓猴細鎮ㄧ殑 IPv4 鍜?IPv6 鍦板潃銆乁ser-Agent銆?MB 鏁版嵁涓嬭浇鑰楁椂銆?鏈郴缁熶笉閲囬泦鎮ㄧ殑鐢ㄦ埛鍚嶏紝涓嶉噰闆嗕笂杩板垪涓剧殑鍐呭浠ュ鐨勪俊鎭€?鏈郴缁熶笉浼氳鍙?iFrame 宓屽叆鏈〉闈㈢殑缃戠珯锛堢埗椤甸潰锛夊唴瀹癸紝娴忚鍣ㄥ悓婧愮瓥鐣ヤ篃浼氫笉鍏佽姝ょ被鎿嶄綔銆?涓轰簡閬垮厤娑堣€楁偍鐨勭Щ鍔ㄦ暟鎹祦閲忥紝鏈郴缁熷彧瀵规牎鍥綉鐢ㄦ埛锛堟牴鎹?IP 鍦板潃娈佃瘑鍒級杩涜涓嬭浇娴嬮€燂紝姣忔娴嬮€熸秷鑰?5MB 娴侀噺銆傚悓涓€缁堢锛堟牴鎹悓涓€ IP 鍦板潃鍜?User-Agent 璇嗗埆锛変竴澶╄嚦澶氳娴嬮€?娆°€?濡傛灉鎮ㄤ笉甯屾湜琚湰绯荤粺閲囬泦缃戠粶璐ㄩ噺淇℃伅锛屽彲鎻愪緵鎮ㄧ殑 IP 鍦板潃鑷斥€渘etsec@sjtu閭鈥濓紝鎴栬€呭皢鏈〉闈?URL 鍒楀叆娴忚鍣ㄩ粦鍚嶅崟銆?/
+(function(){function generateUUID(){let d=new Date().getTime();if(typeof performance!=='undefined'&&typeof performance.now==='function'){d+=performance.now()}return'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,function(c){let r=(d+Math.random()*16)%16|0;d=Math.floor(d/16);return(c==='x'?r:(r&0x3|0x8)).toString(16)})}let startTime=Date.now();function init(){const serverUrl="https://speedtest.sjtu.edu.cn/nettest";const uuid=generateUUID();function measureDownloadSpeed(){if(document.hidden){return}let downloadSize=5*1024*1024;let count=0;let downloadSpeedInterval=setInterval(()=>{let startTime=Date.now();fetch(serverUrl+"/download_test?uuid="+uuid,{method:"GET",cache:"no-cache",mode:"cors",redirect:"follow",referrerPolicy:"no-referrer"}).then(response=>{if(!response.ok){throw new Error('Network response was not ok');}return response.text()}).then(data=>{if(data==='false'){clearInterval(downloadSpeedInterval);return}let endTime=Date.now();let duration=Math.abs((endTime-startTime)/1000);let downloadSpeed=(downloadSize/duration/(1024*1024)).toFixed(2);let downloadData={download_speed:downloadSpeed,send_time:startTime,rec_time:endTime,duration:duration,uuid:uuid};fetch(serverUrl+"/download_speed_data",{method:"POST",headers:{"Content-Type":"application/json;charset=UTF-8"},body:JSON.stringify(downloadData)})});count++;if(count===3){clearInterval(downloadSpeedInterval)}},5000);checkElapsedTime()}function handleSpeedVisibilityChange(){checkElapsedTime();if(document.hidden){clearInterval(downloadSpeedInterval)}else{measureDownloadSpeed()}}document.addEventListener("visibilitychange",handleSpeedVisibilityChange);function checkElapsedTime(){const elapsedTime=Date.now()-startTime;if(elapsedTime>240000){clearInterval(downloadSpeedInterval);document.removeEventListener("visibilitychange",handleSpeedVisibilityChange)}}fetch(serverUrl+"/testing").then(response=>response.text()).then(data=>{if(data==='true'){measureDownloadSpeed();downloadSpeedInterval=setInterval(measureDownloadSpeed,60000)}})}init()})();
