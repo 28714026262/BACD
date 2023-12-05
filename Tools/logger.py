@@ -70,7 +70,3 @@ def get_logger(name='root', log_file=None, log_level=10):
         
     logger_initialized[name] = True
     return logger
-
-if __name__ == '__main__':
-    1 == 1
-    pass

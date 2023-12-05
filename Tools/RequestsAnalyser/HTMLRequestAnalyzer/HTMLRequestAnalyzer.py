@@ -1,12 +1,15 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-30 19:03:32
-LastEditTime: 2023-12-03 19:05:37
+LastEditTime: 2023-12-05 17:09:04
 LastEditors: Suez_kip
 Description: 
 '''
 import copy
+from Tools.logger import get_logger
+import os
 
+logger = get_logger(name = os.path.basename(__file__))
 class HTMLResponse:
     def __init__(self) -> None:
         self.status = -1
@@ -17,6 +20,13 @@ class HTMLResponse:
     
     def headers_array(self):
         return self.headers_list
+    
+    def clear(self):
+        self.status = -1
+        self.response_body = ""
+        self.status_str = ""
+        self.protocol = ""
+        self.headers_list = []
 
 class HTMLRequest:
     def __init__(self) -> None:
@@ -31,17 +41,35 @@ class HTMLRequest:
     def headers_array(self):
         return self.headers_list
 
+    def clear(self):
+        self.url = ""
+        self.post_data = ""
+        self.method = ""
+        self.method_flag = -1 # 0为GET，1为POST
+        self.protocol = ""
+        self.headers_list = []
+        self.response.clear()
+
 class HTMLRequestAnalyzer:
     def __init__(self) -> None:
         self.private_request = HTMLRequest()
         
+    def clear(self):
+        self.private_request.clear()
+
     def getRequestInStr(self, raw_data: str):
-        lines = raw_data.split("\n")
-        self.getHTMLRequestLines(lines)
+        if raw_data:
+            lines = raw_data.split("\n")
+            self.getHTMLRequestLines(lines)
+        else:
+            logger.debug("Empty raw request data string!")
 
     def getResponseInStr(self, raw_data: str):
-        lines = raw_data.split("\n")
-        self.getHTMLResponseLines(lines)
+        if raw_data:
+            lines = raw_data.split("\n")
+            self.getHTMLResponseLines(lines)
+        else:
+            logger.debug("Empty raw response data string!")
 
     def getRequestInPath(self, raw_data_path):
         file_path = ""
@@ -63,7 +91,6 @@ class HTMLRequestAnalyzer:
         content_start_flag = False
         for index in range(0, len(lines)):
             line = lines[index].strip()
-            print(line.strip())  # strip() 用于移除行尾的换行符
             if index == 0:
                 requestType_and_URL_and_protocol = line.split(" ", 2)
                 self.private_request.response.status_str = requestType_and_URL_and_protocol[2]
@@ -77,7 +104,7 @@ class HTMLRequestAnalyzer:
             else:
                 if any(c.isalpha() for c in line) or any(c.isdigit() for c in line):
                     temp_list = self.lineToDictPair(line.strip())
-                    print(temp_list)
+                    logger.debug(temp_list)
                     tempListPoint["name"] = temp_list[0]
                     if "content" in temp_list[0] or "Content" in temp_list[0] or "CONTENT" in temp_list[0]:
                         content_flag = True
@@ -92,7 +119,6 @@ class HTMLRequestAnalyzer:
         tempListPoint = {"name": None, "value": None}
         for index in range(0, len(lines)):
             line = lines[index]
-            print(line.strip())  # strip() 用于移除行尾的换行符
             if index == 0:
                 requestType_and_URL_and_protocol = line.split(" ", 2)
                 self.private_request.protocol = requestType_and_URL_and_protocol[2]
@@ -110,7 +136,7 @@ class HTMLRequestAnalyzer:
             else:
                 if any(c.isalpha() for c in line) or any(c.isdigit() for c in line):
                     temp_list = self.lineToDictPair(line.strip())
-                    print(temp_list)
+                    logger.debug(temp_list)
                     tempListPoint["name"] = temp_list[0]
                     tempListPoint["value"] = temp_list[1]
                     new_list_node = copy.deepcopy(tempListPoint)

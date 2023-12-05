@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-24 10:12:07
-LastEditTime: 2023-12-03 19:32:35
+LastEditTime: 2023-12-05 17:15:18
 LastEditors: Suez_kip
 Description: 
 '''
@@ -9,14 +9,15 @@ Description:
 import os
 import sys
 sys.path.append(os.getcwd())
-print(sys.path)
 import json
 import urllib
-from Tools.logger import get_logger
 import copy
-import requests
+import codecs
+
+from Tools.logger import get_logger
 from urllib.parse import urlparse
 from Tools.RequestsAnalyser.HTMLRequestAnalyzer.HTMLRequestAnalyzer import *
+from Tools.DynamicDecoding import *
 
 logger = get_logger(name = os.path.basename(__file__))
 global encoding
@@ -360,36 +361,37 @@ class Global_Flow_Node_Analyser:
         if not self.HRA_Init_Flag:
             logger.debug("No HRA Init!")
             return
-        tempRequest = self.HRA.private_request
-        url_str = tempRequest.url
-        if url_str.find("?") == -1:
-            url = url_str
-        else: 
-            url = url_str[0:url_str.find("?")]
-        if tempRequest.post_data:
-            logger.debug(tempRequest.post_data)
-        if self.g_flow_container.is_useful_url(url):
-            self.g_flow_node_container.clear()
-            self.flow_node_stop_flag = True
-            self.g_flow_node_container.method = tempRequest.method
-            self.g_flow_node_container.url = tempRequest.url
-            # self.g_flow_node_container.mimetype = ""
-            for header_item in tempRequest.headers_array():
-                self.g_flow_node_container.header[header_item['name']] = header_item['value']
-            self.g_flow_node_container.analyze_url_and_get_get_param()
-            self.g_flow_node_container.param_body = tempRequest.post_data
-            self.g_flow_node_container.params_post = {}
-            if self.g_flow_node_container.method.lower() == "post":
-                if "Content-Type" in self.g_flow_node_container.header:
-                    content_type_str = self.g_flow_node_container.header["Content-Type"]
-                    # self.g_flow_node_container.content_type = content_type_str[0: content_type_str.find(";")]
-                    self.g_flow_node_container.content_type = content_type_str
-                if self.g_flow_node_container.param_body:
-                    self.g_flow_node_container.params_post = self.g_flow_node_container.extract_param(self.g_flow_node_container.param_body, self.g_flow_node_container.content_type)
-            else:
-                self.g_flow_node_container.content_type = ""
-            # self.g_flow_node_container.cookies = {}  
-            if tempRequest.response:
+        if self.HRA.private_request.method_flag != -1:
+            tempRequest = self.HRA.private_request
+            url_str = tempRequest.url
+            if url_str.find("?") == -1:
+                url = url_str
+            else: 
+                url = url_str[0:url_str.find("?")]
+            if tempRequest.post_data:
+                logger.debug(tempRequest.post_data)
+            if self.g_flow_container.is_useful_url(url):
+                self.g_flow_node_container.clear()
+                self.flow_node_stop_flag = True
+                self.g_flow_node_container.method = tempRequest.method
+                self.g_flow_node_container.url = tempRequest.url
+                # self.g_flow_node_container.mimetype = ""
+                for header_item in tempRequest.headers_array():
+                    self.g_flow_node_container.header[header_item['name']] = header_item['value']
+                self.g_flow_node_container.analyze_url_and_get_get_param()
+                self.g_flow_node_container.param_body = tempRequest.post_data
+                self.g_flow_node_container.params_post = {}
+                if self.g_flow_node_container.method.lower() == "post":
+                    if "Content-Type" in self.g_flow_node_container.header:
+                        content_type_str = self.g_flow_node_container.header["Content-Type"]
+                        # self.g_flow_node_container.content_type = content_type_str[0: content_type_str.find(";")]
+                        self.g_flow_node_container.content_type = content_type_str
+                    if self.g_flow_node_container.param_body:
+                        self.g_flow_node_container.params_post = self.g_flow_node_container.extract_param(self.g_flow_node_container.param_body, self.g_flow_node_container.content_type)
+                else:
+                    self.g_flow_node_container.content_type = ""
+                # self.g_flow_node_container.cookies = {}  
+            if tempRequest.response.status != -1:
                 self.g_flow_node_container.response = tempRequest.response
                 self.g_flow_node_container.status = self.g_flow_node_container.response.status
 
@@ -399,8 +401,65 @@ class Global_Flow_Node_Analyser:
         self.HRA_Init_Flag = True
 
     def getHRAInStr(self, req_str, resp_str):
-        pass
+        self.HRA.getRequestInStr(req_str)
+        self.HRA.getResponseInStr(resp_str)
+        self.HRA_Init_Flag = True
+        
+    def getHRAInLines(self, req_lines, resp_lines, resp_exist_flag):
+        self.HRA.getHTMLRequestLines(req_lines)
+        if resp_exist_flag:
+            self.HRA.getHTMLResponseLines(resp_lines)
         self.HRA_Init_Flag = True
 
     def flowAppend(self):
+        self.g_flow_container.append_new_flow_node(self.g_flow_node_container)
         self.HRA_Init_Flag = False
+
+    def BurpResultSuiter(self, path):
+        whole_HTML_message = {"req_list": [], "resp_list": []}
+        count = 0
+        request_data_in_flag = False
+        response_data_in_flag = False
+        response_exist_flag = True
+        first_response_line_flag = False
+        with codecs.open(path, 'rb') as file:
+            lines = []
+            for line in file:
+                lines.append(handleEncoding(line))
+            for line in lines:
+                if "====" in line:
+                    count = (count + 1) % 4
+                    if count == 3:
+                        request_data_in_flag = False
+                if count == 2:
+                    # request attach
+                    if request_data_in_flag:
+                        whole_HTML_message["req_list"].append(line)
+                    else:
+                        request_data_in_flag = True
+                if count == 3 and response_exist_flag:
+                    # response attach
+                    if response_data_in_flag:
+                        if "HTTP" not in line and first_response_line_flag:
+                            response_exist_flag = False
+                            count = (count + 1) % 4
+                        first_response_line_flag = False
+                        whole_HTML_message["resp_list"].append(line)
+                    else:
+                        response_data_in_flag = True
+                        first_response_line_flag = True
+                if count == 0 and whole_HTML_message["req_list"] != []:
+                        self.getHRAInLines(whole_HTML_message["req_list"], whole_HTML_message["resp_list"], response_exist_flag)
+                        self.getDataFromTraffic()
+                        whole_HTML_message["req_list"] = []
+                        whole_HTML_message["resp_list"] = []
+                        response_data_in_flag = False
+                        response_exist_flag = True
+                        self.flowAppend()
+                        self.HRA.clear()
+                        self.g_flow_node_container.clear()
+
+if __name__ == "__main__":
+    GFNA = Global_Flow_Node_Analyser()
+    GFNA.BurpResultSuiter(r"D:\Suez_kip\研究生毕设\Code\Test\Source\Flow.txt")
+    a = 1

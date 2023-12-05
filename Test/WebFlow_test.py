@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-29 11:13:14
-LastEditTime: 2023-12-03 19:29:40
+LastEditTime: 2023-12-04 10:23:15
 LastEditors: Suez_kip
 Description: 
 '''
@@ -12,11 +12,35 @@ from Tools.RequestsAnalyser.HTMLRequestAnalyzer.HTMLRequestAnalyzer import *
 
 example_str_req = r"D:\Suez_kip\研究生毕设\Code\Test\Source\PostRequest.txt"
 example_str_resp = r"D:\Suez_kip\研究生毕设\Code\Test\Source\PostResponse.txt"
+example_str_req_not_path = r"""POST /jaccount/ulogin HTTP/1.1
+Host: jaccount.sjtu.edu.cn
+Connection: close
+Content-Length: 1041
+Cache-Control: max-age=0
+sec-ch-ua: "Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+Upgrade-Insecure-Requests: 1
+Origin: https://jaccount.sjtu.edu.cn
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://jaccount.sjtu.edu.cn/jaccount/jalogin?sid=jaoauth220160718&client=CO401UhaKf%2FN1eJmNCA4wiIrEj8rpybtoGfTzR51nCZh&returl=CCNh6YOGTaMpCF7jL%2BPuWR%2F0f2XEmB%2FSJDseV4w04fM0yjjUGDF7lExwH%2FnoaimXzDUEM0htJJHCDBl4OZynQAr0PZM1ne9fSSWnfpofgN0u5OK8%2B2P6kqdfa2Od%2BfJxmy24%2FBIXJqmtqY4Ny6G%2B6q0%3D&se=CIYH%2BnoXC728F3FKsmwxRLz1qWB1ss4Qa%2BIh8Cy0p7jegDTnBEqKevPE06D%2B33pQxHZGUhrN4jHV
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Cookie: JSESSIONID=537AFFE33D795F1F799D25E18B6A3226.jaccount105; _ga=GA1.3.573489039.1682647241; _ga_5G709VBQWD=GS1.3.1697082313.1.1.1697082322.0.0.0; Qs_lvt_374225=1698650048; Qs_pv_374225=1981948842915752000; jaoauth2021=ffffffff09701c6345525d5f4f58455e445a4a4229a0; jajaccount2021=ffffffff09701c7845525d5f4f58455e445a4a4229a0; _gid=GA1.3.1268188298.1701315985; _gat=1; _ga_QP6YR9D8CK=GS1.3.1701315985.11.0.1701315985.0.0.0
+
+sid=jaoauth220160718&returl=CCNh6YOGTaMpCF7jL%2BPuWR%2F0f2XEmB%2FSJDseV4w04fM0yjjUGDF7lExwH%2FnoaimXzDUEM0htJJHCDBl4OZynQAr0PZM1ne9fSSWnfpofgN0u5OK8%2B2P6kqdfa2Od%2BfJxmy24%2FBIXJqmtqY4Ny6G%2B6q0%3D&se=CIYH%2BnoXC728F3FKsmwxRLz1qWB1ss4Qa%2BIh8Cy0p7jegDTnBEqKevPE06D%2B33pQxHZGUhrN4jHV&v=&uuid=2dcce77a-bd30-4c33-9a02-a1958ed6cacc&client=CO401UhaKf%2FN1eJmNCA4wiIrEj8rpybtoGfTzR51nCZh&user=122036910037&pass=szk10101&captcha=vuprp&g-recaptcha-response=03AFcWeA6xocF8ubEapz1PaiSTOgBDrVrSaWMFIF1f8Ei7VIsu0JygNhUeQzA3ivxD4PAC4mHnKwaEGECmdRHsrUTb3qBl72HGMkY8dKpjYduv1vJQuGAY5EZmY2EzWJ_mt3ndFcs9LdFKLr0kz0vA_tepvuH9PpSE6oX0v6bsCTM0yhbt-Mg8RU7nPwF6J-WzwQd5GEmq935J7sW8LyUtL6ydVvgXBTK24ENeXJGL2h7G_7-tA-BqHi3AWx4gLhUK1rk86JgpaP-YjFVSltzB9PFe4LcBqIHDBo0C1zsQgFuo76g4pcTYJghBO9dO27nQ4GVHcAb7eJbDaDTkY7XsY98eAKqZt28JagrPHuvh-Ew_wNqNgX9jg2doLgTqC7KXqGxWHRHeWd5HSLLiIzWGaa-p5mvxo3wvB3l5wGQQOflJcWxC8oUnA4IBd4TU49zfxRf_E9tucEK2Hnt-phM-XZiqVQcC9SB4eZ6lqhiL0G_7b_zuuL_pQwDd_htIfIH-yMaj0iXXEF43xoOfGx-4X0lYWD2NLBoqNy_718fcZt6vWuBSsd7sOidkc0Af8UyXqyfvwSRoem07"""
 
 def test1():
     # Request Test
     GFNA = Global_Flow_Node_Analyser()
-    GFNA.getDataFromTrafficwithRequestPath(example_str_req, example_str_resp)
+    GFNA.getHRAInStr(example_str_req_not_path, "")
+    GFNA.getDataFromTraffic()
     
     assert GFNA.g_flow_node_container.content_type == 'application/x-www-form-urlencoded'
     assert GFNA.g_flow_node_container.method == "POST"
@@ -60,4 +84,4 @@ def test2():
         assert GFNA.g_flow_node_container.response.headers_list[index]['value'] == headers_list[index]['value']
 
 if __name__ == "__main__":
-    test2()
+    test1()
