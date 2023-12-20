@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-24 10:12:07
-LastEditTime: 2023-12-05 17:15:18
+LastEditTime: 2023-12-12 11:55:28
 LastEditors: Suez_kip
 Description: 
 '''
@@ -455,9 +455,35 @@ class Global_Flow_Node_Analyser:
                         whole_HTML_message["resp_list"] = []
                         response_data_in_flag = False
                         response_exist_flag = True
-                        self.flowAppend()
+                        if self.g_flow_node_container.method:
+                            self.flowAppend()
                         self.HRA.clear()
                         self.g_flow_node_container.clear()
+
+    def UnrelatedTrafficFromURL(self):
+        host_url_str = ""
+        host_url_sub_str = ""
+        host_flag = False
+        if self.g_flow_container.flow_list:
+            for list_node in self.g_flow_container.flow_list:
+                if "Host" in list_node.header:
+                    host_url_str = list_node.header["Host"]
+                    host_flag = True
+                elif "host" in list_node.header:
+                    host_url_str = list_node.header["host"]
+                    host_flag = True
+
+                host_url_sub_str = list_node.url
+                if host_flag:
+                    # filter on host_url
+                    self.url_filter(host_url_str)
+                else:
+                    # filter on url
+                    self.url_filter(host_url_sub_str)
+        pass
+    
+    def  url_filter(self, str):
+        pass
 
 if __name__ == "__main__":
     GFNA = Global_Flow_Node_Analyser()

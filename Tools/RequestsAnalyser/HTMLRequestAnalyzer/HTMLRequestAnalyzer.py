@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-30 19:03:32
-LastEditTime: 2023-12-05 17:09:04
+LastEditTime: 2023-12-12 11:13:54
 LastEditors: Suez_kip
 Description: 
 '''
@@ -148,3 +148,4 @@ class HTMLRequestAnalyzer:
     def lineToDictPair(self, str_line):
         result_list = str_line.split(': ', 1)
         return result_list
+        a = 1
