@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-24 10:12:07
-LastEditTime: 2023-12-12 11:55:28
+LastEditTime: 2023-12-21 13:17:38
 LastEditors: Suez_kip
 Description: 
 '''
@@ -27,6 +27,7 @@ class FlowNode:
     def __init__(self) -> None:
         self.method = ""
         self.url = ""
+        self.origin_url = ""
         # self.mimetype = ""
         self.status = ""
         self.header = {}
@@ -43,6 +44,7 @@ class FlowNode:
     def clear(self):
         self.method = ""
         self.url = ""
+        self.origin_url = ""
         # self.mimetype = ""
         self.status = ""
         self.header = {}
@@ -61,7 +63,8 @@ class FlowNode:
         if self.method.lower() == 'get':
             url_list = self.url.split('?')
             if len(url_list) == 2:
-                # self.url = url_list[0]
+                self.origin_url = self.url
+                self.url = url_list[0]
                 self.params_get = json.dumps(self.extract_param(url_list[1],'application/x-www-form-urlencoded'))
 
     def extract_param(self, param:str, content_type:str):
@@ -154,6 +157,7 @@ class FlowNode:
     def deep_copy(self, node):
         self.method = copy.deepcopy(node.method)
         self.url = node.url
+        self.origin_url = node.origin_url
         # self.mimetype = ""
         self.status = node.status
         self.header = copy.deepcopy(node.header)
@@ -183,6 +187,15 @@ class FlowNode:
             if self.params_post != node.params_post:
                 is_same_flag = False
         return is_same_flag
+
+    def is_action(self):
+        pass
+
+    def is_connection(self):
+        pass
+
+    def get_whole_dynamic_page(self):
+        pass
 
 class Flow:
     def __init__(self) -> None:
@@ -278,6 +291,9 @@ class Flow:
     def save_to_sqlite(self):        
         pass
 
+    def page_analyzer(self):
+        pass
+
 class FlowSet:
     def __init__(self) -> None:
         self.Flowset = {}
@@ -313,6 +329,7 @@ class Global_Flow_Node_Analyser:
         self.flow_node_stop_flag = True
         self.HRA = HTMLRequestAnalyzer()
         self.HRA_Init_Flag = False
+        self.G_FLOW_LOADED_FLAG = False
 
     # Request类目前适配Playwright的，需要修改；
     # def getDataFromTrafficwithRequests(self, response: requests.Response):
@@ -415,7 +432,7 @@ class Global_Flow_Node_Analyser:
         self.g_flow_container.append_new_flow_node(self.g_flow_node_container)
         self.HRA_Init_Flag = False
 
-    def BurpResultSuiter(self, path):
+    def BurpResultSuiterToFlow(self, path):
         whole_HTML_message = {"req_list": [], "resp_list": []}
         count = 0
         request_data_in_flag = False
@@ -459,6 +476,8 @@ class Global_Flow_Node_Analyser:
                             self.flowAppend()
                         self.HRA.clear()
                         self.g_flow_node_container.clear()
+        self.G_FLOW_LOADED_FLAG = True
+        self.get_url_list()
 
     def UnrelatedTrafficFromURL(self):
         host_url_str = ""
@@ -482,10 +501,34 @@ class Global_Flow_Node_Analyser:
                     self.url_filter(host_url_sub_str)
         pass
     
-    def  url_filter(self, str):
+    def get_url_list(self):
+        if not self.G_FLOW_LOADED_FLAG:
+            return
+        host = ""
+        temp_url = ""
+        for node_container in self.g_flow_container.flow_list:
+            if "Host" in node_container.header:
+                host = node_container.header["Host"]
+            elif "host" in node_container.header:
+                host = node_container.header["host"]
+            if host:
+                if node_container.origin_url:
+                    temp_url = host + node_container.origin_url
+                else:
+                    temp_url = host + node_container.url
+            else:
+                if node_container.origin_url:
+                    temp_url = node_container.origin_url
+                else:
+                    temp_url = node_container.url
+            if temp_url not in self.g_flow_container.url_list:
+                logger.debug("temp_url : " + temp_url)
+                self.g_flow_container.url_list.append(temp_url)
+
+    def url_filter(self, str):
         pass
 
 if __name__ == "__main__":
     GFNA = Global_Flow_Node_Analyser()
-    GFNA.BurpResultSuiter(r"D:\Suez_kip\研究生毕设\Code\Test\Source\Flow.txt")
+    GFNA.BurpResultSuiterToFlow(r"D:\Suez_kip\研究生毕设\Code\Test\Source\Flow.txt")
     a = 1

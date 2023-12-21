@@ -20,7 +20,6 @@ Accept-Language: zh-CN,zh;q=0.9
 ======================================================
 
 
-
 ======================================================
 12:01:14  https://www.seiee.sjtu.edu.cn:443  [202.120.35.203]
 ======================================================
@@ -124,11 +123,11 @@ Content-Type: text/html; charset=utf-8
                                 <li><a href="https://www.seiee.sjtu.edu.cn/xygk.html" class="name "><em>学院概况</em></a>
                                         <div class="list">
                         <dl>
-                                                        <dd><a href="https://www.seiee.sjtu.edu.cn/xyjj.html">学院简介</a></dd>
+                                                        <dd><a href="https://www.seiee.sjtu.edu.cn/xyjj.html">学院简�?/a></dd>
                                                         <dd><a href="https://www.seiee.sjtu.edu.cn/xyld_new.html">学院领导</a></dd>
                                                         <dd><a href="https://www.seiee.sjtu.edu.cn/xksz.html">学科设置</a></dd>
                                                         <dd><a href="https://www.seiee.sjtu.edu.cn/yxsz.html">院系设置</a></dd>
-                                                        <dd><a href="https://www.seiee.sjtu.edu.cn/dqgzb.html">党群工作部</a></dd>
+                                                        <dd><a href="https://www.seiee.sjtu.edu.cn/dqgzb.html">党群工作�?/a></dd>
                                                         <dd><a href="https://www.seiee.sjtu.edu.cn/xzzx.html">行政管理服务中心</a></dd>
                                                         <dd><a href="https://www.seiee.sjtu.edu.cn/xygk_bszn.html">办事指南</a></dd>
                                                         <dd><a href="https://www.seiee.sjtu.edu.cn/xxgk.html">信息公开</a></dd>
@@ -140,7 +139,7 @@ Content-Type: text/html; charset=utf-8
                                         <div class="list">
                         <dl>
                                                         <dd><a href="https://www.seiee.sjtu.edu.cn/dwgk.html">党委概况</a></dd>
-                                                        <dd><a href="https://www.seiee.sjtu.edu.cn/djdt.html">党建动态</a></dd>
+                                                        <dd><a href="https://www.seiee.sjtu.edu.cn/djdt.html">党建动�?/a></dd>
                                                         <dd><a href="https://www.seiee.sjtu.edu.cn/zbfc.html">支部风采</a></dd>
                                                     </dl>
                     </div>
@@ -149,8 +148,8 @@ Content-Type: text/html; charset=utf-8
                                         <div class="list">
                         <dl>
                                                         <dd><a href="https://www.seiee.sjtu.edu.cn/rcpygk.html">人才培养概况</a></dd>
-                                                        <dd><a href="https://www.seiee.sjtu.edu.cn/bkspy.html">本科生</a></dd>
-                                                        <dd><a href="https://www.seiee.sjtu.edu.cn/yjspy.html">研究生</a></dd>
+                                                        <dd><a href="https://www.seiee.sjtu.edu.cn/bkspy.html">本科�?/a></dd>
+                                                        <dd><a href="https://www.seiee.sjtu.edu.cn/yjspy.html">研究�?/a></dd>
                                                         <dd><a href="https://www.seiee.sjtu.edu.cn/bkspy_jxcg.html">教学成果</a></dd>
                                                         <dd><a href="https://www.seiee.sjtu.edu.cn/rcpy_xsgz.html">学生工作</a></dd>
                                                     </dl>
@@ -160,7 +159,7 @@ Content-Type: text/html; charset=utf-8
                                         <div class="list">
                         <dl>
                                                         <dd><a href="https://www.seiee.sjtu.edu.cn/szgk.html">师资概况</a></dd>
-                                                        <dd><a href="https://www.seiee.sjtu.edu.cn/xzfc.html">学者风采</a></dd>
+                                                        <dd><a href="https://www.seiee.sjtu.edu.cn/xzfc.html">学者风�?/a></dd>
                                                         <dd><a href="https://www.seiee.sjtu.edu.cn/szgk_jsml.html">教师名录</a></dd>
                                                         <dd><a href="https://www.seiee.sjtu.edu.cn/rszc.html">人事政策</a></dd>
                                                         <dd><a href="https://hr.seiee.sjtu.edu.cn/vote/home.action" target="_blank">投票系统</a></dd>
@@ -183,9 +182,9 @@ Content-Type: text/html; charset=utf-8
                         <dl>
                                                         <dd><a href="https://www.seiee.sjtu.edu.cn/gjjl_hzgk.html">合作概况</a></dd>
                                                         <dd><a href="https://www.seiee.sjtu.edu.cn/gjjl_xshwjl.html">学生海外交流项目</a></dd>
-                                                        <dd><a href="https://www.seiee.sjtu.edu.cn/gjjl_zjxzhz.html">专家学者合作交流资助</a></dd>
+                                                        <dd><a href="https://www.seiee.sjtu.edu.cn/gjjl_zjxzhz.html">专家学者合作交流资�?/a></dd>
                                                         <dd><a href="https://www.seiee.sjtu.edu.cn/gjjl_studyseiee.html">STUDY@SEIEE</a></dd>
-                                                        <dd><a href="https://www.seiee.sjtu.edu.cn/gjjl_xwdt.html">国际交流动态</a></dd>
+                                                        <dd><a href="https://www.seiee.sjtu.edu.cn/gjjl_xwdt.html">国际交流动�?/a></dd>
                                                     </dl>
                     </div>
                                     </li>
@@ -214,15 +213,15 @@ Content-Type: text/html; charset=utf-8
                         <li>
                 <h2><a href="https://www.seiee.sjtu.edu.cn/xygk.html">学院概况</a></h2>
                                 <div class="list">
-                                        <h3><a href="https://www.seiee.sjtu.edu.cn/xyjj.html">学院简介</a></h3>
+                                        <h3><a href="https://www.seiee.sjtu.edu.cn/xyjj.html">学院简�?/a></h3>
                                                             <h3><a href="https://www.seiee.sjtu.edu.cn/xyld_new.html">学院领导</a></h3>
                                                             <h3><a href="https://www.seiee.sjtu.edu.cn/xksz.html">学科设置</a></h3>
                                                             <h3><a href="https://www.seiee.sjtu.edu.cn/yxsz.html">院系设置</a></h3>
-                                                            <h3><a href="https://www.seiee.sjtu.edu.cn/dqgzb.html">党群工作部</a></h3>
+                                                            <h3><a href="https://www.seiee.sjtu.edu.cn/dqgzb.html">党群工作�?/a></h3>
                                         <dl>
-                                                <dd><a href="https://www.seiee.sjtu.edu.cn/dqgzb_djdt.html">党建动态</a></dd>
+                                                <dd><a href="https://www.seiee.sjtu.edu.cn/dqgzb_djdt.html">党建动�?/a></dd>
                                                 <dd><a href="https://www.seiee.sjtu.edu.cn/dqgzb_lwxx.html">理论学习</a></dd>
-                                                <dd><a href="https://www.seiee.sjtu.edu.cn/dqgzb_ejwh.html">E家文化</a></dd>
+                                                <dd><a href="https://www.seiee.sjtu.edu.cn/dqgzb_ejwh.html">E家文�?/a></dd>
                                                 <dd><a href="https://www.seiee.sjtu.edu.cn/dqgzb_tzgg.html">通知公告</a></dd>
                                                 <dd><a href="https://www.seiee.sjtu.edu.cn/dqgzb_bszn.html">办事指南</a></dd>
                                                 <dd><a href="https://www.seiee.sjtu.edu.cn/dqgzb_xzzq.html">下载专区</a></dd>
@@ -237,13 +236,13 @@ Content-Type: text/html; charset=utf-8
                                                             <h3><a href="https://www.seiee.sjtu.edu.cn/xygk_bszn.html">办事指南</a></h3>
                                                             <h3><a href="https://www.seiee.sjtu.edu.cn/xxgk.html">信息公开</a></h3>
                                         <dl>
-                                                <dd><a href="https://www.seiee.sjtu.edu.cn/xxgk_cat1.html">通讯录</a></dd>
+                                                <dd><a href="https://www.seiee.sjtu.edu.cn/xxgk_cat1.html">通讯�?/a></dd>
                                             </dl>
                                                             <h3><a href="https://www.seiee.sjtu.edu.cn/lxwm.html">联系我们</a></h3>
                                         <dl>
-                                                <dd><a href="https://www.seiee.sjtu.edu.cn/lxwm_dqgzb_new.html">党群工作部</a></dd>
+                                                <dd><a href="https://www.seiee.sjtu.edu.cn/lxwm_dqgzb_new.html">党群工作�?/a></dd>
                                                 <dd><a href="https://www.seiee.sjtu.edu.cn/lxwm_xzzx_new1.html">行政管理服务中心</a></dd>
-                                                <dd><a href="https://www.seiee.sjtu.edu.cn/lxwm_xsbgs_new.html">学生办公室</a></dd>
+                                                <dd><a href="https://www.seiee.sjtu.edu.cn/lxwm_xsbgs_new.html">学生办公�?/a></dd>
                                             </dl>
                                                         </div>
                             </li>
@@ -251,10 +250,10 @@ Content-Type: text/html; charset=utf-8
                 <h2><a href="https://www.seiee.sjtu.edu.cn/djgz.html">党建工作</a></h2>
                                 <div class="list">
                                         <h3><a href="https://www.seiee.sjtu.edu.cn/dwgk.html">党委概况</a></h3>
-                                                            <h3><a href="https://www.seiee.sjtu.edu.cn/djdt.html">党建动态</a></h3>
+                                                            <h3><a href="https://www.seiee.sjtu.edu.cn/djdt.html">党建动�?/a></h3>
                                                             <h3><a href="https://www.seiee.sjtu.edu.cn/zbfc.html">支部风采</a></h3>
                                         <dl>
-                                                <dd><a href="https://www.seiee.sjtu.edu.cn/zbfc_dzz.html">党总支/直属党支部</a></dd>
+                                                <dd><a href="https://www.seiee.sjtu.edu.cn/zbfc_dzz.html">党总支/直属党支�?/a></dd>
                                                 <dd><a href="https://www.seiee.sjtu.edu.cn/zbfc_yxzb.html">支部荣誉</a></dd>
                                             </dl>
                                                         </div>
@@ -263,7 +262,7 @@ Content-Type: text/html; charset=utf-8
                 <h2><a href="https://www.seiee.sjtu.edu.cn/rcpy.html">人才培养</a></h2>
                                 <div class="list">
                                         <h3><a href="https://www.seiee.sjtu.edu.cn/rcpygk.html">人才培养概况</a></h3>
-                                                            <h3><a href="https://www.seiee.sjtu.edu.cn/bkspy.html">本科生</a></h3>
+                                                            <h3><a href="https://www.seiee.sjtu.edu.cn/bkspy.html">本科�?/a></h3>
                                         <dl>
                                                 <dd><a href="/xzzx_notice_bks.html" target="_blank">通知公告</a></dd>
                                                 <dd><a href="/xzzx_bszn_bks.html" target="_blank">办事指南</a></dd>
@@ -271,7 +270,7 @@ Content-Type: text/html; charset=utf-8
                                                 <dd><a href="https://i.sjtu.edu.cn/jxzxjhgl/pyjhxxcx_cxPyjhxxIndex.html" target="_blank">培养计划</a></dd>
                                                 <dd><a href="https://www.seiee.sjtu.edu.cn/bkspy_xgzc.html">相关政策</a></dd>
                                             </dl>
-                                                            <h3><a href="https://www.seiee.sjtu.edu.cn/yjspy.html">研究生</a></h3>
+                                                            <h3><a href="https://www.seiee.sjtu.edu.cn/yjspy.html">研究�?/a></h3>
                                         <dl>
                                                 <dd><a href="/xzzx_notice_yjs.html" target="_blank">通知公告</a></dd>
                                                 <dd><a href="/xzzx_bszn_yjs.html" target="_blank">办事指南</a></dd>
@@ -283,7 +282,7 @@ Content-Type: text/html; charset=utf-8
                                             </dl>
                                                             <h3><a href="https://www.seiee.sjtu.edu.cn/bkspy_jxcg.html">教学成果</a></h3>
                                         <dl>
-                                                <dd><a href="https://www.seiee.sjtu.edu.cn/bkspy_jxcg_jxcgj.html">教学成果奖</a></dd>
+                                                <dd><a href="https://www.seiee.sjtu.edu.cn/bkspy_jxcg_jxcgj.html">教学成果�?/a></dd>
                                                 <dd><a href="https://www.seiee.sjtu.edu.cn/bkspy_jxcg_jpkc.html">精品课程</a></dd>
                                             </dl>
                                                             <h3><a href="https://www.seiee.sjtu.edu.cn/rcpy_xsgz.html">学生工作</a></h3>
@@ -299,7 +298,7 @@ Content-Type: text/html; charset=utf-8
                 <h2><a href="https://www.seiee.sjtu.edu.cn/szdw.html">师资队伍</a></h2>
                                 <div class="list">
                                         <h3><a href="https://www.seiee.sjtu.edu.cn/szgk.html">师资概况</a></h3>
-                                                            <h3><a href="https://www.seiee.sjtu.edu.cn/xzfc.html">学者风采</a></h3>
+                                                            <h3><a href="https://www.seiee.sjtu.edu.cn/xzfc.html">学者风�?/a></h3>
                                                             <h3><a href="https://www.seiee.sjtu.edu.cn/szgk_jsml.html">教师名录</a></h3>
                                                             <h3><a href="https://www.seiee.sjtu.edu.cn/rszc.html">人事政策</a></h3>
                                                             <h3><a href="https://hr.seiee.sjtu.edu.cn/vote/home.action" target="_blank">投票系统</a></h3>
@@ -311,12 +310,12 @@ Content-Type: text/html; charset=utf-8
                                         <h3><a href="https://www.seiee.sjtu.edu.cn/kygk.html">科研概况</a></h3>
                                                             <h3><a href="https://www.seiee.sjtu.edu.cn/kyjd.html">科研基地</a></h3>
                                         <dl>
-                                                <dd><a href="https://www.seiee.sjtu.edu.cn/kyjd_gjj.html">国家级基地</a></dd>
-                                                <dd><a href="https://www.seiee.sjtu.edu.cn/kyjd_sbj.html">省部级基地</a></dd>
+                                                <dd><a href="https://www.seiee.sjtu.edu.cn/kyjd_gjj.html">国家级基�?/a></dd>
+                                                <dd><a href="https://www.seiee.sjtu.edu.cn/kyjd_sbj.html">省部级基�?/a></dd>
                                             </dl>
                                                             <h3><a href="https://www.seiee.sjtu.edu.cn/kycg.html">科研成果</a></h3>
                                         <dl>
-                                                <dd><a href="https://www.seiee.sjtu.edu.cn/kycg_gjj.html">国家级成果</a></dd>
+                                                <dd><a href="https://www.seiee.sjtu.edu.cn/kycg_gjj.html">国家级成�?/a></dd>
                                                 <dd><a href="https://www.seiee.sjtu.edu.cn/kycg_sbj.html">省部级一等奖</a></dd>
                                                 <dd><a href="https://www.seiee.sjtu.edu.cn/kycg_hyxh.html">行业协会获奖</a></dd>
                                                 <dd><a href="https://www.seiee.sjtu.edu.cn/kycg_sci.html">SCI论文情况</a></dd>
@@ -324,8 +323,8 @@ Content-Type: text/html; charset=utf-8
                                             </dl>
                                                             <h3><a href="https://www.seiee.sjtu.edu.cn/kyhz.html">科研合作</a></h3>
                                         <dl>
-                                                <dd><a href="https://www.seiee.sjtu.edu.cn/kyhz_dfyjy.html">地方研究院</a></dd>
-                                                <dd><a href="https://www.seiee.sjtu.edu.cn/kyhz_lhsys.html">联合实验室</a></dd>
+                                                <dd><a href="https://www.seiee.sjtu.edu.cn/kyhz_dfyjy.html">地方研究�?/a></dd>
+                                                <dd><a href="https://www.seiee.sjtu.edu.cn/kyhz_lhsys.html">联合实验�?/a></dd>
                                                 <dd><a href="https://www.seiee.sjtu.edu.cn/kyhz_cgzh.html">成果转化情况</a></dd>
                                             </dl>
                                                             <h3><a href="https://www.seiee.sjtu.edu.cn/kyzc.html">科研政策</a></h3>
@@ -336,7 +335,7 @@ Content-Type: text/html; charset=utf-8
                                 <div class="list">
                                         <h3><a href="https://www.seiee.sjtu.edu.cn/gjjl_hzgk.html">合作概况</a></h3>
                                                             <h3><a href="https://www.seiee.sjtu.edu.cn/gjjl_xshwjl.html">学生海外交流项目</a></h3>
-                                                            <h3><a href="https://www.seiee.sjtu.edu.cn/gjjl_zjxzhz.html">专家学者合作交流资助</a></h3>
+                                                            <h3><a href="https://www.seiee.sjtu.edu.cn/gjjl_zjxzhz.html">专家学者合作交流资�?/a></h3>
                                         <dl>
                                                 <dd><a href="https://www.seiee.sjtu.edu.cn/gjjl_zjxzhz_zzjj.html"> 种子基金</a></dd>
                                                 <dd><a href="https://www.seiee.sjtu.edu.cn/gjjl_zjxzhz_chjh.html"> 春晖计划</a></dd>
@@ -344,7 +343,7 @@ Content-Type: text/html; charset=utf-8
                                                 <dd><a href="https://www.seiee.sjtu.edu.cn/gjjl_zjxzhz_pq.html">聘请国际学术大师项目</a></dd>
                                             </dl>
                                                             <h3><a href="https://www.seiee.sjtu.edu.cn/gjjl_studyseiee.html">STUDY@SEIEE</a></h3>
-                                                            <h3><a href="https://www.seiee.sjtu.edu.cn/gjjl_xwdt.html">国际交流动态</a></h3>
+                                                            <h3><a href="https://www.seiee.sjtu.edu.cn/gjjl_xwdt.html">国际交流动�?/a></h3>
                                                         </div>
                             </li>
                         <li>
@@ -369,7 +368,7 @@ Content-Type: text/html; charset=utf-8
                     <img src="/upload/image/20231201/51H5JQ27/1-11299998(1).jpg">
                     <div class="txtk ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s"
                         swiper-animate-delay="0.2s">
-                        <h1>多图预警！第二届红E电博会圆满举行</h1>
+                        <h1>多图预警！第二届红E电博会圆满举�?/h1>
                     </div>
                 </a>
             </div>
@@ -378,7 +377,7 @@ Content-Type: text/html; charset=utf-8
                     <img src="/upload/image/20231031/10F6LfAz/2微信图片_20231031113518(1).jpg">
                     <div class="txtk ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s"
                         swiper-animate-delay="0.2s">
-                        <h1>勇夺擂主！电院学子助力交大再捧“挑战杯”</h1>
+                        <h1>勇夺擂主！电院学子助力交大再捧“挑战杯�?/h1>
                     </div>
                 </a>
             </div>
@@ -393,10 +392,10 @@ Content-Type: text/html; charset=utf-8
             </div>
                         <div class="swiper-slide">
                 <a href="https://mp.weixin.qq.com/s/NXSEzNiC6Y96RuDYub8VcQ" target="_blank">
-                    <img src="/upload/image/20231025/37zNmn4B/1图3.jpg">
+                    <img src="/upload/image/20231025/37zNmn4B/1�?.jpg">
                     <div class="txtk ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s"
                         swiper-animate-delay="0.2s">
-                        <h1>连摘2项全球大奖！电院这位青年教师有无限可能</h1>
+                        <h1>连摘2项全球大奖！电院这位青年教师有无限可�?/h1>
                     </div>
                 </a>
             </div>
@@ -413,7 +412,7 @@ Content-Type: text/html; charset=utf-8
         <form id="search_form" method="get" action="https://www.seiee.sjtu.edu.cn/active/search.html" onsubmit="return search_validate();">
         <div class="ss-ipt">
             <label for="">
-                <input type="text" placeholder="快速搜索" name="index_keywords"><a href="javascript:;" onclick="$('#search_form').submit()"><img src="/img/icon-ss2.png"></a>
+                <input type="text" placeholder="快速搜�? name="index_keywords"><a href="javascript:;" onclick="$('#search_form').submit()"><img src="/img/icon-ss2.png"></a>
             </label>
         </div>
         </form>
@@ -421,8 +420,8 @@ Content-Type: text/html; charset=utf-8
                                     <div class="ss-wz">
                 <p>高频搜索内容: </p>
                 <div class="txt">
-                                        <span><a href="/bkspy.html" target="_blank">本科生招生</a></span>
-                                        <span><a href="/yjspy.html" target="_blank">研究生招生</a></span>
+                                        <span><a href="/bkspy.html" target="_blank">本科生招�?/a></span>
+                                        <span><a href="/yjspy.html" target="_blank">研究生招�?/a></span>
                                         <span><a href="https://www.seiee.sjtu.edu.cn/zhuti_jy.html" target="_blank">学习贯彻习近平新时代中国特色社会主义思想主题教育</a></span>
                                     </div>
             </div>
@@ -437,10 +436,10 @@ Content-Type: text/html; charset=utf-8
                         <li>
                 <a href="https://mp.weixin.qq.com/s/XTiayevr3O9MZeLK33JJzQ" target="_blank">
                     <div class="imgk img_d">
-                        <img src="/upload/image/20231201/16H2Bd4W/图1. （a）人脑和（b）超低功耗分子神经形态分子、器件与电导调控示意图。.jpg">
+                        <img src="/upload/image/20231201/16H2Bd4W/�?. （a）人脑和（b）超低功耗分子神经形态分子、器件与电导调控示意图�?jpg">
                     </div>
                     <div class="txt">
-                                                <div class="tit line-1">电院刘钢团队成功研制超小尺寸、近零功耗分子计算芯片</div>
+                                                <div class="tit line-1">电院刘钢团队成功研制超小尺寸、近零功耗分子计算芯�?/div>
                         <div class="time">2023-12-01</div>
                     </div>
                 </a>
@@ -451,7 +450,7 @@ Content-Type: text/html; charset=utf-8
                         <img src="/upload/image/20231201/27kJQcqC/show_499492992_1701419591575.jpg">
                     </div>
                     <div class="txt">
-                                                <div class="tit ">年度人物，他榜上有名！</div>
+                                                <div class="tit ">年度人物，他榜上有名�?/div>
                         <div class="time">2023-12-01</div>
                     </div>
                 </a>
@@ -473,7 +472,7 @@ Content-Type: text/html; charset=utf-8
                         <img src="/upload/image/20231130/57ak3way/微信图片_20231130160007(1).jpg">
                     </div>
                     <div class="txt">
-                                                <div class="tit ">红E微课开讲啦！</div>
+                                                <div class="tit ">红E微课开讲啦�?/div>
                         <div class="time">2023-11-30</div>
                     </div>
                 </a>
@@ -484,7 +483,7 @@ Content-Type: text/html; charset=utf-8
                         <img src="/upload/image/20231201/00h6Xbcw/1.jpg">
                     </div>
                     <div class="txt">
-                                                <div class="tit ">上海高校研究生导师专业能力提升学科工作坊 ——计算机科学与技术学科专场培训成功举办</div>
+                                                <div class="tit ">上海高校研究生导师专业能力提升学科工作坊 ——计算机科学与技术学科专场培训成功举�?/div>
                         <div class="time">2023-11-29</div>
                     </div>
                 </a>
@@ -495,7 +494,7 @@ Content-Type: text/html; charset=utf-8
                         <img src="/upload/image/20231201/36dmAHPm/图片1(1).jpg">
                     </div>
                     <div class="txt">
-                                                <div class="tit line-1">话业务 促服务 共发展 ——电院AEMD平台党支部与电镜影像中心党支部开展业务交流工作坊活动</div>
+                                                <div class="tit line-1">话业�?促服�?共发�?——电院AEMD平台党支部与电镜影像中心党支部开展业务交流工作坊活动</div>
                         <div class="time">2023-11-28</div>
                     </div>
                 </a>
@@ -518,7 +517,7 @@ Content-Type: text/html; charset=utf-8
                                 <p>25</p>
                                 <span>2023-09</span>
                             </div>
-                            <div class="name">上海交通大学电院诚聘优秀学者</div>
+                            <div class="name">上海交通大学电院诚聘优秀学�?/div>
                         </div>
                         <div class="jj">
                                                     </div>
@@ -531,7 +530,7 @@ Content-Type: text/html; charset=utf-8
                                 <p>27</p>
                                 <span>2023-11</span>
                             </div>
-                            <div class="name">电子信息与电气工程学院关于上海交通大学2023年“管理服务奖”推荐名单公示</div>
+                            <div class="name">电子信息与电气工程学院关于上海交通大�?023年“管理服务奖”推荐名单公�?/div>
                         </div>
                         <div class="jj">
                                                     </div>
@@ -547,7 +546,7 @@ Content-Type: text/html; charset=utf-8
                             <div class="name">关于公布电院第七届青年教师教学竞赛获奖名单的通知</div>
                         </div>
                         <div class="jj">
-                            各单位、各部门：&nbsp;&nbsp;为进一步推动青年教师队伍建设，提高青年教师的教学能力和业务水平，全面提升教学质量，学院组织开展了第七届青年教师教学竞赛，评审出一等奖3名、二等奖3名，优秀奖5名，现将名单公布如下：&nbsp;&nbsp;&nbsp;一等奖&nbsp; 张伟楠、凌玉烨、祁亮二等奖&nbsp; 陈思捷、顾小东、顾运优秀奖&nbsp; 沈为、吴晓燕、杨宽、许可、王铮&nbsp;电子信息与电气工程学院2023年11月20日                        </div>
+                            各单位、各部门�?nbsp;&nbsp;为进一步推动青年教师队伍建设，提高青年教师的教学能力和业务水平，全面提升教学质量，学院组织开展了第七届青年教师教学竞赛，评审出一等奖3名、二等奖3名，优秀�?名，现将名单公布如下�?nbsp;&nbsp;&nbsp;一等奖&nbsp; 张伟楠、凌玉烨、祁亮二等奖&nbsp; 陈思捷、顾小东、顾运优秀�?nbsp; 沈为、吴晓燕、杨宽、许可、王�?nbsp;电子信息与电气工程学�?023�?1�?0�?                       </div>
                     </a>
                 </li>
                                 <li>
@@ -608,7 +607,7 @@ Content-Type: text/html; charset=utf-8
                                                         <div class="swiper-slide">
                                 <a href="https://mp.weixin.qq.com/s/DKD6ETRqo8qn17_zJkUKVQ" target="_blank">
                                     <div class="imgk img_d">
-                                        <img src="/upload/image/20231030/34cVRVsJ/图2.jpg">
+                                        <img src="/upload/image/20231030/34cVRVsJ/�?.jpg">
                                     </div>
                                 </a>
                             </div>
@@ -629,7 +628,7 @@ Content-Type: text/html; charset=utf-8
                                                         <div class="swiper-slide">
                                 <a href="https://mp.weixin.qq.com/s/zIPvGPwjKh118DimtG97PA" target="_blank">
                                     <div class="imgk img_d">
-                                        <img src="/upload/image/20231016/146Kwicn/图4 全息图叠加记录及动态全息三维显示效果.png">
+                                        <img src="/upload/image/20231016/146Kwicn/�? 全息图叠加记录及动态全息三维显示效�?png">
                                     </div>
                                 </a>
                             </div>
@@ -657,7 +656,7 @@ Content-Type: text/html; charset=utf-8
                             <a href="https://www.seiee.sjtu.edu.cn/index_xsky/9300.html">
                                 <div class="bd">
                                     <div class="num">02/</div>
-                                    <div class="tit">Nature Computational Science封面论文！电院杨小康教授、许岩岩副教授发表AI+城市科学重要成果！</div>
+                                    <div class="tit">Nature Computational Science封面论文！电院杨小康教授、许岩岩副教授发表AI+城市科学重要成果�?/div>
                                     <div class="name"></div>
                                 </div>
                             </a>
@@ -666,7 +665,7 @@ Content-Type: text/html; charset=utf-8
                             <a href="https://mp.weixin.qq.com/s/-J_WlmK0RpgfC9UJGfJPvA" target="_blank">
                                 <div class="bd">
                                     <div class="num">03/</div>
-                                    <div class="tit">入选PDP论文！电院苏翼凯课题组李靖驰在ECOC发表大容量高电谱效率的四维直接检测硅光接收机的研究成果</div>
+                                    <div class="tit">入选PDP论文！电院苏翼凯课题组李靖驰在ECOC发表大容量高电谱效率的四维直接检测硅光接收机的研究成�?/div>
                                     <div class="name"></div>
                                 </div>
                             </a>
@@ -675,7 +674,7 @@ Content-Type: text/html; charset=utf-8
                             <a href="https://mp.weixin.qq.com/s/zIPvGPwjKh118DimtG97PA" target="_blank">
                                 <div class="bd">
                                     <div class="num">04/</div>
-                                    <div class="tit">实现超高清3D全息！电院杨佳苗团队在Science Advances发表全息三维显示研究成果</div>
+                                    <div class="tit">实现超高�?D全息！电院杨佳苗团队在Science Advances发表全息三维显示研究成果</div>
                                     <div class="name"></div>
                                 </div>
                             </a>
@@ -695,7 +694,7 @@ Content-Type: text/html; charset=utf-8
                 <div class="tit"><i><img src="/img/tit-left.png"></i><span>数说电院</span><i><img src="/img/tit-right.png"></i></div>
             </div>
             <div class="tips">
-                <p>我们热诚邀请海内外相关领域的高水平人才加盟学院，热情期盼各界朋友和校友来校参观、指导，热烈欢迎全国各地的莘莘学子报考学院。让我们共同努力，实现学院的快速发展，为将上海交通大学建设成为世界一流大学、为中华民族的伟大复兴做出新的更大的贡献！</p>            </div>
+                <p>我们热诚邀请海内外相关领域的高水平人才加盟学院，热情期盼各界朋友和校友来校参观、指导，热烈欢迎全国各地的莘莘学子报考学院。让我们共同努力，实现学院的快速发展，为将上海交通大学建设成为世界一流大学、为中华民族的伟大复兴做出新的更大的贡献�?/p>            </div>
             <div class="swiper-container sy_ban4">
                 <div class="swiper-wrapper">
                                         <div class="swiper-slide">
@@ -703,7 +702,7 @@ Content-Type: text/html; charset=utf-8
                             <div class="imgk img_d2">
                                                                 <img src="/img/icon-lo1.png">
                                                             </div>
-                                                        <div class="num"><span>14</span>个</div>
+                                                        <div class="num"><span>14</span>�?/div>
                             <div class="jj">14个单位（学院下设14个基层单位）</div>
                         </a>
                     </div>
@@ -712,8 +711,8 @@ Content-Type: text/html; charset=utf-8
                             <div class="imgk img_d2">
                                                                 <img src="/img/icon-lo2.png">
                                                             </div>
-                                                        <div class="num"><span>8</span>个</div>
-                            <div class="jj">8个一级学科</div>
+                                                        <div class="num"><span>8</span>�?/div>
+                            <div class="jj">8个一级学�?/div>
                         </a>
                     </div>
                                         <div class="swiper-slide">
@@ -721,8 +720,8 @@ Content-Type: text/html; charset=utf-8
                             <div class="imgk img_d2">
                                                                 <img src="/img/icon-lo3.png">
                                                             </div>
-                                                        <div class="num"><span>9752</span>名</div>
-                            <div class="jj">9752名学生（本科生4304名，硕士生3240名，博士生2208名）</div>
+                                                        <div class="num"><span>9752</span>�?/div>
+                            <div class="jj">9752名学生（本科�?304名，硕士�?240名，博士�?208名）</div>
                         </a>
                     </div>
                                         <div class="swiper-slide">
@@ -730,8 +729,8 @@ Content-Type: text/html; charset=utf-8
                             <div class="imgk img_d2">
                                                                 <img src="/upload/image/20220909/20220909175440.png">
                                                             </div>
-                                                        <div class="num"><span>27</span>门</div>
-                            <div class="jj">27门课程（国家一流课程19门，国家级资源共享课3门，国家精品课程5门）</div>
+                                                        <div class="num"><span>27</span>�?/div>
+                            <div class="jj">27门课程（国家一流课�?9门，国家级资源共享课3门，国家精品课程5门）</div>
                         </a>
                     </div>
                                         <div class="swiper-slide">
@@ -739,8 +738,8 @@ Content-Type: text/html; charset=utf-8
                             <div class="imgk img_d2">
                                                                 <img src="/img/icon-lo4.png">
                                                             </div>
-                                                        <div class="num"><span>988</span>名</div>
-                            <div class="jj">988名教师（教授（含研究员）244名，副教授（含副研究员）332名 ）</div>
+                                                        <div class="num"><span>988</span>�?/div>
+                            <div class="jj">988名教师（教授（含研究员）244名，副教授（含副研究员）332�?�?/div>
                         </a>
                     </div>
                                         <div class="swiper-slide">
@@ -749,7 +748,7 @@ Content-Type: text/html; charset=utf-8
                                                                 <img src="/upload/image/20220909/20220909175939.png">
                                                             </div>
                                                         <div class="num"><span>126</span>人次</div>
-                            <div class="jj">126人次高层次人才（两院院士、外籍院士、973首席科学家、IEEE Fellow、国家海外高层次人才、长江学者、杰青、优青）</div>
+                            <div class="jj">126人次高层次人才（两院院士、外籍院士�?73首席科学家、IEEE Fellow、国家海外高层次人才、长江学者、杰青、优青）</div>
                         </a>
                     </div>
                                         <div class="swiper-slide">
@@ -757,8 +756,8 @@ Content-Type: text/html; charset=utf-8
                             <div class="imgk img_d2">
                                                                 <img src="/img/icon-lo5.png">
                                                             </div>
-                                                        <div class="num"><span>127</span>项</div>
-                            <div class="jj">127项国家自然科学基金项目</div>
+                                                        <div class="num"><span>127</span>�?/div>
+                            <div class="jj">127项国家自然科学基金项�?/div>
                         </a>
                     </div>
                                     </div>
@@ -776,7 +775,7 @@ Content-Type: text/html; charset=utf-8
                     <div class="en">EVENTS</div>
                     <div class="tit"><span>学院看点</span><i><img src="/img/tit-right.png"></i></div>
                 </div>
-                <div class="tit-tips">学术讲座、学术活动、校园活动…… 交大电院365天精彩活动，邀您共见。</div>
+                <div class="tit-tips">学术讲座、学术活动、校园活动…�?交大电院365天精彩活动，邀您共见�?/div>
                 <a href="https://www.seiee.sjtu.edu.cn/index_xykd.html" class="sy-more2">查看更多</a>
                 <div class="sw-btn">
                     <div class="swiper-button-prev sw-prev"></div>
@@ -793,10 +792,10 @@ Content-Type: text/html; charset=utf-8
                                     <img src="/upload/image/20230523/51FrGyii/图片1.png">
                                 </div>
                                 <div class="txt">
-                                    <div class="name">学术会议 | 2023年第三届电力系统与绿色能源会议 (PSGEC 2023)</div>
+                                    <div class="name">学术会议 | 2023年第三届电力系统与绿色能源会�?(PSGEC 2023)</div>
                                     <div class="bz">
-                                        <p><i><img src="/img/icon-time.png"></i><span>2023年8月24-26日</span></p>
-                                        <p><i><img src="/img/icon-adr.png"></i><span>上海，中国</span></p>
+                                        <p><i><img src="/img/icon-time.png"></i><span>2023�?�?4-26�?/span></p>
+                                        <p><i><img src="/img/icon-adr.png"></i><span>上海，中�?/span></p>
                                     </div>
                                 </div>
                             </a>
@@ -808,9 +807,9 @@ Content-Type: text/html; charset=utf-8
                                     <img src="/upload/image/20230508/17B8r7kV/截图20230424102356(1).png">
                                 </div>
                                 <div class="txt">
-                                    <div class="name">作品征集 | 拿出你的文E范</div>
+                                    <div class="name">作品征集 | 拿出你的文E�?/div>
                                     <div class="bz">
-                                        <p><i><img src="/img/icon-time.png"></i><span>2023年5月8日-2023年9月8日</span></p>
+                                        <p><i><img src="/img/icon-time.png"></i><span>2023�?�?�?2023�?�?�?/span></p>
                                         <p><i><img src="/img/icon-adr.png"></i><span></span></p>
                                     </div>
                                 </div>
@@ -823,10 +822,10 @@ Content-Type: text/html; charset=utf-8
                                     <img src="/upload/image/20231201/43RHuzsK/20231204-学术报告-智能网联混行车辆轨迹和交通信号协同优化_00(1).png">
                                 </div>
                                 <div class="txt">
-                                    <div class="name">学术报告 | 智能网联混行车辆轨迹和交通信号协同优化</div>
+                                    <div class="name">学术报告 | 智能网联混行车辆轨迹和交通信号协同优�?/div>
                                     <div class="bz">
-                                        <p><i><img src="/img/icon-time.png"></i><span> 2023年12月4日 10:00-12:00</span></p>
-                                        <p><i><img src="/img/icon-adr.png"></i><span>电信群楼2-406会议室</span></p>
+                                        <p><i><img src="/img/icon-time.png"></i><span> 2023�?2�?�?10:00-12:00</span></p>
+                                        <p><i><img src="/img/icon-adr.png"></i><span>电信群楼2-406会议�?/span></p>
                                     </div>
                                 </div>
                             </a>
@@ -842,8 +841,8 @@ Content-Type: text/html; charset=utf-8
                                 <div class="txt">
                                     <div class="name">学术报告 | Highlights of Lane-Free Automated Vehicle Traffic with Nudging</div>
                                     <div class="bz">
-                                        <p><i><img src="/img/icon-time.png"></i><span>2023年12月4日 10:00-12:00</span></p>
-                                        <p><i><img src="/img/icon-adr.png"></i><span>电信群楼2-406会议室</span></p>
+                                        <p><i><img src="/img/icon-time.png"></i><span>2023�?2�?�?10:00-12:00</span></p>
+                                        <p><i><img src="/img/icon-adr.png"></i><span>电信群楼2-406会议�?/span></p>
                                     </div>
                                 </div>
                             </a>
@@ -852,13 +851,13 @@ Content-Type: text/html; charset=utf-8
                             <a href="https://www.seiee.sjtu.edu.cn/index_xykd/9469.html">
                                 <div class="type">学术讲座</div>
                                 <div class="imgk img_d">
-                                    <img src="/upload/image/20231201/16dBhCKq/【计算机系讲座海报】12月06日学术讲座海报(1).png">
+                                    <img src="/upload/image/20231201/16dBhCKq/【计算机系讲座海报�?2�?6日学术讲座海�?1).png">
                                 </div>
                                 <div class="txt">
                                     <div class="name">学术讲座 | The Past, Present, and Future of Artificial Intelligence: from black-box to white-box, from open-loop to closed-loop.</div>
                                     <div class="bz">
-                                        <p><i><img src="/img/icon-time.png"></i><span>2023年12月6日 15:30-17:30</span></p>
-                                        <p><i><img src="/img/icon-adr.png"></i><span>电院E谷悟课教室/ Bilibili直播间22797301</span></p>
+                                        <p><i><img src="/img/icon-time.png"></i><span>2023�?2�?�?15:30-17:30</span></p>
+                                        <p><i><img src="/img/icon-adr.png"></i><span>电院E谷悟课教�? Bilibili直播�?2797301</span></p>
                                     </div>
                                 </div>
                             </a>
@@ -872,8 +871,8 @@ Content-Type: text/html; charset=utf-8
                                 <div class="txt">
                                     <div class="name">学术报告 | Causal gene networks in single cells</div>
                                     <div class="bz">
-                                        <p><i><img src="/img/icon-time.png"></i><span>2023年12月4日 10:30</span></p>
-                                        <p><i><img src="/img/icon-adr.png"></i><span>电信群楼2-410会议室</span></p>
+                                        <p><i><img src="/img/icon-time.png"></i><span>2023�?2�?�?10:30</span></p>
+                                        <p><i><img src="/img/icon-adr.png"></i><span>电信群楼2-410会议�?/span></p>
                                     </div>
                                 </div>
                             </a>
@@ -884,12 +883,12 @@ Content-Type: text/html; charset=utf-8
                             <a href="https://www.seiee.sjtu.edu.cn/index_xykd/9449.html">
                                 <div class="type">学术讲座</div>
                                 <div class="imgk img_d">
-                                    <img src="/upload/image/20231127/03UVV7yV/【计算机系】12月08日学术讲座(1).png">
+                                    <img src="/upload/image/20231127/03UVV7yV/【计算机系�?2�?8日学术讲�?1).png">
                                 </div>
                                 <div class="txt">
                                     <div class="name">学术讲座 | Towards Efficient and Scalable Multi-GPU Computing</div>
                                     <div class="bz">
-                                        <p><i><img src="/img/icon-time.png"></i><span>2023年12月8日 10:00</span></p>
+                                        <p><i><img src="/img/icon-time.png"></i><span>2023�?2�?�?10:00</span></p>
                                         <p><i><img src="/img/icon-adr.png"></i><span>电院 3号楼412</span></p>
                                     </div>
                                 </div>
@@ -904,22 +903,22 @@ Content-Type: text/html; charset=utf-8
                                 <div class="txt">
                                     <div class="name">学术报告 | 时序传感器数据表征学习和领域自适应</div>
                                     <div class="bz">
-                                        <p><i><img src="/img/icon-time.png"></i><span>2023年11月30日 10:00</span></p>
-                                        <p><i><img src="/img/icon-adr.png"></i><span>电院2号楼 410会议室</span></p>
+                                        <p><i><img src="/img/icon-time.png"></i><span>2023�?1�?0�?10:00</span></p>
+                                        <p><i><img src="/img/icon-adr.png"></i><span>电院2号楼 410会议�?/span></p>
                                     </div>
                                 </div>
                             </a>
                         </li>
                                                 <li>
                             <a href="https://www.seiee.sjtu.edu.cn/index_xykd/9446.html">
-                                <div class="type">工作坊</div>
+                                <div class="type">工作�?/div>
                                 <div class="imgk img_d">
                                     <img src="/upload/image/20231127/378HzraF/微信图片_20231127112227(1).png">
                                 </div>
                                 <div class="txt">
-                                    <div class="name">2023年上海高校研究生导师 专业能力提升学科工作坊</div>
+                                    <div class="name">2023年上海高校研究生导师 专业能力提升学科工作�?/div>
                                     <div class="bz">
-                                        <p><i><img src="/img/icon-time.png"></i><span>2023年11月27日 (周一) 13:30-16:30</span></p>
+                                        <p><i><img src="/img/icon-time.png"></i><span>2023�?1�?7�?(周一) 13:30-16:30</span></p>
                                         <p><i><img src="/img/icon-adr.png"></i><span>扫码观看</span></p>
                                     </div>
                                 </div>
@@ -955,7 +954,7 @@ Content-Type: text/html; charset=utf-8
                     <i>
                                                 <img src="/img/icon-link3.png">
                                             </i>
-                    <p>地方研究院</p>
+                    <p>地方研究�?/p>
                     <div class="num">03</div>
                 </div>
                                 <div class="tab-btn " onclick="linkTab(3)">
@@ -973,20 +972,20 @@ Content-Type: text/html; charset=utf-8
                         <span>01/</span><i></i>
                     </div>
                                         <div class="u3">
-                                                <li><a href="http://eei.sjtu.edu.cn/" target="_blank">电气工程系</a></li>
+                                                <li><a href="http://eei.sjtu.edu.cn/" target="_blank">电气工程�?/a></li>
                                                 <li><a href="http://automation.sjtu.edu.cn/" target="_blank">自动化系</a></li>
-                                                <li><a href="http://www.cs.sjtu.edu.cn/" target="_blank">计算机科学与工程系</a></li>
-                                                <li><a href="http://ee.sjtu.edu.cn" target="_blank">电子工程系</a></li>
-                                                <li><a href="https://ssse.sjtu.edu.cn/" target="_blank">感知科学与工程学院</a></li>
+                                                <li><a href="http://www.cs.sjtu.edu.cn/" target="_blank">计算机科学与工程�?/a></li>
+                                                <li><a href="http://ee.sjtu.edu.cn" target="_blank">电子工程�?/a></li>
+                                                <li><a href="https://ssse.sjtu.edu.cn/" target="_blank">感知科学与工程学�?/a></li>
                                                 <li><a href="http://dmne.sjtu.edu.cn/dmne/" target="_blank">微纳电子学系</a></li>
                                                 <li><a href="http://www.se.sjtu.edu.cn/" target="_blank">软件学院</a></li>
                                                 <li><a href="http://infosec.sjtu.edu.cn/" target="_blank">网络空间安全学院</a></li>
-                                                <li><a href="http://ev.sjtu.edu.cn" target="_blank">教学发展与学生创新中心</a></li>
-                                                <li><a href="http://jhc.sjtu.edu.cn" target="_blank">约翰·霍普克罗夫特计算机科学中心</a></li>
+                                                <li><a href="http://ev.sjtu.edu.cn" target="_blank">教学发展与学生创新中�?/a></li>
+                                                <li><a href="http://jhc.sjtu.edu.cn" target="_blank">约翰·霍普克罗夫特计算机科学中�?/a></li>
                                                 <li><a href="https://icst.sjtu.edu.cn/" target="_blank">网络安全技术研究院</a></li>
-                                                <li><a href="http://ai.sjtu.edu.cn" target="_blank">人工智能研究院</a></li>
-                                                <li><a href="http://www.qingyuan.sjtu.edu.cn/" target="_blank">清源研究院</a></li>
-                                                <li><a href="http://aemd.sjtu.edu.cn/" target="_blank">先进电子材料与器件（AEMD）平台</a></li>
+                                                <li><a href="http://ai.sjtu.edu.cn" target="_blank">人工智能研究�?/a></li>
+                                                <li><a href="http://www.qingyuan.sjtu.edu.cn/" target="_blank">清源研究�?/a></li>
+                                                <li><a href="http://aemd.sjtu.edu.cn/" target="_blank">先进电子材料与器件（AEMD）平�?/a></li>
                                             </div>
                     <div class="clear"></div>
                 </div>
@@ -1002,7 +1001,7 @@ Content-Type: text/html; charset=utf-8
                                                 <li><a href="https://kejichu.sjtu.edu.cn/" target="_blank">上海交通大学科学技术发展研究院</a></li>
                                                 <li><a href="https://www.jdcw.sjtu.edu.cn/" target="_blank">上海交通大学计划财务处</a></li>
                                                 <li><a href="https://gh.sjtu.edu.cn/" target="_blank">中国教育工会上海交通大学委员会</a></li>
-                                                <li><a href="https://www.gs.sjtu.edu.cn/" target="_blank">上海交通大学研究生院</a></li>
+                                                <li><a href="https://www.gs.sjtu.edu.cn/" target="_blank">上海交通大学研究生�?/a></li>
                                             </div>
                     <div class="clear"></div>
                 </div>
@@ -1012,8 +1011,8 @@ Content-Type: text/html; charset=utf-8
                     </div>
                                         <div class="u3">
                                                 <li><a href="http://www.ai-research.cn/" target="_blank">上海交通大学苏州人工智能研究院</a></li>
-                                                <li><a href="http://www.spioe.cn/" target="_blank">上海交大平湖智能光电研究院</a></li>
-                                                <li><a href="javascript:void(0)">上海交通大学海南区块链研究院</a></li>
+                                                <li><a href="http://www.spioe.cn/" target="_blank">上海交大平湖智能光电研究�?/a></li>
+                                                <li><a href="javascript:void(0)">上海交通大学海南区块链研究�?/a></li>
                                             </div>
                     <div class="clear"></div>
                 </div>
@@ -1022,21 +1021,21 @@ Content-Type: text/html; charset=utf-8
                         <span>04/</span><i></i>
                     </div>
                                         <div class="u3">
-                                                <li><a href="http://sa.sjtu.edu.cn" target="_blank">院系管理系统（SA系统）</a></li>
+                                                <li><a href="http://sa.sjtu.edu.cn" target="_blank">院系管理系统（SA系统�?/a></li>
                                                 <li><a href="http://my.sjtu.edu.cn" target="_blank">我的数字交大</a></li>
-                                                <li><a href="http://i.sjtu.edu.cn" target="_blank">本科教学信息服务网</a></li>
-                                                <li><a href="http://yjs.sjtu.edu.cn" target="_blank">研究生应用管理平台</a></li>
-                                                <li><a href="http://oc.sjtu.edu.cn" target="_blank">在线教学平台（Canvas）</a></li>
+                                                <li><a href="http://i.sjtu.edu.cn" target="_blank">本科教学信息服务�?/a></li>
+                                                <li><a href="http://yjs.sjtu.edu.cn" target="_blank">研究生应用管理平�?/a></li>
+                                                <li><a href="http://oc.sjtu.edu.cn" target="_blank">在线教学平台（Canvas�?/a></li>
                                                 <li><a href="http://bysj.jwc.sjtu.edu.cn" target="_blank">本科毕业设计（论文）管理系统</a></li>
                                                 <li><a href="http://rsc2.sjtu.edu.cn" target="_blank">人力资源管理系统</a></li>
                                                 <li><a href="https://hr.seiee.sjtu.edu.cn/vote/login.action">人力资源投票入口</a></li>
                                                 <li><a href="http://dangjian.sjtu.edu.cn/ui/index" target="_blank">智慧党建系统</a></li>
-                                                <li><a href="http://jdky.sjtu.edu.cn" target="_blank">科研管理系统（KY系统）</a></li>
+                                                <li><a href="http://jdky.sjtu.edu.cn" target="_blank">科研管理系统（KY系统�?/a></li>
                                                 <li><a href="http://cgzh.seiee.sjtu.edu.cn/" target="_blank">成果转化</a></li>
                                                 <li><a href="http://cwc.jdcw.sjtu.edu.cn" target="_blank">财务平台</a></li>
-                                                <li><a href="https://zcc.sjtu.edu.cn/" target="_blank">资产管理与实验室处</a></li>
-                                                <li><a href="http://pboffice.sjtu.edu.cn" target="_blank">招投标与政府采购办公室</a></li>
-                                                <li><a href="http://e-chem.sjtu.edu.cn/labmai/home/#/" target="_blank">化学品管理系统</a></li>
+                                                <li><a href="https://zcc.sjtu.edu.cn/" target="_blank">资产管理与实验室�?/a></li>
+                                                <li><a href="http://pboffice.sjtu.edu.cn" target="_blank">招投标与政府采购办公�?/a></li>
+                                                <li><a href="http://e-chem.sjtu.edu.cn/labmai/home/#/" target="_blank">化学品管理系�?/a></li>
                                             </div>
                     <div class="clear"></div>
                 </div>
@@ -1048,13 +1047,13 @@ Content-Type: text/html; charset=utf-8
     <div class="footer">
         <div class="wal">
         <div class="adr">
-            <p>地址：上海市东川路800号电子信息与电气工程学院</p><p>邮编：200240 邮箱：seiee@sjtu.edu.cn</p><p>Copyright © 2022上海交通大学电子信息与电气工程学院 版权所有</p>        </div>
+            <p>地址：上海市东川�?00号电子信息与电气工程学院</p><p>邮编�?00240 邮箱：seiee@sjtu.edu.cn</p><p>Copyright © 2022上海交通大学电子信息与电气工程学院 版权所�?/p>        </div>
         <div class="foot-logo"><img src="/img/logo.png" alt=""></div>
         <div class="foot-ewm">
                         <div class="imgk">
                 <img src="/img/images/ewm.jpg" alt="">
             </div>
-            <p>欢迎关注上海交大电院公众号</p>
+            <p>欢迎关注上海交大电院公众�?/p>
                     </div>
     </div>
 </div>
@@ -1067,7 +1066,7 @@ Content-Type: text/html; charset=utf-8
 
     $(document).ready(function () {
         $('.fy1 a').each(function(){
-            if($(this).text()=='上一页' || $(this).text()=='下一页'){
+            if($(this).text()=='上一�? || $(this).text()=='下一�?){
                 $(this).addClass('cd_sx');
             }
         })
@@ -1105,7 +1104,7 @@ var _hmt = _hmt || [];
             on: {
                 init: function () {
                     swiperAnimateCache(this); //隐藏动画元素
-                    swiperAnimate(this); //初始化完成开始动画
+                    swiperAnimate(this); //初始化完成开始动�?
                 },
                 slideChangeTransitionEnd: function () {
                     swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
@@ -1335,7 +1334,7 @@ Vary: Accept-Encoding
 Content-Length: 2881
 Connection: close
 
-/*本系统测量您的网络延迟，用于分析校园网质量，发现网络故障，优化有线和无线网接入。 本系统采集的信息为：您的 IPv4 和 IPv6 地址、User-Agent、5MB 数据下载耗时。 本系统不采集您的用户名，不采集上述列举的内容以外的信息。 本系统不会读取 iFrame 嵌入本页面的网站（父页面）内容，浏览器同源策略也会不允许此类操作。 为了避免消耗您的移动数据流量，本系统只对校园网用户（根据 IP 地址段识别）进行下载测速，每次测速消耗 5MB 流量。同一终端（根据同一 IP 地址和 User-Agent 识别）一天至多被测速6次。 如果您不希望被本系统采集网络质量信息，可提供您的 IP 地址至“netsec@sjtu邮箱”，或者将本页面 URL 列入浏览器黑名单。*/
+/*本系统测量您的网络延迟，用于分析校园网质量，发现网络故障，优化有线和无线网接入�?本系统采集的信息为：您的 IPv4 �?IPv6 地址、User-Agent�?MB 数据下载耗时�?本系统不采集您的用户名，不采集上述列举的内容以外的信息�?本系统不会读�?iFrame 嵌入本页面的网站（父页面）内容，浏览器同源策略也会不允许此类操作�?为了避免消耗您的移动数据流量，本系统只对校园网用户（根�?IP 地址段识别）进行下载测速，每次测速消�?5MB 流量。同一终端（根据同一 IP 地址�?User-Agent 识别）一天至多被测�?次�?如果您不希望被本系统采集网络质量信息，可提供您的 IP 地址至“netsec@sjtu邮箱”，或者将本页�?URL 列入浏览器黑名单�?/
 (function(){function generateUUID(){let d=new Date().getTime();if(typeof performance!=='undefined'&&typeof performance.now==='function'){d+=performance.now()}return'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,function(c){let r=(d+Math.random()*16)%16|0;d=Math.floor(d/16);return(c==='x'?r:(r&0x3|0x8)).toString(16)})}let startTime=Date.now();function init(){const serverUrl="https://speedtest.sjtu.edu.cn/nettest";const uuid=generateUUID();function measureDownloadSpeed(){if(document.hidden){return}let downloadSize=5*1024*1024;let count=0;let downloadSpeedInterval=setInterval(()=>{let startTime=Date.now();fetch(serverUrl+"/download_test?uuid="+uuid,{method:"GET",cache:"no-cache",mode:"cors",redirect:"follow",referrerPolicy:"no-referrer"}).then(response=>{if(!response.ok){throw new Error('Network response was not ok');}return response.text()}).then(data=>{if(data==='false'){clearInterval(downloadSpeedInterval);return}let endTime=Date.now();let duration=Math.abs((endTime-startTime)/1000);let downloadSpeed=(downloadSize/duration/(1024*1024)).toFixed(2);let downloadData={download_speed:downloadSpeed,send_time:startTime,rec_time:endTime,duration:duration,uuid:uuid};fetch(serverUrl+"/download_speed_data",{method:"POST",headers:{"Content-Type":"application/json;charset=UTF-8"},body:JSON.stringify(downloadData)})});count++;if(count===3){clearInterval(downloadSpeedInterval)}},5000);checkElapsedTime()}function handleSpeedVisibilityChange(){checkElapsedTime();if(document.hidden){clearInterval(downloadSpeedInterval)}else{measureDownloadSpeed()}}document.addEventListener("visibilitychange",handleSpeedVisibilityChange);function checkElapsedTime(){const elapsedTime=Date.now()-startTime;if(elapsedTime>240000){clearInterval(downloadSpeedInterval);document.removeEventListener("visibilitychange",handleSpeedVisibilityChange)}}fetch(serverUrl+"/testing").then(response=>response.text()).then(data=>{if(data==='true'){measureDownloadSpeed();downloadSpeedInterval=setInterval(measureDownloadSpeed,60000)}})}init()})();
 ======================================================
 
@@ -1618,15 +1617,12 @@ Sec-Fetch-Dest: empty
 Accept-Encoding: gzip, deflate
 Accept-Language: zh-CN,zh;q=0.9
 
-�       �Wyp��U�̢aZ��&=F�4qpV�]iW�A`]�a�:m��{iu[���i�2MҤ�%:B�f3	1B� �?�@��$iÐ�ɐ���(Qll�$�_��Oo�O��ｕK�+�D�S�Љ���4�-p����G`y,�a���� ��o�M�����v��fН˘{"L����{mY�کBdX=}æ����Q}�41]~c�R&�Rj� �A2���Ô/$�A�ϭ�����=r�e���'ᆱZ�1�;�����0��0��HU!�`�%x�7e�?԰P��}N/o�0f*Y����������x/���P��B��@���hb�XN/2Ɣ1����سָ+YY>������ Y�u��%��/v�d��2z�/�y�����'�IH�#��eЬ�t��K���R�3Q��y��2���'�.n��zm�PD@OȚ�/rb�JU,�"��y��,)ynH�fUK�ߪ�<����أG�m�x��=����?�gd���'���|�|�މ�M���}p'uR������Ba�*=���]�^}���05��冘t�U%2���b�p��*sYa|~���߄�#pm���^�������մW»:	7V⨹'+d@f������H�949�*�@V�`��X��<7뎖��X�=�s�
-q��lt�S�����;ؼ��M�\����m�rp0��	L*��D���q����m����?H�x��/|�*����u��G3�|"��"X-��jh��pp�f��e�L)�I�u	���Ļ��0�6�w�����lfU{{��U�f�ak�/��S�v:ӥ+��r�5ԅ�]�RƬ��fhQ��~���+�ȗ5)N�m��'�M���&� �2�M^C�.��L�I�����2<�K�/hF�j�z�'wl��s�����ŝ����O� ��??��߼w�e��֭.������e���4_-�*���l��ACU����7����ЀM�SW/Բ�/�#�k�l>g�
-@Nv�0�-��h��F<A��l��%!�"cܘ��ٲ�(X�FcD0��kkݺ�nm��->�n5k"��5��ܵ��+b�Kc��ї*y�B�N���ЀQ0��q�80�g�g��}Y�7��P@������&ᢘyhj�N����>��i�a���=c?;]�~Û0t~�쩟��0�����1�1�����	�ǒ�ZkE����K
-i}��N덳������6��>�t��ݓ�L��u�A��������M>1�+n�����T�(��A:�<����=� ��4M�97�UT'�a�:�N9�z{E�Y�� kI1�L�&����K1�b-����P���Q��JO��R��@���te� aЁ�U�й�j�.��w��h���y�*�BF��yx��S@�rj��'��c0�N�.X�Tlõ��/B��r��
-��/��{�9O� 퀡�0�0
-WysU�2����n��Hx|z}�Ɠe��>���R�2j�S�-Là��(F��V��a8_���4^b�o���Y����!�=0ĝ?��K�^���U�݀��ƺ�3�� �'�{9>���g%BkY����CU�m��i�����=��/����XQ���l~}L�5@�J�:��4š
-���{���%����r�C5��D� P=�i8��	��ӆ�L_n���"C�O<~��ϼ��pE}�HTJy~���3����R����x-2���q�l���d��\�g��>�Ո�'�"���PtO(�$�ju��%�,� M���Q�$qRCc1��R4&=c`�o�g��Qgdȁ#��Z��(����WځKnG6����&�����{n�?ީӅ���P��Z��8|�(�Vc)��R	�;S�$+�R���捠.�|˱���:5��4�jb�2��G�Z��y�f�����+ ���(FeH��r޺���M]�$����%�AZ-�z�j�+U�8�lV�N��7l�e�8�GD�>����ʀan4[+Ȧ�2�]2�I�ƩE�gg`�#���ۮA�{X����9��s_#򻍋����!�<��է���mW!�\�|��UȽ[�Cv�9q�z��"�/E^߲�yp%��x�y����ɚ�j���N�X'ӺW�J��Y3a0d2��'���P�j�F"��5C��;W	e�w��]�!�-�3��>�����K�������>��2���&UT����8����>���؝m	�*C��o���Y��9T,u������?��'Vʡ,��3K�kcJ�Y���t�|���\���l�R,�Ct&�R��p��[ӽ�5"M��˕*�]�ܱ<�ڰ*�0��[+^�۳��1���-�*�"�]&��Zo���-�ގ�W���iP���(K�q��.��b���o���h�|��P��A��@W@Ʌu}�>^��=Ϟ�Pt=,�a�Z��9z8�WbJ��I%�a��ci���,C�<��FC�	JG�T��i��u1���1Q���,G�<͉��&�w܀��~�
-��Y>�&h&ͯX)T�6!Ư`�:P6y
-	MƍR%}Ȓ�:��l�%pO���b��_��j>  
+?       �Wyp?�U�̢aZ��&=F?qpV�]iW�A`]�a?m��{iu[��?i?MҤ?%:B�f3	1B? ?�@��$iÐ?ɐ��?Qll?�_?�Oo�O���?K?�D�S�Љ�???p����G`y,�a?��? ��o�M�����v��fН˘{"L��?�{mY��?BdX=}æ����Q}?1]~c�R&�Rj?�A2���Ô/$�A�ϭ�����=r�e?��'�?Z??����?��0��HU!�`?x?e?԰P��}N/o?f*Y����������x/?��P��B��@���hb�XN/2Ɣ1�?��سָ+YY>������ Y�u��%��?v�d��2z?/�y?����'�IH?��eЬ�t��K���R?Q?�y��2��??n��zm?PD@OȚ?/rb�JU,?��y��,)ynH�fUK��???��أG�m�x��?����?�gd��?��?|�|��?�M��?}p'uR������Ba?*=���]�^}��?5��冘t�U%2���b�p??sYa|~?��߄?pm??�^����??�մW»:	7V�?+d@f������H?49?�@V�`?X��<7뎖��X?�s?q��lt?S��?��;ؼ��M�\?���m�rp0��	L*��D���q����m����?H�x��/|?����u��G3�|"�?X-��jh��pp?f��e�L)�I�u	���Ļ�??�w?��?�lfU{{��U�f�ak??�S�v:ӥ+��r?ԅ�]�RƬ��fhQ��~��?��?)N�m��'�M��?? ?2�M^C?.��L�I����?2<�K?hF?j�z�?wl��s�����ŝ����O� ��??��߼w?e��֭.������e��?_-?���l��ACU����?7�?��ЀM�SW/Բ??�k�l>g?@Nv???�h��F<A��l��%!?"cܘ��ٲ?X�FcD0��kkݺ�nm��->�n5k"��5��ܵ��+b�Kc��ї*y�B�N?��ЀQ0��q?0�g?g��}Y??�P@������&�?yhj�N����>��i�a���=c?;]�~Û0t~�쩟��0����??�����	�ǒ�ZkE����K
+i}��N덳������6��>�t��ݓ?L��u�A��������M>1?n����?T???A:?���?=?��4M?97�UT'�a??N9�z{E�Y�� kI1�L?&����K1�b-����P���Q��JO?�R��@���te?aЁ�U�й�j?��w��h??�y?�BF��yx?�S@�rj��'��c0�N?X�Tlõ��/B��r��
+??��{?O? 퀡�0?
+WysU??���n��Hx|z}�Ɠe��>��?R?j�S�-Là��(F��V��a8_��?^b�o?��Y����!?0ĝ?��K�^���U�݀��ƺ?�� ?�{9>���g%BkY?���CU�m��i����?��/?��XQ?��l~}L?@�J?��4š
+??�{��?��?�r?C5��D?P=�i8��	��ӆ�L_n��?C�O<~��ϼ��pE}�HTJy~��?3����R����x-2���q�l���d��\�g��>�Ո�'?��?PtO(?�ju????M���Q?qRCc1��R4&=c`�o�g��Qgdȁ#��Z�??���WځKnG6����&��?��{n?ީӅ?��P��Z��8|?�Vc)��R	?S?+�R���捠.?|˱��?5��4�jb?��G�Z��y�f?���? ��?FeH��r޺���M]?���?�AZ-�z�j?U?8�lV�N�?l�e?�GD?>����ʀan4[+Ȧ?�]2�I�ƩE�gg`�#���ۮA�{X����9��s_#򻍋����!??�է���mW!?\�|��UȽ[�Cv?9q�z�??/E^߲�yp%��x�y����ɚ�j���N�X'ӺW�J��Y3a0d2��'���P�j�F"��5C��;W	e�w��]??�3��?�����K����?��?��2?��&UT����8����>���؝m	?C��o���Y��9T,u����??��'Vʡ,��3K�kcJ�Y���t�|?��\���l�R,�Ct&�R��p��[ӽ?"M��˕*�]��?��??��[+^�۳�?��???�]&��Zo?��-�ގ�W���iP��?K�q??��b?��o���h?|?�P��A��@W@Ʌu}?^??=Ϟ�Pt=,�a�Z��9z8�WbJ��I%�a��ci��?C?��FC?JG�T��i��u1?��1Q��?G?͉��&�w܀��~?��Y>?h&ͯX)T?!Ư`?:P6y
+	MƍR%}Ȓ??�l?pO?��b��_��j>  
 ======================================================
 
 
@@ -1812,10 +1808,10 @@ Content-Length: 29779
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="description" content="上海交通大学网络空间安全学院" />
-<meta name="keywords" content="上海交通大学网络空间安全学院" />
+<meta name="description" content="上海交通大学网络空间安全学�? />
+<meta name="keywords" content="上海交通大学网络空间安全学�? />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>上海交通大学网络空间安全学院</title>
+<title>上海交通大学网络空间安全学�?/title>
 <link href="css/base.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 <link href="css/font-awesome.min.css" rel="stylesheet"/>
@@ -1861,7 +1857,7 @@ Content-Length: 29779
 				<li class="Ge">|</li>
 				<li><a href="Student.aspx">学生登录</a></li>
 				<li class="Ge">|</li> -->
-				<li><a href="index.aspx">简体中文</a></li>
+				<li><a href="index.aspx">简体中�?/a></li>
 				<li class="Ge">|</li>
 				<li><a href="#">English</a></li>
 			</ul>
@@ -1876,15 +1872,15 @@ Content-Length: 29779
 	<div class="menu-container">
 		<div class="menu">
 			<ul>
-				<li onclick="javascript:location.href='index.aspx';"><a href="index.aspx">首 页</a></li>
+				<li onclick="javascript:location.href='index.aspx';"><a href="index.aspx">�?�?/a></li>
 				<li><a href="About.aspx">学院概况<i class="fa fa-caret-down ml5"></i></a>
 					<ul>
-						<li onclick="javascript:location.href='Welcome.aspx';" style="display:none"><a href="Welcome.aspx">欢迎辞</a></li>
+						<li onclick="javascript:location.href='Welcome.aspx';" style="display:none"><a href="Welcome.aspx">欢迎�?/a></li>
 						<li onclick="javascript:location.href='About.aspx';"><a href="About.aspx">学院介绍</a></li>
 						<li onclick="javascript:location.href='Group.aspx';"><a href="Group.aspx">组织结构</a></li>
 						<li onclick="javascript:location.href='Leader.aspx';"><a href="Leader.aspx">学院领导</a></li>
 						<li onclick="javascript:location.href='Leadership.aspx';"><a href="Leadership.aspx">历任领导</a></li>
-						<li onclick="javascript:location.href='Office.aspx';"><a href="Office.aspx">学院办公室</a></li>
+						<li onclick="javascript:location.href='Office.aspx';"><a href="Office.aspx">学院办公�?/a></li>
 						<li onclick="javascript:location.href='Contact.aspx';"><a href="Contact.aspx">联系我们</a></li>
 					</ul>
 				</li>
@@ -1893,10 +1889,10 @@ Content-Length: 29779
 						<li onclick="javascript:location.href='Directory.aspx';"><a href="Directory.aspx">教师名录</a></li>
 						<li onclick="javascript:location.href='Team.aspx?id=1';"><a href="Team.aspx?id=1">两院院士</a></li>
 						<li onclick="javascript:location.href='Team.aspx?id=6';"><a href="Team.aspx?id=6">会士</a></li>
-						<li onclick="javascript:location.href='Team.aspx?id=2';"><a href="Team.aspx?id=2">长江学者</a></li>
+						<li onclick="javascript:location.href='Team.aspx?id=2';"><a href="Team.aspx?id=2">长江学�?/a></li>
 						<li onclick="javascript:location.href='Team.aspx?id=5';"><a href="Team.aspx?id=5">国家杰青</a></li>
-						<li onclick="javascript:location.href='Team.aspx?id=3';"><a href="Team.aspx?id=3">国家百千万人才工程</a></li>
-						<li onclick="javascript:location.href='Team.aspx?id=4';"><a href="Team.aspx?id=4">国家网络安全奖</a></li> 
+						<li onclick="javascript:location.href='Team.aspx?id=3';"><a href="Team.aspx?id=3">国家百千万人才工�?/a></li>
+						<li onclick="javascript:location.href='Team.aspx?id=4';"><a href="Team.aspx?id=4">国家网络安全�?/a></li> 
 						<li onclick="javascript:location.href='Team.aspx?id=7';"><a href="Other.aspx">其他人才计划</a></li>
 						<!--<li onclick="javascript:location.href='Team.aspx?id=8';"><a href="Team.aspx?id=8">教学名师</a></li>
 						<li onclick="javascript:location.href='Team.aspx?id=9';"><a href="Team.aspx?id=9">优秀论文指导教师</a></li>
@@ -1910,7 +1906,7 @@ Content-Length: 29779
 				<li><a href="Research.aspx">科学研究<i class="fa fa-caret-down ml5"></i></a>
 					<ul>
 						<li onclick="javascript:location.href='Research.aspx';"><a href="Research.aspx">科研方向</a></li>
-						<!--<li onclick="javascript:location.href='ResearchNews.aspx';"><a href="ResearchNews.aspx">科研动态</a></li>-->
+						<!--<li onclick="javascript:location.href='ResearchNews.aspx';"><a href="ResearchNews.aspx">科研动�?/a></li>-->
 						<li onclick="javascript:location.href='Base.aspx';"><a href="Base.aspx">科研基地</a></li>
 						<li onclick="javascript:location.href='Lab.aspx';"><a href="Lab.aspx">科研团队</a></li>
 						<li onclick="javascript:location.href='Global.aspx';" style="display:none"><a href="Global.aspx">科研成果</a></li>
@@ -1923,17 +1919,17 @@ Content-Length: 29779
 						
 						<li onclick="javascript:location.href='Train.aspx?id=14';"><a href="Train.aspx?id=14">三全育人</a></li>
 						
-						<li onclick="javascript:location.href='Train.aspx?id=7';"><a href="Train.aspx?id=7">本科生</a></li>
+						<li onclick="javascript:location.href='Train.aspx?id=7';"><a href="Train.aspx?id=7">本科�?/a></li>
 						
-						<li onclick="javascript:location.href='Train.aspx?id=6';"><a href="Train.aspx?id=6">硕士研究生</a></li>
+						<li onclick="javascript:location.href='Train.aspx?id=6';"><a href="Train.aspx?id=6">硕士研究�?/a></li>
 						
-						<li onclick="javascript:location.href='Train.aspx?id=5';"><a href="Train.aspx?id=5">博士研究生</a></li>
+						<li onclick="javascript:location.href='Train.aspx?id=5';"><a href="Train.aspx?id=5">博士研究�?/a></li>
 						
-						<li onclick="javascript:location.href='Train.aspx?id=4';"><a href="Train.aspx?id=4">工程硕士生</a></li>
+						<li onclick="javascript:location.href='Train.aspx?id=4';"><a href="Train.aspx?id=4">工程硕士�?/a></li>
 						
 						<li onclick="javascript:location.href='Train.aspx?id=3';"><a href="Train.aspx?id=3">国际联合培养项目</a></li>
 						
-						<li onclick="javascript:location.href='Train.aspx?id=15';"><a href="Train.aspx?id=15">教学研究室</a></li>
+						<li onclick="javascript:location.href='Train.aspx?id=15';"><a href="Train.aspx?id=15">教学研究�?/a></li>
 						
 					</ul>
 				</li>
@@ -1943,7 +1939,7 @@ Content-Length: 29779
 						<!--<li onclick="javascript:location.href='Career.aspx';"><a href="Career.aspx">校园招聘</a></li>
 						<li><a href="#">学生创新平台</a></li>
 						<li onclick="javascript:location.href='Download.aspx';"><a href="Download.aspx">相关文档下载</a></li>-->
-						<li onclick="javascript:location.href='Party.aspx';"><a href="Party.aspx">党建动态</a></li>
+						<li onclick="javascript:location.href='Party.aspx';"><a href="Party.aspx">党建动�?/a></li>
 						<li onclick="javascript:location.href='Garden.aspx';"><a href="Garden.aspx">学习园地</a></li>
 					</ul>
 				</li>
@@ -1951,7 +1947,7 @@ Content-Length: 29779
 					<a href="Job.aspx">招聘专栏<i class="fa fa-caret-down ml5"></i></a>
 					<ul>
 						<li onclick="javascript:location.href='Job.aspx';"><a href="Job.aspx">教职招聘</a></li>
-						<li onclick="javascript:location.href='PhDJob.aspx';"><a href="PhDJob.aspx">博士后招聘</a></li>
+						<li onclick="javascript:location.href='PhDJob.aspx';"><a href="PhDJob.aspx">博士后招�?/a></li>
 					</ul>
 				</li>
 				
@@ -1990,7 +1986,7 @@ Content-Length: 29779
                     
                         <li>
                         	<a href="https://mp.weixin.qq.com/s/_B5eHgG7S49wrRXjDrQA9A">
-								<div class="BannerWord">网安学院谷大武教授做客央视谈隐私泄露问题！</div>
+								<div class="BannerWord">网安学院谷大武教授做客央视谈隐私泄露问题�?/div>
 								<img src="Management/Upload/[Flash]c35520aac79445529ec3f4bdb0e2051a/2021421134820806sGDu.png">
 							</a>
                         </li>
@@ -2004,14 +2000,14 @@ Content-Length: 29779
                     
                         <li>
                         	<a href="https://infosec.sjtu.edu.cn/NewsDetail.aspx?id=95">
-								<div class="BannerWord">网络空间安全学院来学嘉教授入选国际密码协会会士</div>
+								<div class="BannerWord">网络空间安全学院来学嘉教授入选国际密码协会会�?/div>
 								<img src="Management/Upload/[Flash]86b26cb211d348c7841a68aff71c254c/20205121362683406I9J.png">
 							</a>
                         </li>
                     
                         <li>
                         	<a href="http://infosec.sjtu.edu.cn/NewsDetail.aspx?id=73">
-								<div class="BannerWord">上海交通大学网络空间安全学院入选国家一流网络安全学院建设示范项目</div>
+								<div class="BannerWord">上海交通大学网络空间安全学院入选国家一流网络安全学院建设示范项�?/div>
 								<img src="Management/Upload/[Flash]7a332806e6d342fdb87dd7645577d8e2/20191120150255660SyzJ.jpg">
 							</a>
                         </li>
@@ -2025,7 +2021,7 @@ Content-Length: 29779
                     
                         <li>
                         	<a href="https://infosec.sjtu.edu.cn/NewsDetail.aspx?id=144">
-								<div class="BannerWord">我院谷大武教授当选中国密码学会新一届副理事长</div>
+								<div class="BannerWord">我院谷大武教授当选中国密码学会新一届副理事�?/div>
 								<img src="Management/Upload/[Flash]eedce2cea92f43a189df89ce4747d95b/20201211103419628NfIBJ.jpg">
 							</a>
                         </li>
@@ -2043,124 +2039,124 @@ Content-Length: 29779
 				<!--<a href="NewsDetail.aspx?id=285">
 					<img src="Management/Upload/[News]a306a15bf7434afd9ef8e9499ae75440/default.jpg">
 					<h2>网安本科生在第八届全国密码技术竞赛斩获一等奖</h2>
-					<span>2023年12月1日</span>
+					<span>2023�?2�?�?/span>
 				</a>-->
                         
 				<ul>
                 
-                        <li><a href="NewsDetail.aspx?id=285"><span>2023年12月1日</span>网安本科生在第八届全国密码技术竞赛斩获一等奖</a></li>
+                        <li><a href="NewsDetail.aspx?id=285"><span>2023�?2�?�?/span>网安本科生在第八届全国密码技术竞赛斩获一等奖</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=284"><span>2023年11月20日</span>网络空间安全学科建设（科研）研讨会圆满召开</a></li>
+                        <li><a href="NewsDetail.aspx?id=284"><span>2023�?1�?0�?/span>网络空间安全学科建设（科研）研讨会圆满召开</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=278"><span>2023年9月18日</span>网安学院成功承办2023年外滩大会“数据安全与隐私保护趋势及产业融合实践论坛”分论坛</a></li>
+                        <li><a href="NewsDetail.aspx?id=278"><span>2023�?�?8�?/span>网安学院成功承办2023年外滩大会“数据安全与隐私保护趋势及产业融合实践论坛”分论坛</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=272"><span>2023年9月1日</span>信息安全与密码研究所7项研究成果被亚密会录用</a></li>
+                        <li><a href="NewsDetail.aspx?id=272"><span>2023�?�?�?/span>信息安全与密码研究所7项研究成果被亚密会录�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=270"><span>2023年8月12日</span>0ops战队获首届“熵密杯”密码应用安全竞赛特等奖</a></li>
+                        <li><a href="NewsDetail.aspx?id=270"><span>2023�?�?2�?/span>0ops战队获首届“熵密杯”密码应用安全竞赛特等奖</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=268"><span>2023年7月21日</span>我院最新研究成果被国际顶级安全会议IEEE S&P 2023录用</a></li>
+                        <li><a href="NewsDetail.aspx?id=268"><span>2023�?�?1�?/span>我院最新研究成果被国际顶级安全会议IEEE S&P 2023录用</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=264"><span>2023年6月27日</span>国家重点研发计划“代数几何码的数学理论及应用”项目启动暨实施方案论证会顺利召开</a></li>
+                        <li><a href="NewsDetail.aspx?id=264"><span>2023�?�?7�?/span>国家重点研发计划“代数几何码的数学理论及应用”项目启动暨实施方案论证会顺利召开</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=262"><span>2023年5月29日</span>我院LoCCS团队研究成果被ACM CCS 2023正式录用</a></li>
+                        <li><a href="NewsDetail.aspx?id=262"><span>2023�?�?9�?/span>我院LoCCS团队研究成果被ACM CCS 2023正式录用</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=260"><span>2023年5月25日</span>网安学子亮相首届武汉网络安全创新论坛</a></li>
+                        <li><a href="NewsDetail.aspx?id=260"><span>2023�?�?5�?/span>网安学子亮相首届武汉网络安全创新论坛</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=256"><span>2023年5月11日</span>网安学院成功举办CSIG图象图形中国行活动</a></li>
+                        <li><a href="NewsDetail.aspx?id=256"><span>2023�?�?1�?/span>网安学院成功举办CSIG图象图形中国行活�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=255"><span>2023年5月6日</span>VoIS论坛邀请字节跳动苏乐博士畅谈“安全隐私领域从理论研究到产品落地”</a></li>
+                        <li><a href="NewsDetail.aspx?id=255"><span>2023�?�?�?/span>VoIS论坛邀请字节跳动苏乐博士畅谈“安全隐私领域从理论研究到产品落地�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=254"><span>2023年5月6日</span>喜报！网络空间安全学院新增两门国家级一流本科课程</a></li>
+                        <li><a href="NewsDetail.aspx?id=254"><span>2023�?�?�?/span>喜报！网络空间安全学院新增两门国家级一流本科课�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=250"><span>2023年4月20日</span>攻防有道、未来可期 --0ops战队从第三届网鼎杯网络安全大赛凯旋</a></li>
+                        <li><a href="NewsDetail.aspx?id=250"><span>2023�?�?0�?/span>攻防有道、未来可�?--0ops战队从第三届网鼎杯网络安全大赛凯�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=248"><span>2023年4月13日</span>中国密码学会大数据与人工智能安全专委会成立大会暨2023年大数据与人工智能安全专题研讨会 (CryptoAI 2023) 成功举行</a></li>
+                        <li><a href="NewsDetail.aspx?id=248"><span>2023�?�?3�?/span>中国密码学会大数据与人工智能安全专委会成立大会暨2023年大数据与人工智能安全专题研讨会 (CryptoAI 2023) 成功举行</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=244"><span>2023年3月24日</span>我校学子从“第七届全国密码技术竞赛”载誉凯旋</a></li>
+                        <li><a href="NewsDetail.aspx?id=244"><span>2023�?�?4�?/span>我校学子从“第七届全国密码技术竞赛”载誉凯�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=243"><span>2023年3月22日</span>上海交通大学首届“一流网安”奖学金颁奖典礼隆重举行</a></li>
+                        <li><a href="NewsDetail.aspx?id=243"><span>2023�?�?2�?/span>上海交通大学首届“一流网安”奖学金颁奖典礼隆重举行</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=238"><span>2023年2月22日</span>我院联合承办的CCF & ATEC首届全国大学生区块链安全隐私技术与创新应用竞赛圆满结束</a></li>
+                        <li><a href="NewsDetail.aspx?id=238"><span>2023�?�?2�?/span>我院联合承办的CCF & ATEC首届全国大学生区块链安全隐私技术与创新应用竞赛圆满结束</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=236"><span>2023年2月21日</span>信息安全专业选课指导宣讲会顺利召开</a></li>
+                        <li><a href="NewsDetail.aspx?id=236"><span>2023�?�?1�?/span>信息安全专业选课指导宣讲会顺利召开</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=235"><span>2023年1月20日</span>我院在2022年“磐石行动”中获“优秀红方单位”和“最佳红方战果”两项殊荣</a></li>
+                        <li><a href="NewsDetail.aspx?id=235"><span>2023�?�?0�?/span>我院�?022年“磐石行动”中获“优秀红方单位”和“最佳红方战果”两项殊�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=234"><span>2023年2月13日</span>我院《面向国产操作系统的恶意代码虚拟仿真实验》入选上海市一流本科课程</a></li>
+                        <li><a href="NewsDetail.aspx?id=234"><span>2023�?�?3�?/span>我院《面向国产操作系统的恶意代码虚拟仿真实验》入选上海市一流本科课�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=233"><span>2022年12月24日</span>“宏辞论道，以辩会友” --网安学子在全国大学生网络安全辩论赛上载誉归来</a></li>
+                        <li><a href="NewsDetail.aspx?id=233"><span>2022�?2�?4�?/span>“宏辞论道，以辩会友�?--网安学子在全国大学生网络安全辩论赛上载誉归来</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=232"><span>2022年11月30日</span>网安学院成功举办CSIG在线学术研讨会暨上海交通大学电院网安新视野学术活动、国基面上资助学术活动</a></li>
+                        <li><a href="NewsDetail.aspx?id=232"><span>2022�?1�?0�?/span>网安学院成功举办CSIG在线学术研讨会暨上海交通大学电院网安新视野学术活动、国基面上资助学术活�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=231"><span>2022年11月17日</span>网安学院邵硕副教授获WCSP 2022最佳论文奖</a></li>
+                        <li><a href="NewsDetail.aspx?id=231"><span>2022�?1�?7�?/span>网安学院邵硕副教授获WCSP 2022最佳论文奖</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=228"><span>2022年10月24日</span>我院师生获2022字节安全AI挑战赛第一名</a></li>
+                        <li><a href="NewsDetail.aspx?id=228"><span>2022�?0�?4�?/span>我院师生�?022字节安全AI挑战赛第一�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=223"><span>2022年8月29日</span>我校学子在第十五届全国大学生信息安全竞赛作品赛上取得佳绩</a></li>
+                        <li><a href="NewsDetail.aspx?id=223"><span>2022�?�?9�?/span>我校学子在第十五届全国大学生信息安全竞赛作品赛上取得佳绩</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=222"><span>2022年8月29日</span>0ops战队在第六届“强网杯”全国网络安全挑战赛上夺冠</a></li>
+                        <li><a href="NewsDetail.aspx?id=222"><span>2022�?�?9�?/span>0ops战队在第六届“强网杯”全国网络安全挑战赛上夺�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=220"><span>2022年6月17日</span>祝贺！我院师生获AISafety-CVPR2022挑战赛第二名</a></li>
+                        <li><a href="NewsDetail.aspx?id=220"><span>2022�?�?7�?/span>祝贺！我院师生获AISafety-CVPR2022挑战赛第二名</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=208"><span>2022年2月24日</span>网安学院谷大武团队成果打破格密码LWE Challenge的世界纪录</a></li>
+                        <li><a href="NewsDetail.aspx?id=208"><span>2022�?�?4�?/span>网安学院谷大武团队成果打破格密码LWE Challenge的世界纪�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=201"><span>2021年12月24日</span>我院获批6项教育部产学合作协同育人项目</a></li>
+                        <li><a href="NewsDetail.aspx?id=201"><span>2021�?2�?4�?/span>我院获批6项教育部产学合作协同育人项目</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=197"><span>2021年12月14日</span>第二届CSIG中国媒体取证与安全大会圆满落幕</a></li>
+                        <li><a href="NewsDetail.aspx?id=197"><span>2021�?2�?4�?/span>第二届CSIG中国媒体取证与安全大会圆满落�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=192"><span>2021年12月9日</span>我院获两项省部级教学成果</a></li>
+                        <li><a href="NewsDetail.aspx?id=192"><span>2021�?2�?�?/span>我院获两项省部级教学成果</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=187"><span>2021年11月26日</span>网络空间安全学院召开“自然基金2022年申报动员会”</a></li>
+                        <li><a href="NewsDetail.aspx?id=187"><span>2021�?1�?6�?/span>网络空间安全学院召开“自然基�?022年申报动员会�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=185"><span>2021年11月16日</span>信息安全与密码研究所邢朝平讲席教授与合作者在列表译码研究中取得重要进展</a></li>
+                        <li><a href="NewsDetail.aspx?id=185"><span>2021�?1�?6�?/span>信息安全与密码研究所邢朝平讲席教授与合作者在列表译码研究中取得重要进�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=183"><span>2021年11月4日</span>信息安全与密码研究所两篇学术论文被亚密会录用</a></li>
+                        <li><a href="NewsDetail.aspx?id=183"><span>2021�?1�?�?/span>信息安全与密码研究所两篇学术论文被亚密会录用</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=179"><span>2021年10月18日</span>人力资源处教师发展与培训中心为我院教师解读人事政策</a></li>
+                        <li><a href="NewsDetail.aspx?id=179"><span>2021�?0�?8�?/span>人力资源处教师发展与培训中心为我院教师解读人事政�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=170"><span>2021年6月17日</span>信息安全与密码研究所三篇学术论文被美密会录用</a></li>
+                        <li><a href="NewsDetail.aspx?id=170"><span>2021�?�?7�?/span>信息安全与密码研究所三篇学术论文被美密会录用</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=166"><span>2021年5月24日</span>“网安新视野”系列讲座4月精彩回顾</a></li>
+                        <li><a href="NewsDetail.aspx?id=166"><span>2021�?�?4�?/span>“网安新视野”系列讲�?月精彩回�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=164"><span>2021年5月20日</span>网安学院羽毛球代表队参加电院教职工第五届羽毛球比赛</a></li>
+                        <li><a href="NewsDetail.aspx?id=164"><span>2021�?�?0�?/span>网安学院羽毛球代表队参加电院教职工第五届羽毛球比�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=156"><span>2021年4月21日</span>网安学院谷大武教授做客央视谈车内安装摄像头引起的隐私泄露风险问题</a></li>
+                        <li><a href="NewsDetail.aspx?id=156"><span>2021�?�?1�?/span>网安学院谷大武教授做客央视谈车内安装摄像头引起的隐私泄露风险问题</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=154"><span>2021年4月10日</span>“网安新视野”讲座邀请新加坡南洋理工大学王华雄教授畅谈后量子密码</a></li>
+                        <li><a href="NewsDetail.aspx?id=154"><span>2021�?�?0�?/span>“网安新视野”讲座邀请新加坡南洋理工大学王华雄教授畅谈后量子密码</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=148"><span>2021年2月24日</span>物联网终端自动化漏洞挖掘新方法 --网安学院最新研究成果被国际顶级安全会议录用</a></li>
+                        <li><a href="NewsDetail.aspx?id=148"><span>2021�?�?4�?/span>物联网终端自动化漏洞挖掘新方�?--网安学院最新研究成果被国际顶级安全会议录用</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=147"><span>2021年1月14日</span>联合课程项目举行年度工作总结</a></li>
+                        <li><a href="NewsDetail.aspx?id=147"><span>2021�?�?4�?/span>联合课程项目举行年度工作总结</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=144"><span>2020年12月5日</span>热烈祝贺谷大武教授当选中国密码学会新一届副理事长</a></li>
+                        <li><a href="NewsDetail.aspx?id=144"><span>2020�?2�?�?/span>热烈祝贺谷大武教授当选中国密码学会新一届副理事�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=140"><span>2020年11月23日</span>VoIS论坛邀请360专家畅谈太空网络安全</a></li>
+                        <li><a href="NewsDetail.aspx?id=140"><span>2020�?1�?3�?/span>VoIS论坛邀�?60专家畅谈太空网络安全</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=137"><span>2020年11月20日</span>华为-上海交通大学网络空间安全创新实验室交流会顺利举行</a></li>
+                        <li><a href="NewsDetail.aspx?id=137"><span>2020�?1�?0�?/span>华为-上海交通大学网络空间安全创新实验室交流会顺利举�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=136"><span>2020年11月18日</span>以“I”之名，“Shi”年再聚 信息安全专业2010届本科毕业生十周年返校活动顺利举行</a></li>
+                        <li><a href="NewsDetail.aspx?id=136"><span>2020�?1�?8�?/span>以“I”之名，“Shi”年再聚 信息安全专业2010届本科毕业生十周年返校活动顺利举�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=135"><span>2020年11月17日</span>喜讯！网络空间安全学院获批五项2020年度国家自然科学基金</a></li>
+                        <li><a href="NewsDetail.aspx?id=135"><span>2020�?1�?7�?/span>喜讯！网络空间安全学院获批五�?020年度国家自然科学基金</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=134"><span>2020年11月16日</span>我院校友薄智元入选2020胡润Under30s创业领袖榜单</a></li>
+                        <li><a href="NewsDetail.aspx?id=134"><span>2020�?1�?6�?/span>我院校友薄智元入�?020胡润Under30s创业领袖榜单</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=128"><span>2020年10月30日</span>网安队伍斩获GeekPwn 2020两项大奖</a></li>
+                        <li><a href="NewsDetail.aspx?id=128"><span>2020�?0�?0�?/span>网安队伍斩获GeekPwn 2020两项大奖</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=126"><span>2020年10月20日</span>2020网络安全校园公开课火爆开讲！</a></li>
+                        <li><a href="NewsDetail.aspx?id=126"><span>2020�?0�?0�?/span>2020网络安全校园公开课火爆开讲！</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=124"><span>2020年10月10日</span>AsiaCrypt 2020和SODA 2020顶会连中三魁<br> ——网安学院信息安全与密码研究所2020年论文大丰收</a></li>
+                        <li><a href="NewsDetail.aspx?id=124"><span>2020�?0�?0�?/span>AsiaCrypt 2020和SODA 2020顶会连中三魁<br> ——网安学院信息安全与密码研究所2020年论文大丰收</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=120"><span>2020年9月27日</span>学院举行全国大学生信息安全竞赛作品赛颁奖仪式</a></li>
+                        <li><a href="NewsDetail.aspx?id=120"><span>2020�?�?7�?/span>学院举行全国大学生信息安全竞赛作品赛颁奖仪式</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=119"><span>2020年9月14日</span>“企业报告+远程指导”线上实习新模式 ——后疫情时期的大学本科专业实习课</a></li>
+                        <li><a href="NewsDetail.aspx?id=119"><span>2020�?�?4�?/span>“企业报�?远程指导”线上实习新模式 ——后疫情时期的大学本科专业实习课</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=118"><span>2020年9月10日</span>我院教师邱卫东、孙锬锋荣获上海交通大学2020年“教书育人奖”</a></li>
+                        <li><a href="NewsDetail.aspx?id=118"><span>2020�?�?0�?/span>我院教师邱卫东、孙锬锋荣获上海交通大�?020年“教书育人奖�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=117"><span>2020年8月19日</span>史上最佳！网安学子再获佳绩</a></li>
+                        <li><a href="NewsDetail.aspx?id=117"><span>2020�?�?9�?/span>史上最佳！网安学子再获佳绩</a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=115"><span>2020年8月11日</span>网安学院承办第五期CSIG讲习班顺利举行</a></li>
+                        <li><a href="NewsDetail.aspx?id=115"><span>2020�?�?1�?/span>网安学院承办第五期CSIG讲习班顺利举�?/a></li>
                         
-                        <li><a href="NewsDetail.aspx?id=105"><span>2020年7月22日</span>网络空间安全学院2020年教学工作会议顺利召开</a></li>
+                        <li><a href="NewsDetail.aspx?id=105"><span>2020�?�?2�?/span>网络空间安全学院2020年教学工作会议顺利召开</a></li>
                         
 				</ul>
 				</div>
@@ -2173,15 +2169,15 @@ Content-Length: 29779
 			    var colee = document.getElementById("colee");
 			    colee2.innerHTML = colee1.innerHTML; //克隆colee1为colee2
 			    function Marquee1() {
-			        //当滚动至colee1与colee2交界时
+			        //当滚动至colee1与colee2交界�?
 			        if (colee2.offsetTop - colee.scrollTop <= 0) {
 			            colee.scrollTop -= colee1.offsetHeight; //colee跳到最顶端
 			        } else {
 			            colee.scrollTop++
 			        }
 			    }
-			    var MyMar1 = setInterval(Marquee1, speed)//设置定时器
-			    //鼠标移上时清除定时器达到滚动停止的目的
+			    var MyMar1 = setInterval(Marquee1, speed)//设置定时�?
+			    //鼠标移上时清除定时器达到滚动停止的目�?
 			    colee.onmouseover = function () { clearInterval(MyMar1) }
 			    //鼠标移开时重设定时器
 			    colee.onmouseout = function () { MyMar1 = setInterval(Marquee1, speed) }
@@ -2191,12 +2187,12 @@ Content-Length: 29779
 	</div>
 	<div class="cb"></div>
 	<div class="w840 fl">
-		<div class="IndexTitle">欢迎来到我们的学院</div>
+		<div class="IndexTitle">欢迎来到我们的学�?/div>
 		<div class="IndexAbout">
 			<img src="image/6.jpg">
 			<div class="w350 fr">
-				<h2>上海交通大学网络空间安全学院是由国家教育部、科技部、上海市人民政府共同发起的国内首家信息安全专业人才培养基地</h2>
-				<p><span style="color:#666666;font-family:sans-serif;">培养包括 本科生、研究生、博士生不同学历层次的高级信息安全专业人才，不仅是科技部和国务院学位办共同建设的首批信息安全专业硕博联读试点单位，而且是国家863 产业化（东部）基地信息安全高级专业人才培养基地。</span></p>
+				<h2>上海交通大学网络空间安全学院是由国家教育部、科技部、上海市人民政府共同发起的国内首家信息安全专业人才培养基�?/h2>
+				<p><span style="color:#666666;font-family:sans-serif;">培养包括 本科生、研究生、博士生不同学历层次的高级信息安全专业人才，不仅是科技部和国务院学位办共同建设的首批信息安全专业硕博联读试点单位，而且是国�?63 产业化（东部）基地信息安全高级专业人才培养基地�?/span></p>
 				<a href="About.aspx">了解更多</a>
 			</div>
 		</div>
@@ -2209,21 +2205,21 @@ Content-Length: 29779
                     
 						<li>
 							<a href="NoticeDetail.aspx?id=282">
-								<span>2023年11月9日</span>
+								<span>2023�?1�?�?/span>
 								<p>【学术讲座】Practical Call Graph Construction for Millions of Lines of C Code</p>
 							</a>
 						</li>
                         
 						<li>
 							<a href="NoticeDetail.aspx?id=267">
-								<span>2023年7月14日</span>
-								<p>网络空间安全学科硕士研究生招生专业目录修订公告</p>
+								<span>2023�?�?4�?/span>
+								<p>网络空间安全学科硕士研究生招生专业目录修订公�?/p>
 							</a>
 						</li>
                         
 						<li>
 							<a href="NoticeDetail.aspx?id=77">
-								<span>2019年10月28日</span>
+								<span>2019�?0�?8�?/span>
 								<p>网络空间安全学院招聘通知（长期有效）</p>
 							</a>
 						</li>
@@ -2241,14 +2237,14 @@ Content-Length: 29779
                 
 					<li>
 						<img src="Management/Upload/[XY_LingDao]a74ee2c05a464955ade86ac540320d15/201948132452937pKI8p.jpg">
-						<h2>何德全</h2>
+						<h2>何德�?/h2>
 						<p>网络空间安全学院名誉院长</p>
 						<div class="cb"></div>
 					</li>
                     
 					<li>
 						<img src="Management/Upload/[XY_LingDao]f4696dafe82e45c79ed74547dd081a5f/2019425133314714JuPX9.jpg">
-						<h2>谷大武</h2>
+						<h2>谷大�?/h2>
 						<p>网络空间安全学院院长</p>
 						<div class="cb"></div>
 					</li>
@@ -2267,7 +2263,7 @@ Content-Length: 29779
 				<li>
 					<a href="Train.aspx?id=7">
 						<img src="Management/Upload/[NewsType]f05b062477944bc698b67e374c2d90f6/201944101554195Adekp.jpg">
-						<h2>本科生培养计划</h2>
+						<h2>本科生培养计�?/h2>
 						<p>培养德、智、体全面发展，综合素质高、能力强、知识结构合理的信息安全专业人才</p>
 					</a>
 				</li>
@@ -2275,7 +2271,7 @@ Content-Length: 29779
 				<li>
 					<a href="Train.aspx?id=6">
 						<img src="Management/Upload/[NewsType]98ce7e5faf7e44788607c6013b98844f/201944101537286iJFBu.jpg">
-						<h2>研究生培养计划</h2>
+						<h2>研究生培养计�?/h2>
 						<p><span style="color:#666666;font-family:sans-serif;">安全服务或能够进一步展开研究的具有高新技术背景的复合型管理技术人才或教学科研人才</span></p>
 					</a>
 				</li>
@@ -2283,7 +2279,7 @@ Content-Length: 29779
 				<li>
 					<a href="Train.aspx?id=5">
 						<img src="Management/Upload/[NewsType]e5136b9ce22b455d9a97908f5c6f96b5/201944101519454Vbg2k.jpg">
-						<h2>博士生培养计划</h2>
+						<h2>博士生培养计�?/h2>
 						<p><span style="color:#666666;font-family:sans-serif;">了解国际、国内信息安全产业的最新成果，掌握信息安全专业的基本理论与方法</span></p>
 					</a>
 				</li>
@@ -2297,7 +2293,7 @@ Content-Length: 29779
 		<div class="IndexBase">
 			<div class="IndexBaseFrame">
                 <!--<h2>基地建设</h2>-->
-				<p>上海交通大学为实验室主体建设单位，上海市发改委、国家教育部为实验室建设及运营管理部门。实验室主体建设于上海市张江高科技园区，科研场地近8000平方米。</p>
+				<p>上海交通大学为实验室主体建设单位，上海市发改委、国家教育部为实验室建设及运营管理部门。实验室主体建设于上海市张江高科技园区，科研场地近8000平方米�?/p>
 				<a href="Base.aspx">了解更多</a>
 			</div>
 		</div>
@@ -2305,15 +2301,15 @@ Content-Length: 29779
 	<div class="cb"></div>
 	
 <div class="Link">
-	<h2>友情链接：</h2>
+	<h2>友情链接�?/h2>
  
                      <a href="http://www.seiee.sjtu.edu.cn/" target="_blank">上海交通大学电子信息与电气工程学院<!--<img src="Management/Upload/[Link]e8a00641c2fb46b7a32c2c3759f7df64/default.jpg">--></a>
                     
-                     <a href="https://www.sjtu.edu.cn/" target="_blank">上海交通大学<!--<img src="Management/Upload/[Link]b207fc4f6a81440c8a7435d956cca9ff/default.jpg">--></a>
+                     <a href="https://www.sjtu.edu.cn/" target="_blank">上海交通大�?!--<img src="Management/Upload/[Link]b207fc4f6a81440c8a7435d956cca9ff/default.jpg">--></a>
                     
 						<div class="cb"></div>
 						</div>
-<div class="Bottom">Copyright © 2017 - 2019 上海交通大学网络空间安全学院 <a href="#">沪ICP备05052060号</a></div>
+<div class="Bottom">Copyright © 2017 - 2019 上海交通大学网络空间安全学�?<a href="#">沪ICP�?5052060�?/a></div>
 </div>
 </form></body>
 </html>
@@ -2406,10 +2402,10 @@ Content-Length: 12194
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="description" content="上海交通大学网络空间安全学院" />
-<meta name="keywords" content="上海交通大学网络空间安全学院" />
+<meta name="description" content="上海交通大学网络空间安全学�? />
+<meta name="keywords" content="上海交通大学网络空间安全学�? />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>相关文档下载-上海交通大学网络空间安全学院</title>
+<title>相关文档下载-上海交通大学网络空间安全学�?/title>
 <link href="css/base.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 <link href="css/font-awesome.min.css" rel="stylesheet"/>
@@ -2444,7 +2440,7 @@ Content-Length: 12194
 				<li class="Ge">|</li>
 				<li><a href="Student.aspx">学生登录</a></li>
 				<li class="Ge">|</li> -->
-				<li><a href="index.aspx">简体中文</a></li>
+				<li><a href="index.aspx">简体中�?/a></li>
 				<li class="Ge">|</li>
 				<li><a href="#">English</a></li>
 			</ul>
@@ -2459,15 +2455,15 @@ Content-Length: 12194
 	<div class="menu-container">
 		<div class="menu">
 			<ul>
-				<li onclick="javascript:location.href='index.aspx';"><a href="index.aspx">首 页</a></li>
+				<li onclick="javascript:location.href='index.aspx';"><a href="index.aspx">�?�?/a></li>
 				<li><a href="About.aspx">学院概况<i class="fa fa-caret-down ml5"></i></a>
 					<ul>
-						<li onclick="javascript:location.href='Welcome.aspx';" style="display:none"><a href="Welcome.aspx">欢迎辞</a></li>
+						<li onclick="javascript:location.href='Welcome.aspx';" style="display:none"><a href="Welcome.aspx">欢迎�?/a></li>
 						<li onclick="javascript:location.href='About.aspx';"><a href="About.aspx">学院介绍</a></li>
 						<li onclick="javascript:location.href='Group.aspx';"><a href="Group.aspx">组织结构</a></li>
 						<li onclick="javascript:location.href='Leader.aspx';"><a href="Leader.aspx">学院领导</a></li>
 						<li onclick="javascript:location.href='Leadership.aspx';"><a href="Leadership.aspx">历任领导</a></li>
-						<li onclick="javascript:location.href='Office.aspx';"><a href="Office.aspx">学院办公室</a></li>
+						<li onclick="javascript:location.href='Office.aspx';"><a href="Office.aspx">学院办公�?/a></li>
 						<li onclick="javascript:location.href='Contact.aspx';"><a href="Contact.aspx">联系我们</a></li>
 					</ul>
 				</li>
@@ -2476,10 +2472,10 @@ Content-Length: 12194
 						<li onclick="javascript:location.href='Directory.aspx';"><a href="Directory.aspx">教师名录</a></li>
 						<li onclick="javascript:location.href='Team.aspx?id=1';"><a href="Team.aspx?id=1">两院院士</a></li>
 						<li onclick="javascript:location.href='Team.aspx?id=6';"><a href="Team.aspx?id=6">会士</a></li>
-						<li onclick="javascript:location.href='Team.aspx?id=2';"><a href="Team.aspx?id=2">长江学者</a></li>
+						<li onclick="javascript:location.href='Team.aspx?id=2';"><a href="Team.aspx?id=2">长江学�?/a></li>
 						<li onclick="javascript:location.href='Team.aspx?id=5';"><a href="Team.aspx?id=5">国家杰青</a></li>
-						<li onclick="javascript:location.href='Team.aspx?id=3';"><a href="Team.aspx?id=3">国家百千万人才工程</a></li>
-						<li onclick="javascript:location.href='Team.aspx?id=4';"><a href="Team.aspx?id=4">国家网络安全奖</a></li> 
+						<li onclick="javascript:location.href='Team.aspx?id=3';"><a href="Team.aspx?id=3">国家百千万人才工�?/a></li>
+						<li onclick="javascript:location.href='Team.aspx?id=4';"><a href="Team.aspx?id=4">国家网络安全�?/a></li> 
 						<li onclick="javascript:location.href='Team.aspx?id=7';"><a href="Other.aspx">其他人才计划</a></li>
 						<!--<li onclick="javascript:location.href='Team.aspx?id=8';"><a href="Team.aspx?id=8">教学名师</a></li>
 						<li onclick="javascript:location.href='Team.aspx?id=9';"><a href="Team.aspx?id=9">优秀论文指导教师</a></li>
@@ -2493,7 +2489,7 @@ Content-Length: 12194
 				<li><a href="Research.aspx">科学研究<i class="fa fa-caret-down ml5"></i></a>
 					<ul>
 						<li onclick="javascript:location.href='Research.aspx';"><a href="Research.aspx">科研方向</a></li>
-						<!--<li onclick="javascript:location.href='ResearchNews.aspx';"><a href="ResearchNews.aspx">科研动态</a></li>-->
+						<!--<li onclick="javascript:location.href='ResearchNews.aspx';"><a href="ResearchNews.aspx">科研动�?/a></li>-->
 						<li onclick="javascript:location.href='Base.aspx';"><a href="Base.aspx">科研基地</a></li>
 						<li onclick="javascript:location.href='Lab.aspx';"><a href="Lab.aspx">科研团队</a></li>
 						<li onclick="javascript:location.href='Global.aspx';" style="display:none"><a href="Global.aspx">科研成果</a></li>
@@ -2506,17 +2502,17 @@ Content-Length: 12194
 						
 						<li onclick="javascript:location.href='Train.aspx?id=14';"><a href="Train.aspx?id=14">三全育人</a></li>
 						
-						<li onclick="javascript:location.href='Train.aspx?id=7';"><a href="Train.aspx?id=7">本科生</a></li>
+						<li onclick="javascript:location.href='Train.aspx?id=7';"><a href="Train.aspx?id=7">本科�?/a></li>
 						
-						<li onclick="javascript:location.href='Train.aspx?id=6';"><a href="Train.aspx?id=6">硕士研究生</a></li>
+						<li onclick="javascript:location.href='Train.aspx?id=6';"><a href="Train.aspx?id=6">硕士研究�?/a></li>
 						
-						<li onclick="javascript:location.href='Train.aspx?id=5';"><a href="Train.aspx?id=5">博士研究生</a></li>
+						<li onclick="javascript:location.href='Train.aspx?id=5';"><a href="Train.aspx?id=5">博士研究�?/a></li>
 						
-						<li onclick="javascript:location.href='Train.aspx?id=4';"><a href="Train.aspx?id=4">工程硕士生</a></li>
+						<li onclick="javascript:location.href='Train.aspx?id=4';"><a href="Train.aspx?id=4">工程硕士�?/a></li>
 						
 						<li onclick="javascript:location.href='Train.aspx?id=3';"><a href="Train.aspx?id=3">国际联合培养项目</a></li>
 						
-						<li onclick="javascript:location.href='Train.aspx?id=15';"><a href="Train.aspx?id=15">教学研究室</a></li>
+						<li onclick="javascript:location.href='Train.aspx?id=15';"><a href="Train.aspx?id=15">教学研究�?/a></li>
 						
 					</ul>
 				</li>
@@ -2526,7 +2522,7 @@ Content-Length: 12194
 						<!--<li onclick="javascript:location.href='Career.aspx';"><a href="Career.aspx">校园招聘</a></li>
 						<li><a href="#">学生创新平台</a></li>
 						<li onclick="javascript:location.href='Download.aspx';"><a href="Download.aspx">相关文档下载</a></li>-->
-						<li onclick="javascript:location.href='Party.aspx';"><a href="Party.aspx">党建动态</a></li>
+						<li onclick="javascript:location.href='Party.aspx';"><a href="Party.aspx">党建动�?/a></li>
 						<li onclick="javascript:location.href='Garden.aspx';"><a href="Garden.aspx">学习园地</a></li>
 					</ul>
 				</li>
@@ -2534,7 +2530,7 @@ Content-Length: 12194
 					<a href="Job.aspx">招聘专栏<i class="fa fa-caret-down ml5"></i></a>
 					<ul>
 						<li onclick="javascript:location.href='Job.aspx';"><a href="Job.aspx">教职招聘</a></li>
-						<li onclick="javascript:location.href='PhDJob.aspx';"><a href="PhDJob.aspx">博士后招聘</a></li>
+						<li onclick="javascript:location.href='PhDJob.aspx';"><a href="PhDJob.aspx">博士后招�?/a></li>
 					</ul>
 				</li>
 				
@@ -2577,31 +2573,31 @@ Content-Length: 12194
 			<div class="NewsList">
 				<ul>
                 
-					<li><a href="TeamDetail.aspx?id=177">谷大武</a></li>
+					<li><a href="TeamDetail.aspx?id=177">谷大�?/a></li>
                     
-					<li><a href="TeamDetail.aspx?id=111">谷大武</a></li>
+					<li><a href="TeamDetail.aspx?id=111">谷大�?/a></li>
                     
-					<li><a href="TeamDetail.aspx?id=102">谷大武</a></li>
+					<li><a href="TeamDetail.aspx?id=102">谷大�?/a></li>
                     
-					<li><a href="TeamDetail.aspx?id=87">谷大武<br />(密码学会优博)</a></li>
+					<li><a href="TeamDetail.aspx?id=87">谷大�?br />(密码学会优博)</a></li>
                     
-					<li><a href="TeamDetail.aspx?id=107">谷大武</a></li>
+					<li><a href="TeamDetail.aspx?id=107">谷大�?/a></li>
                     
-					<li><a href="TeamDetail.aspx?id=101">谷大武</a></li>
+					<li><a href="TeamDetail.aspx?id=101">谷大�?/a></li>
                     
-					<li><a href="TeamDetail.aspx?id=8">谷大武</a></li>
+					<li><a href="TeamDetail.aspx?id=8">谷大�?/a></li>
                     
-					<li><a href="TeamDetail.aspx?id=2">谷大武</a></li>
+					<li><a href="TeamDetail.aspx?id=2">谷大�?/a></li>
                     
-					<li><a href="NewsDetail.aspx?id=226"><span>2022年9月16日</span>我院谷大武教授受邀参加国家网络安全宣传周上海地区高峰论坛</a></li>
+					<li><a href="NewsDetail.aspx?id=226"><span>2022�?�?6�?/span>我院谷大武教授受邀参加国家网络安全宣传周上海地区高峰论�?/a></li>
                     
-					<li><a href="NewsDetail.aspx?id=208"><span>2022年2月24日</span>网安学院谷大武团队成果打破格密码LWE Challenge的世界纪录</a></li>
+					<li><a href="NewsDetail.aspx?id=208"><span>2022�?�?4�?/span>网安学院谷大武团队成果打破格密码LWE Challenge的世界纪�?/a></li>
                     
-					<li><a href="NewsDetail.aspx?id=156"><span>2021年4月21日</span>网安学院谷大武教授做客央视谈车内安装摄像头引起的隐私泄露风险问题</a></li>
+					<li><a href="NewsDetail.aspx?id=156"><span>2021�?�?1�?/span>网安学院谷大武教授做客央视谈车内安装摄像头引起的隐私泄露风险问题</a></li>
                     
-					<li><a href="NewsDetail.aspx?id=144"><span>2020年12月5日</span>热烈祝贺谷大武教授当选中国密码学会新一届副理事长</a></li>
+					<li><a href="NewsDetail.aspx?id=144"><span>2020�?2�?�?/span>热烈祝贺谷大武教授当选中国密码学会新一届副理事�?/a></li>
                     
-					<li><a href="NewsDetail.aspx?id=61"><span>2019年5月17日</span>我院谷大武教授领衔项目荣获2018年上海市科技进步一等奖</a></li>
+					<li><a href="NewsDetail.aspx?id=61"><span>2019�?�?7�?/span>我院谷大武教授领衔项目荣�?018年上海市科技进步一等奖</a></li>
                     
 				</ul>
 			</div>
@@ -2614,7 +2610,7 @@ Content-Length: 12194
 					<a href="Directory.aspx">
 						<i class="fa fa-group fa-3x"></i>
 						<h2>师资队伍</h2>
-						<p>优秀的师资团队，丰富的校园生活，温馨如家的环境，积极的学习氛围</p>
+						<p>优秀的师资团队，丰富的校园生活，温馨如家的环境，积极的学习氛�?/p>
 						<div class="cb"></div>
 					</a>
 				</li>
@@ -2630,7 +2626,7 @@ Content-Length: 12194
 					<a href="Train.aspx?id=7">
 						<i class="fa fa-graduation-cap fa-3x"></i>
 						<h2>人才培养</h2>
-						<p>国家教育部、科技部、上海市人民政府共同发起的国内首家信息安全专业人才培养基地</p>
+						<p>国家教育部、科技部、上海市人民政府共同发起的国内首家信息安全专业人才培养基�?/p>
 						<div class="cb"></div>
 					</a>
 				</li>
@@ -2640,15 +2636,15 @@ Content-Length: 12194
 	<div class="cb"></div>
 	
 <div class="Link">
-	<h2>友情链接：</h2>
+	<h2>友情链接�?/h2>
  
                      <a href="http://www.seiee.sjtu.edu.cn/" target="_blank">上海交通大学电子信息与电气工程学院<!--<img src="Management/Upload/[Link]e8a00641c2fb46b7a32c2c3759f7df64/default.jpg">--></a>
                     
-                     <a href="https://www.sjtu.edu.cn/" target="_blank">上海交通大学<!--<img src="Management/Upload/[Link]b207fc4f6a81440c8a7435d956cca9ff/default.jpg">--></a>
+                     <a href="https://www.sjtu.edu.cn/" target="_blank">上海交通大�?!--<img src="Management/Upload/[Link]b207fc4f6a81440c8a7435d956cca9ff/default.jpg">--></a>
                     
 						<div class="cb"></div>
 						</div>
-<div class="Bottom">Copyright © 2017 - 2019 上海交通大学网络空间安全学院 <a href="#">沪ICP备05052060号</a></div>
+<div class="Bottom">Copyright © 2017 - 2019 上海交通大学网络空间安全学�?<a href="#">沪ICP�?5052060�?/a></div>
 </div>
 </form></body>
 </html>
@@ -2760,10 +2756,10 @@ Content-Length: 15339
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="description" content="上海交通大学网络空间安全学院" />
-<meta name="keywords" content="上海交通大学网络空间安全学院" />
+<meta name="description" content="上海交通大学网络空间安全学�? />
+<meta name="keywords" content="上海交通大学网络空间安全学�? />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>我院谷大武教授受邀参加国家网络安全宣传周上海地区高峰论坛-上海交通大学网络空间安全学院</title>
+<title>我院谷大武教授受邀参加国家网络安全宣传周上海地区高峰论�?上海交通大学网络空间安全学�?/title>
 <link href="css/base.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 <link href="css/font-awesome.min.css" rel="stylesheet"/>
@@ -2799,7 +2795,7 @@ Content-Length: 15339
 				<li class="Ge">|</li>
 				<li><a href="Student.aspx">学生登录</a></li>
 				<li class="Ge">|</li> -->
-				<li><a href="index.aspx">简体中文</a></li>
+				<li><a href="index.aspx">简体中�?/a></li>
 				<li class="Ge">|</li>
 				<li><a href="#">English</a></li>
 			</ul>
@@ -2814,15 +2810,15 @@ Content-Length: 15339
 	<div class="menu-container">
 		<div class="menu">
 			<ul>
-				<li onclick="javascript:location.href='index.aspx';"><a href="index.aspx">首 页</a></li>
+				<li onclick="javascript:location.href='index.aspx';"><a href="index.aspx">�?�?/a></li>
 				<li><a href="About.aspx">学院概况<i class="fa fa-caret-down ml5"></i></a>
 					<ul>
-						<li onclick="javascript:location.href='Welcome.aspx';" style="display:none"><a href="Welcome.aspx">欢迎辞</a></li>
+						<li onclick="javascript:location.href='Welcome.aspx';" style="display:none"><a href="Welcome.aspx">欢迎�?/a></li>
 						<li onclick="javascript:location.href='About.aspx';"><a href="About.aspx">学院介绍</a></li>
 						<li onclick="javascript:location.href='Group.aspx';"><a href="Group.aspx">组织结构</a></li>
 						<li onclick="javascript:location.href='Leader.aspx';"><a href="Leader.aspx">学院领导</a></li>
 						<li onclick="javascript:location.href='Leadership.aspx';"><a href="Leadership.aspx">历任领导</a></li>
-						<li onclick="javascript:location.href='Office.aspx';"><a href="Office.aspx">学院办公室</a></li>
+						<li onclick="javascript:location.href='Office.aspx';"><a href="Office.aspx">学院办公�?/a></li>
 						<li onclick="javascript:location.href='Contact.aspx';"><a href="Contact.aspx">联系我们</a></li>
 					</ul>
 				</li>
@@ -2831,10 +2827,10 @@ Content-Length: 15339
 						<li onclick="javascript:location.href='Directory.aspx';"><a href="Directory.aspx">教师名录</a></li>
 						<li onclick="javascript:location.href='Team.aspx?id=1';"><a href="Team.aspx?id=1">两院院士</a></li>
 						<li onclick="javascript:location.href='Team.aspx?id=6';"><a href="Team.aspx?id=6">会士</a></li>
-						<li onclick="javascript:location.href='Team.aspx?id=2';"><a href="Team.aspx?id=2">长江学者</a></li>
+						<li onclick="javascript:location.href='Team.aspx?id=2';"><a href="Team.aspx?id=2">长江学�?/a></li>
 						<li onclick="javascript:location.href='Team.aspx?id=5';"><a href="Team.aspx?id=5">国家杰青</a></li>
-						<li onclick="javascript:location.href='Team.aspx?id=3';"><a href="Team.aspx?id=3">国家百千万人才工程</a></li>
-						<li onclick="javascript:location.href='Team.aspx?id=4';"><a href="Team.aspx?id=4">国家网络安全奖</a></li> 
+						<li onclick="javascript:location.href='Team.aspx?id=3';"><a href="Team.aspx?id=3">国家百千万人才工�?/a></li>
+						<li onclick="javascript:location.href='Team.aspx?id=4';"><a href="Team.aspx?id=4">国家网络安全�?/a></li> 
 						<li onclick="javascript:location.href='Team.aspx?id=7';"><a href="Other.aspx">其他人才计划</a></li>
 						<!--<li onclick="javascript:location.href='Team.aspx?id=8';"><a href="Team.aspx?id=8">教学名师</a></li>
 						<li onclick="javascript:location.href='Team.aspx?id=9';"><a href="Team.aspx?id=9">优秀论文指导教师</a></li>
@@ -2848,7 +2844,7 @@ Content-Length: 15339
 				<li><a href="Research.aspx">科学研究<i class="fa fa-caret-down ml5"></i></a>
 					<ul>
 						<li onclick="javascript:location.href='Research.aspx';"><a href="Research.aspx">科研方向</a></li>
-						<!--<li onclick="javascript:location.href='ResearchNews.aspx';"><a href="ResearchNews.aspx">科研动态</a></li>-->
+						<!--<li onclick="javascript:location.href='ResearchNews.aspx';"><a href="ResearchNews.aspx">科研动�?/a></li>-->
 						<li onclick="javascript:location.href='Base.aspx';"><a href="Base.aspx">科研基地</a></li>
 						<li onclick="javascript:location.href='Lab.aspx';"><a href="Lab.aspx">科研团队</a></li>
 						<li onclick="javascript:location.href='Global.aspx';" style="display:none"><a href="Global.aspx">科研成果</a></li>
@@ -2861,17 +2857,17 @@ Content-Length: 15339
 						
 						<li onclick="javascript:location.href='Train.aspx?id=14';"><a href="Train.aspx?id=14">三全育人</a></li>
 						
-						<li onclick="javascript:location.href='Train.aspx?id=7';"><a href="Train.aspx?id=7">本科生</a></li>
+						<li onclick="javascript:location.href='Train.aspx?id=7';"><a href="Train.aspx?id=7">本科�?/a></li>
 						
-						<li onclick="javascript:location.href='Train.aspx?id=6';"><a href="Train.aspx?id=6">硕士研究生</a></li>
+						<li onclick="javascript:location.href='Train.aspx?id=6';"><a href="Train.aspx?id=6">硕士研究�?/a></li>
 						
-						<li onclick="javascript:location.href='Train.aspx?id=5';"><a href="Train.aspx?id=5">博士研究生</a></li>
+						<li onclick="javascript:location.href='Train.aspx?id=5';"><a href="Train.aspx?id=5">博士研究�?/a></li>
 						
-						<li onclick="javascript:location.href='Train.aspx?id=4';"><a href="Train.aspx?id=4">工程硕士生</a></li>
+						<li onclick="javascript:location.href='Train.aspx?id=4';"><a href="Train.aspx?id=4">工程硕士�?/a></li>
 						
 						<li onclick="javascript:location.href='Train.aspx?id=3';"><a href="Train.aspx?id=3">国际联合培养项目</a></li>
 						
-						<li onclick="javascript:location.href='Train.aspx?id=15';"><a href="Train.aspx?id=15">教学研究室</a></li>
+						<li onclick="javascript:location.href='Train.aspx?id=15';"><a href="Train.aspx?id=15">教学研究�?/a></li>
 						
 					</ul>
 				</li>
@@ -2881,7 +2877,7 @@ Content-Length: 15339
 						<!--<li onclick="javascript:location.href='Career.aspx';"><a href="Career.aspx">校园招聘</a></li>
 						<li><a href="#">学生创新平台</a></li>
 						<li onclick="javascript:location.href='Download.aspx';"><a href="Download.aspx">相关文档下载</a></li>-->
-						<li onclick="javascript:location.href='Party.aspx';"><a href="Party.aspx">党建动态</a></li>
+						<li onclick="javascript:location.href='Party.aspx';"><a href="Party.aspx">党建动�?/a></li>
 						<li onclick="javascript:location.href='Garden.aspx';"><a href="Garden.aspx">学习园地</a></li>
 					</ul>
 				</li>
@@ -2889,7 +2885,7 @@ Content-Length: 15339
 					<a href="Job.aspx">招聘专栏<i class="fa fa-caret-down ml5"></i></a>
 					<ul>
 						<li onclick="javascript:location.href='Job.aspx';"><a href="Job.aspx">教职招聘</a></li>
-						<li onclick="javascript:location.href='PhDJob.aspx';"><a href="PhDJob.aspx">博士后招聘</a></li>
+						<li onclick="javascript:location.href='PhDJob.aspx';"><a href="PhDJob.aspx">博士后招�?/a></li>
 					</ul>
 				</li>
 				
@@ -2933,13 +2929,13 @@ Content-Length: 15339
 					<li><a href="#">&raquo;</a></li>
 					<li><a href="News.aspx">学院新闻</a></li>
 					<li><a href="#">&raquo;</a></li>
-					<li><a href="#" class="Current">我院谷大武教授受邀参加国家网络安全宣传周上海地区高峰论坛</a></li>
+					<li><a href="#" class="Current">我院谷大武教授受邀参加国家网络安全宣传周上海地区高峰论�?/a></li>
 				</ul>
 				<div class="cb"></div>
 			</div>
 			<div class="NewsDetail">
-				<h2>我院谷大武教授受邀参加国家网络安全宣传周上海地区高峰论坛</h2>
-				<h3>时间：2022年9月16日 | 来源： | 作者：李琳杰</h3>
+				<h2>我院谷大武教授受邀参加国家网络安全宣传周上海地区高峰论�?/h2>
+				<h3>时间�?022�?�?6�?| 来源�?| 作者：李琳�?/h3>
 			</div>
 			<div class="NDetail">
 				<div class="NewsBanner">
@@ -2972,20 +2968,20 @@ Content-Length: 15339
 				</script>
 				</div>
 				<p>
-	<span>&nbsp; &nbsp; &nbsp;&nbsp;</span>9月5日下午，2022年国家网络安全宣传周上海地区活动开幕式后，以“网络安全守护数字化转型”为主题的宣传周高峰论坛主论坛在静安区大宁公园会议中心举行。市委网信办总工程师杨海军，市经信委副主任张英，市公安局副局长蔡田，市密码管理局局长郭庆军，静安区委常委、副区长梅广清等出席论坛。我院谷大武教授受邀在高峰论坛主论坛作主题报告。
+	<span>&nbsp; &nbsp; &nbsp;&nbsp;</span>9�?日下午，2022年国家网络安全宣传周上海地区活动开幕式后，以“网络安全守护数字化转型”为主题的宣传周高峰论坛主论坛在静安区大宁公园会议中心举行。市委网信办总工程师杨海军，市经信委副主任张英，市公安局副局长蔡田，市密码管理局局长郭庆军，静安区委常委、副区长梅广清等出席论坛。我院谷大武教授受邀在高峰论坛主论坛作主题报告�?
 </p>
 <p>
 	<img src="/Management/Common/KindEditor/attached/image/20220920/20220920104928_7566_admin.jpg" alt="" />
 </p>
 <p>
-	<span>&nbsp; &nbsp; &nbsp;&nbsp;</span>谷大武教授的主题报告题目为《大数据安全与隐私保护：理解与思考》，报告分三个部分依次介绍了大数据安全与隐私保护概述，大数据若干安全问题与对策，以及团队在区块链、隐私保护、高效动态可搜索加密等方向已取得的研究成果。谷教授表示大数据安全与隐私保护是保障性生产力，是守护数字化转型的稳定器；指出相关基础技术尚未彻底解决，技术和应用标准规范有待完善，并建议加强专业建设和人才培养力度。&nbsp;<br />
+	<span>&nbsp; &nbsp; &nbsp;&nbsp;</span>谷大武教授的主题报告题目为《大数据安全与隐私保护：理解与思考》，报告分三个部分依次介绍了大数据安全与隐私保护概述，大数据若干安全问题与对策，以及团队在区块链、隐私保护、高效动态可搜索加密等方向已取得的研究成果。谷教授表示大数据安全与隐私保护是保障性生产力，是守护数字化转型的稳定器；指出相关基础技术尚未彻底解决，技术和应用标准规范有待完善，并建议加强专业建设和人才培养力度�?nbsp;<br />
 国家网络安全宣传周简介：<br />
-<span>&nbsp; &nbsp; &nbsp;&nbsp;</span>2022年国家网络安全宣传周的主题为“网络安全为人民，网络安全靠人民”。于2022年9月5日至11日举行，由中央宣传部、中央网信办、教育部、工业和信息化部、公安部等十部门联合在全国范围内统一举办，旨在提升全民安全意识、防护技能，提升网络安全水平，促进产业发展。<br />
+<span>&nbsp; &nbsp; &nbsp;&nbsp;</span>2022年国家网络安全宣传周的主题为“网络安全为人民，网络安全靠人民”。于2022�?�?日至11日举行，由中央宣传部、中央网信办、教育部、工业和信息化部、公安部等十部门联合在全国范围内统一举办，旨在提升全民安全意识、防护技能，提升网络安全水平，促进产业发展�?br />
 <img src="/Management/Common/KindEditor/attached/image/20220920/20220920105000_8637_admin.jpg" alt="" />
 </p>
 <p>
 	谷大武教授简介：<br />
-<span>&nbsp; &nbsp; &nbsp;&nbsp;</span>谷大武，上海交通大学计算机系和网络空间安全学院教授，教育部长江学者。主要研究密码学与系统安全、数据安全与隐私保护，率领团队在后量子与轻量级密码、侧信道密码工程、数据隐私计算与区块链、代码安全防护等方面解决了一系列理论和技术问题，在国际公认的4大安全会议（ACM CCS， IEEE S&amp;P，USENIX Security, NDSS)和3大密码会议(美密，欧密，亚密)都发表过有影响力的学术论文，部分成果在国家重要领域和行业部门形成落地应用，支撑了现实产品和系统的安全密码问题发现与测试。先后获国家科技进步奖1项，省部级科学技术奖5项，还获得了中国密码学会密码创新一等奖、国家网络安全优秀人才奖、上海市十大科技精英奖等，牵头创建了国家商用密码上海检测机构。现任中国密码学会副理事长，国务院学科评议组成员。<br />
+<span>&nbsp; &nbsp; &nbsp;&nbsp;</span>谷大武，上海交通大学计算机系和网络空间安全学院教授，教育部长江学者。主要研究密码学与系统安全、数据安全与隐私保护，率领团队在后量子与轻量级密码、侧信道密码工程、数据隐私计算与区块链、代码安全防护等方面解决了一系列理论和技术问题，在国际公认的4大安全会议（ACM CCS�?IEEE S&amp;P，USENIX Security, NDSS)�?大密码会�?美密，欧密，亚密)都发表过有影响力的学术论文，部分成果在国家重要领域和行业部门形成落地应用，支撑了现实产品和系统的安全密码问题发现与测试。先后获国家科技进步�?项，省部级科学技术奖5项，还获得了中国密码学会密码创新一等奖、国家网络安全优秀人才奖、上海市十大科技精英奖等，牵头创建了国家商用密码上海检测机构。现任中国密码学会副理事长，国务院学科评议组成员�?br />
 	<div>
 		<br />
 	</div>
@@ -2993,7 +2989,7 @@ Content-Length: 15339
 			</div>
 			<div class="Choose">
              
-								<p><a href="NewsDetail.aspx?id=228" class="CLeft">我院师生获2022字节安全AI挑战赛第一名</a></p>
+								<p><a href="NewsDetail.aspx?id=228" class="CLeft">我院师生�?022字节安全AI挑战赛第一�?/a></p>
 
 								
 								<p><a href="NewsDetail.aspx?id=223" class="CRight">我校学子在第十五届全国大学生信息安全竞赛作品赛上取得佳绩</a></p>
@@ -3009,7 +3005,7 @@ Content-Length: 15339
 					<a href="Directory.aspx">
 						<i class="fa fa-group fa-3x"></i>
 						<h2>师资队伍</h2>
-						<p>优秀的师资团队，丰富的校园生活，温馨如家的环境，积极的学习氛围</p>
+						<p>优秀的师资团队，丰富的校园生活，温馨如家的环境，积极的学习氛�?/p>
 						<div class="cb"></div>
 					</a>
 				</li>
@@ -3025,7 +3021,7 @@ Content-Length: 15339
 					<a href="Train.aspx?id=7">
 						<i class="fa fa-graduation-cap fa-3x"></i>
 						<h2>人才培养</h2>
-						<p>国家教育部、科技部、上海市人民政府共同发起的国内首家信息安全专业人才培养基地</p>
+						<p>国家教育部、科技部、上海市人民政府共同发起的国内首家信息安全专业人才培养基�?/p>
 						<div class="cb"></div>
 					</a>
 				</li>
@@ -3035,15 +3031,15 @@ Content-Length: 15339
 	<div class="cb"></div>
 	
 <div class="Link">
-	<h2>友情链接：</h2>
+	<h2>友情链接�?/h2>
  
                      <a href="http://www.seiee.sjtu.edu.cn/" target="_blank">上海交通大学电子信息与电气工程学院<!--<img src="Management/Upload/[Link]e8a00641c2fb46b7a32c2c3759f7df64/default.jpg">--></a>
                     
-                     <a href="https://www.sjtu.edu.cn/" target="_blank">上海交通大学<!--<img src="Management/Upload/[Link]b207fc4f6a81440c8a7435d956cca9ff/default.jpg">--></a>
+                     <a href="https://www.sjtu.edu.cn/" target="_blank">上海交通大�?!--<img src="Management/Upload/[Link]b207fc4f6a81440c8a7435d956cca9ff/default.jpg">--></a>
                     
 						<div class="cb"></div>
 						</div>
-<div class="Bottom">Copyright © 2017 - 2019 上海交通大学网络空间安全学院 <a href="#">沪ICP备05052060号</a></div>
+<div class="Bottom">Copyright © 2017 - 2019 上海交通大学网络空间安全学�?<a href="#">沪ICP�?5052060�?/a></div>
 </div>
 </form></body>
 </html>
