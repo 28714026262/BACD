@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-24 10:12:07
-LastEditTime: 2023-12-22 09:25:30
+LastEditTime: 2023-12-22 16:37:25
 LastEditors: Suez_kip
 Description: 
 '''
@@ -312,6 +312,7 @@ class FlowRoleGroup:
     def __init__(self) -> None:
         self.flowset = FlowSet()
         self.role_name = ""
+        self.role_code = -1
 
 class FlowAnalysis:
     def __init__(self) -> None:
@@ -328,6 +329,7 @@ class Global_Flow_Node_Analyser:
         self.HRA = HTMLRequestAnalyzer()
         self.HRA_Init_Flag = False
         self.G_FLOW_LOADED_FLAG = False
+        self.Role_name_code_map = {}
 
     # Request类目前适配Playwright的，需要修改；
     # def getDataFromTrafficwithRequests(self, response: requests.Response):
