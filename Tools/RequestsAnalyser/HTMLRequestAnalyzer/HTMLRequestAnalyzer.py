@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-30 19:03:32
-LastEditTime: 2023-12-12 11:13:54
+LastEditTime: 2023-12-21 17:28:27
 LastEditors: Suez_kip
 Description: 
 '''
@@ -117,6 +117,8 @@ class HTMLRequestAnalyzer:
 
     def getHTMLRequestLines(self, lines):
         tempListPoint = {"name": None, "value": None}
+        post_body_flag = False
+        first_post_line_flag = True
         for index in range(0, len(lines)):
             line = lines[index]
             if index == 0:
@@ -128,11 +130,15 @@ class HTMLRequestAnalyzer:
                     self.private_request.method_flag = 0
                 elif self.private_request.method == "POST":
                     self.private_request.method_flag = 1
-            elif index == len(lines) - 1:
+            elif (index == len(lines) - 1) or post_body_flag:
                 if self.private_request.method_flag == 0:
                     pass
                 elif self.private_request.method_flag == 1:
-                    self.private_request.post_data = line
+                    if first_post_line_flag:
+                        self.private_request.post_data = line
+                        first_post_line_flag = False
+                    else:
+                        self.private_request.post_data += line
             else:
                 if any(c.isalpha() for c in line) or any(c.isdigit() for c in line):
                     temp_list = self.lineToDictPair(line.strip())
@@ -143,6 +149,7 @@ class HTMLRequestAnalyzer:
                     tempListPoint = {"name": None, "value": None}
                     self.private_request.headers_list.append(new_list_node)
                 else:
+                    post_body_flag = True
                     continue
 
     def lineToDictPair(self, str_line):

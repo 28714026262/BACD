@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-24 10:12:07
-LastEditTime: 2023-12-21 13:17:38
+LastEditTime: 2023-12-22 09:25:30
 LastEditors: Suez_kip
 Description: 
 '''
@@ -18,6 +18,7 @@ from Tools.logger import get_logger
 from urllib.parse import urlparse
 from Tools.RequestsAnalyser.HTMLRequestAnalyzer.HTMLRequestAnalyzer import *
 from Tools.DynamicDecoding import *
+from Tools.DynamicPageResourceGetter import get_dynamic_page_content
 
 logger = get_logger(name = os.path.basename(__file__))
 global encoding
@@ -288,10 +289,7 @@ class Flow:
         for flow_node in self.flow_list:
             flow_node.show()
 
-    def save_to_sqlite(self):        
-        pass
-
-    def page_analyzer(self):
+    def save_to_neo4j(self):        
         pass
 
 class FlowSet:
