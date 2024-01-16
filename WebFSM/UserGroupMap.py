@@ -8,3 +8,7 @@ Description:
 class UserGroupMap:
     def __init__(self) -> None:
         pass
+
+    def newWebFSMMerge(self, new_web_fsm):
+
+        pass
