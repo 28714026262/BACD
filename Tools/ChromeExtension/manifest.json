@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "HelloWorldExtension",
+    "version": "1.0",
+    "description": "This is a sample extension for HelloWorld",
+    "icons": {
+        "16": "img/rocket-fill.png",
+        "48": "img/rocket-fill.png",
+        "128": "img/rocket-fill.png"
+    },
+    "action":{
+        "default_icon": "img/rocket-fill.png",
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "tabs",
+        "storage",
+        "activeTab",
+        "scripting"
+    ],
+    "background":{
+        "service_worker": "js/background.js",
+        "type": "module"
+    },
+    "options_page": "options.html"
+}

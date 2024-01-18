@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-24 10:12:07
-LastEditTime: 2023-12-22 16:37:25
+LastEditTime: 2024-01-18 15:31:18
 LastEditors: Suez_kip
 Description: 
 '''
@@ -13,6 +13,7 @@ import json
 import urllib
 import copy
 import codecs
+import datetime
 
 from Tools.logger import get_logger
 from urllib.parse import urlparse
@@ -23,9 +24,12 @@ from Tools.DynamicPageResourceGetter import get_dynamic_page_content
 logger = get_logger(name = os.path.basename(__file__))
 global encoding
 encoding = "utf-8"
+default_date = datetime.date.today()
 
 class FlowNode:
     def __init__(self) -> None:
+        self.time = ""
+
         self.method = ""
         self.url = ""
         self.origin_url = ""
@@ -43,6 +47,8 @@ class FlowNode:
         self.param_body = ""
 
     def clear(self):
+        self.time = ""
+
         self.method = ""
         self.url = ""
         self.origin_url = ""
@@ -156,6 +162,7 @@ class FlowNode:
         return cookies_dict
 
     def deep_copy(self, node):
+        self.time = copy.deepcopy(node.time)
         self.method = copy.deepcopy(node.method)
         self.url = node.url
         self.origin_url = node.origin_url
@@ -197,6 +204,17 @@ class FlowNode:
 
     def get_whole_dynamic_page(self):
         pass
+
+    def time2TimeStamp(self):
+        pass
+
+    def date_string_to_milliseconds(self, date_string: str):
+        if date_string == "":
+            date_string = self.time
+        date_string = default_date + " " + date_string
+        dt = datetime.datetime.strptime(date_string, "%Y-%m-%d %H:%M:%S")
+        milliseconds = int(dt.timestamp()*1000 + 499)
+        return milliseconds
 
 class Flow:
     def __init__(self) -> None:
@@ -290,6 +308,20 @@ class Flow:
             flow_node.show()
 
     def save_to_neo4j(self):        
+        pass
+
+class FlowWithGap:
+    def __init__(self) -> None:
+        self.flow_list = []
+        self.gap_list = []
+        self.flow_list_with_gap = []
+        self.domain_url = ""
+        self.url_list = []
+
+    def getChromeExtensionLogGap(self):
+        pass
+
+    def Flow_Gap_Aligner(self):
         pass
 
 class FlowSet:
@@ -388,7 +420,9 @@ class Global_Flow_Node_Analyser:
             if tempRequest.post_data:
                 logger.debug(tempRequest.post_data)
             if self.g_flow_container.is_useful_url(url):
+                time = self.g_flow_node_container.time
                 self.g_flow_node_container.clear()
+                self.g_flow_node_container.time = time
                 self.flow_node_stop_flag = True
                 self.g_flow_node_container.method = tempRequest.method
                 self.g_flow_node_container.url = tempRequest.url
@@ -448,6 +482,11 @@ class Global_Flow_Node_Analyser:
                     count = (count + 1) % 4
                     if count == 3:
                         request_data_in_flag = False
+                if count == 1:
+                    first_space_index = line.find(' ')
+                    result = line[:first_space_index]
+                    self.g_flow_node_container.time = result
+                    logger.debug("HTTP Request Time: " + result)
                 if count == 2:
                     # request attach
                     if request_data_in_flag:
