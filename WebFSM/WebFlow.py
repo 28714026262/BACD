@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-24 10:12:07
-LastEditTime: 2024-01-18 15:31:18
+LastEditTime: 2024-01-19 16:49:26
 LastEditors: Suez_kip
 Description: 
 '''
@@ -15,6 +15,7 @@ import copy
 import codecs
 import datetime
 
+import Tools.ChromeExtension.ChromeExtensionLogLoader
 from Tools.logger import get_logger
 from urllib.parse import urlparse
 from Tools.RequestsAnalyser.HTMLRequestAnalyzer.HTMLRequestAnalyzer import *
@@ -24,7 +25,7 @@ from Tools.DynamicPageResourceGetter import get_dynamic_page_content
 logger = get_logger(name = os.path.basename(__file__))
 global encoding
 encoding = "utf-8"
-default_date = datetime.date.today()
+default_date = "2024-01-19"
 
 class FlowNode:
     def __init__(self) -> None:
@@ -205,22 +206,52 @@ class FlowNode:
     def get_whole_dynamic_page(self):
         pass
 
-    def time2TimeStamp(self):
-        pass
-
-    def date_string_to_milliseconds(self, date_string: str):
-        if date_string == "":
-            date_string = self.time
-        date_string = default_date + " " + date_string
-        dt = datetime.datetime.strptime(date_string, "%Y-%m-%d %H:%M:%S")
-        milliseconds = int(dt.timestamp()*1000 + 499)
+    def date_string_to_milliseconds(self, time_str: str = "", date_str: str = ""):
+        if time_str == "":
+            time_str = self.time
+        if date_str == "":
+            date_str = default_date
+        whole_time_string = date_str + " " + time_str
+        dt = datetime.datetime.strptime(whole_time_string, "%Y-%m-%d %H:%M:%S")
+        milliseconds = int(dt.timestamp()*1000 + 999)
         return milliseconds
+
 
 class Flow:
     def __init__(self) -> None:
         self.flow_list = []
         self.domain_url = ""
         self.url_list = []
+
+        self.gap_list = []
+        self.flow_list_with_gap = {}
+        self.flow_time_list = []
+        self.gap_time_list = []
+
+    def getChromeExtensionLogGap(self, fp):
+        self.gap_list = Tools.ChromeExtension.ChromeExtensionLogLoader.ChromeExtensionLoader(file_path = fp)
+        # for gap_iterator in range(0, len(self.gap_list) - 1):
+        #     if self.gap_list[gap_iterator].changed_URL == "" and self.gap_list[gap_iterator].activated_URL == "":
+        #         self.gap_list.pop(gap_iterator)
+
+    def Flow_Gap_Aligner(self, date_str):
+        self.get_time_list()
+        outside_count = -1
+        inside_count = -1
+        result_map = {}
+        for gap in self.gap_list:
+            outside_count = outside_count + 1
+            latest_req_FLAG = True
+            for req in self.flow_list[inside_count + 1:]:
+                inside_count = inside_count + 1
+                if req.date_string_to_milliseconds() > int(gap.time) and latest_req_FLAG:
+                    result_map[str(outside_count)] = [req]
+                    latest_req_FLAG = False
+                    if outside_count > 1:
+                        result_map[str(outside_count - 1)].append(inside_count - 1)
+                    break
+        self.flow_list_with_gap = result_map
+                    
         # if CONFIG_DICT["SELF_GET_HTML_FLAG"]:
         #     self.domain_url = ""
         # else:
@@ -307,22 +338,11 @@ class Flow:
         for flow_node in self.flow_list:
             flow_node.show()
 
-    def save_to_neo4j(self):        
-        pass
-
-class FlowWithGap:
-    def __init__(self) -> None:
-        self.flow_list = []
-        self.gap_list = []
-        self.flow_list_with_gap = []
-        self.domain_url = ""
-        self.url_list = []
-
-    def getChromeExtensionLogGap(self):
-        pass
-
-    def Flow_Gap_Aligner(self):
-        pass
+    def get_time_list(self):
+        for req in self.flow_list:
+            self.flow_time_list.append(req.date_string_to_milliseconds())
+        for gap in self.gap_list:
+            self.gap_time_list.append(int(gap.time))
 
 class FlowSet:
     def __init__(self) -> None:
@@ -567,7 +587,13 @@ class Global_Flow_Node_Analyser:
     def url_filter(self, str):
         pass
 
+    def GapAlign(self, fp, date_str):
+        self.g_flow_container.getChromeExtensionLogGap(fp)
+        self.g_flow_container.Flow_Gap_Aligner(date_str)
+
 if __name__ == "__main__":
     GFNA = Global_Flow_Node_Analyser()
-    GFNA.BurpResultSuiterToFlow(r"D:\Suez_kip\研究生毕设\Code\Test\Source\Flow.txt")
+    GFNA.BurpResultSuiterToFlow(r"D:\Suez_kip\研究生毕设\Data\29.20.130.39___jiangsuer1qaz#EDC\new\record.txt")
+    date_str = "2024-01-18"
+    GFNA.GapAlign(r"D:\Suez_kip\研究生毕设\Data\29.20.130.39___jiangsuer1qaz#EDC\new\console-1705650121486.log", date_str)
     a = 1

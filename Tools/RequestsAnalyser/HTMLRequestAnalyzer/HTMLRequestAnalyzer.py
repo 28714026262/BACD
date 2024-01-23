@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-30 19:03:32
-LastEditTime: 2023-12-21 17:28:27
+LastEditTime: 2024-01-19 14:00:29
 LastEditors: Suez_kip
 Description: 
 '''
@@ -92,8 +92,14 @@ class HTMLRequestAnalyzer:
         for index in range(0, len(lines)):
             line = lines[index].strip()
             if index == 0:
-                requestType_and_URL_and_protocol = line.split(" ", 2)
-                self.private_request.response.status_str = requestType_and_URL_and_protocol[2]
+                requestType_and_URL_and_protocol = line.split(" ")
+                if len(requestType_and_URL_and_protocol) > 3:
+                    for str in requestType_and_URL_and_protocol[2:]:
+                        self.private_request.response.status_str = self.private_request.response.status_str + str + " "
+                    self.private_request.response.status_str = self.private_request.response.status_str[:len(self.private_request.response.status_str) - 1]
+                if len(requestType_and_URL_and_protocol) == 3:
+                    self.private_request.response.status_str = requestType_and_URL_and_protocol[2]
+
                 self.private_request.response.status = requestType_and_URL_and_protocol[1]
                 self.private_request.response.protocol = requestType_and_URL_and_protocol[0].upper()
             elif content_start_flag and content_flag:
@@ -144,7 +150,10 @@ class HTMLRequestAnalyzer:
                     temp_list = self.lineToDictPair(line.strip())
                     logger.debug(temp_list)
                     tempListPoint["name"] = temp_list[0]
-                    tempListPoint["value"] = temp_list[1]
+                    if len(temp_list) == 1:
+                        tempListPoint["value"] = ""
+                    else:
+                        tempListPoint["value"] = temp_list[1]
                     new_list_node = copy.deepcopy(tempListPoint)
                     tempListPoint = {"name": None, "value": None}
                     self.private_request.headers_list.append(new_list_node)
