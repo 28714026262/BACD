@@ -59,7 +59,6 @@ def ChromeExtensionLoader(file_path = example_file_path):
                 kv_pair[1] = kv_pair[1][1:len(kv_pair[1])-1]
                 temp_gap_map[kv_pair[0]] = kv_pair[1]
 
-    print(HTTP_request_Gap_List)
     return HTTP_request_Gap_List
 
 ChromeExtensionLoader()

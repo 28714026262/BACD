@@ -1,7 +1,7 @@
 import sys
 import os
 import copy
-
+from WebFlow import GFNA, Global_Flow_Node_Analyser
 
 class RequestWithResponse:
     def __init__(self) -> None:
@@ -84,3 +84,7 @@ class FSM:
         self.NodeSet = {}
         self.Action = {}
         self.Connection = {}
+
+    def LoadWebFlow(self, localGFNA: Global_Flow_Node_Analyser):
+        Main_Data_Set = localGFNA.g_flow_set_container
+        

@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-24 10:12:07
-LastEditTime: 2024-01-19 16:49:26
+LastEditTime: 2024-01-23 16:38:18
 LastEditors: Suez_kip
 Description: 
 '''
@@ -21,11 +21,28 @@ from urllib.parse import urlparse
 from Tools.RequestsAnalyser.HTMLRequestAnalyzer.HTMLRequestAnalyzer import *
 from Tools.DynamicDecoding import *
 from Tools.DynamicPageResourceGetter import get_dynamic_page_content
+from Tools.configloader import *
 
 logger = get_logger(name = os.path.basename(__file__))
 global encoding
 encoding = "utf-8"
-default_date = "2024-01-19"
+default_date = "2024-01-23"
+
+# TODO
+class WebFilter:
+    def __init__(self) -> None:
+        pass
+
+    def URLFilter(self):
+        pass
+
+    def staticResourceFilter(self):
+        pass
+
+    def sameURLFilter(self):
+        pass
+
+    def domain(self):>
 
 class FlowNode:
     def __init__(self) -> None:
@@ -216,7 +233,6 @@ class FlowNode:
         milliseconds = int(dt.timestamp()*1000 + 999)
         return milliseconds
 
-
 class Flow:
     def __init__(self) -> None:
         self.flow_list = []
@@ -234,23 +250,34 @@ class Flow:
         #     if self.gap_list[gap_iterator].changed_URL == "" and self.gap_list[gap_iterator].activated_URL == "":
         #         self.gap_list.pop(gap_iterator)
 
-    def Flow_Gap_Aligner(self, date_str):
+    def Flow_Gap_Aligner(self, date_str=""):
         self.get_time_list()
         outside_count = -1
         inside_count = -1
         result_map = {}
         for gap in self.gap_list:
             outside_count = outside_count + 1
-            latest_req_FLAG = True
             for req in self.flow_list[inside_count + 1:]:
                 inside_count = inside_count + 1
-                if req.date_string_to_milliseconds() > int(gap.time) and latest_req_FLAG:
-                    result_map[str(outside_count)] = [req]
-                    latest_req_FLAG = False
-                    if outside_count > 1:
+
+                logger.debug("REQUEST URL IS: " + req.header["Host"] + req.url)
+
+                temp_req_time = req.date_string_to_milliseconds(date_str=date_str)
+                if temp_req_time > int(gap.time):
+                    result_map[str(outside_count)] = [inside_count]
+                    
+                    if gap.gap_type == 1:
+                        logger.debug("GAP URL IS: " + gap.activated_URL)
+                    elif gap.gap_type == 2:
+                        logger.debug("GAP URL IS: " + gap.changed_URL)
+
+                    if outside_count >= 1:
                         result_map[str(outside_count - 1)].append(inside_count - 1)
                     break
-        self.flow_list_with_gap = result_map
+        for key in result_map:
+            self.flow_list_with_gap[self.gap_list[int(key)].changed_URL] = result_map[key]
+        
+        a = 1
                     
         # if CONFIG_DICT["SELF_GET_HTML_FLAG"]:
         #     self.domain_url = ""
@@ -587,13 +614,15 @@ class Global_Flow_Node_Analyser:
     def url_filter(self, str):
         pass
 
-    def GapAlign(self, fp, date_str):
+    def GapAlign(self, fp, date_str = ""):
         self.g_flow_container.getChromeExtensionLogGap(fp)
         self.g_flow_container.Flow_Gap_Aligner(date_str)
 
+GFNA = Global_Flow_Node_Analyser()
+
 if __name__ == "__main__":
-    GFNA = Global_Flow_Node_Analyser()
-    GFNA.BurpResultSuiterToFlow(r"D:\Suez_kip\研究生毕设\Data\29.20.130.39___jiangsuer1qaz#EDC\new\record.txt")
+    config_init()
+    GFNA.BurpResultSuiterToFlow(r"D:\Suez_kip\研究生毕设\Data\jiangsuyi\recorder-jiangsuyi.txt")
     date_str = "2024-01-18"
-    GFNA.GapAlign(r"D:\Suez_kip\研究生毕设\Data\29.20.130.39___jiangsuer1qaz#EDC\new\console-1705650121486.log", date_str)
+    GFNA.GapAlign(r"D:\Suez_kip\研究生毕设\Data\jiangsuyi\console-jiangsuyi.log")
     a = 1
