@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-24 10:12:07
-LastEditTime: 2024-01-23 16:38:18
+LastEditTime: 2024-01-24 20:33:46
 LastEditors: Suez_kip
 Description: 
 '''
@@ -30,11 +30,17 @@ default_date = "2024-01-23"
 
 # TODO
 class WebFilter:
-    def __init__(self) -> None:
-        pass
+    def __init__(self, GLOBAL_CONFIG) -> None:
+        self.domain = ""
+        self.FILTER_TYPE = GLOBAL_CONFIG["FILTER_TYPE"]
 
     def URLFilter(self):
-        pass
+        # unrelated URL filter <BlackList>
+        if self.FILTER_TYPE == 1:
+            pass
+        # related URL filter <WhiteList>
+        else:
+            pass
 
     def staticResourceFilter(self):
         pass
@@ -42,7 +48,35 @@ class WebFilter:
     def sameURLFilter(self):
         pass
 
-    def domain(self):>
+    def is_Same_URL_Route(self, first_url: str, second_url: str):
+        first_route_list, param_map_first = self.get_URL_Route(first_url)
+        second_route_list, param_map_second = self.get_URL_Route(second_url)
+
+    def get_URL_Route(self, url: str) -> list:
+        if url.startswith("http"):
+            url = url[7:]
+        if url.startswith("https"):
+            url = url[8:]
+
+        route_list = url.split('/')
+        domain_name = url[0]
+        url.pop(0)
+        get_param_str = (route_list[-1])
+        index = get_param_str.find("?")    
+        if index != -1:
+            route_list[-1] = get_param_str[:index]
+            param_str = get_param_str[index + 1:]
+            param_list = param_str.split("&")
+            param_map = {}
+            for param_pair in param_list:
+                temp_pair = ['','']
+                temp_pair = param_pair.split("=")
+                param_map[temp_pair[0]] = temp_pair[1]
+
+        return route_list, param_map
+
+    def domain(self):
+        pass
 
 class FlowNode:
     def __init__(self) -> None:
