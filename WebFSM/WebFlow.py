@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-24 10:12:07
-LastEditTime: 2024-01-24 20:33:46
+LastEditTime: 2024-01-25 16:58:37
 LastEditors: Suez_kip
 Description: 
 '''
@@ -32,7 +32,12 @@ default_date = "2024-01-23"
 class WebFilter:
     def __init__(self, GLOBAL_CONFIG) -> None:
         self.domain = ""
-        self.FILTER_TYPE = GLOBAL_CONFIG["FILTER_TYPE"]
+        if "FILTER_TYPE" in GLOBAL_CONFIG:
+            self.FILTER_TYPE = GLOBAL_CONFIG["FILTER_TYPE"]
+        else:
+            self.FILTER_TYPE = ""
+        self.sameURLFilterContainer = []
+        self.url_list = []
 
     def URLFilter(self):
         # unrelated URL filter <BlackList>
@@ -45,12 +50,35 @@ class WebFilter:
     def staticResourceFilter(self):
         pass
 
-    def sameURLFilter(self):
-        pass
+    def sameURLFilter(self, url):
+        Flag = False
+        res_URL = url
+        for temp_url in self.sameURLFilterContainer:
+            flag, domain_name = self.is_Same_URL_Route(temp_url, url)
+            if domain_name not in self.url_list:
+                self.url_list.append(domain_name)
+            if flag:
+                Flag = True
+                res_URL = temp_url
+        
+        if not Flag:
+            self.sameURLFilterContainer.append(url)
+            
+        return Flag, res_URL
+        
 
     def is_Same_URL_Route(self, first_url: str, second_url: str):
         first_route_list, param_map_first = self.get_URL_Route(first_url)
         second_route_list, param_map_second = self.get_URL_Route(second_url)
+        if len(first_route_list) != len(second_route_list):
+            return False, second_route_list[0]
+        for list_iter in range(len(first_route_list)):
+            if first_route_list[list_iter] != second_route_list[list_iter]:
+                return False, second_route_list[0]
+
+        # 后面再分析param是否会影响页面新结构信息
+
+        return True, second_route_list[0]
 
     def get_URL_Route(self, url: str) -> list:
         if url.startswith("http"):
@@ -59,15 +87,14 @@ class WebFilter:
             url = url[8:]
 
         route_list = url.split('/')
-        domain_name = url[0]
-        url.pop(0)
+        domain_name = route_list[0]
         get_param_str = (route_list[-1])
         index = get_param_str.find("?")    
+        param_map = {}
         if index != -1:
             route_list[-1] = get_param_str[:index]
             param_str = get_param_str[index + 1:]
             param_list = param_str.split("&")
-            param_map = {}
             for param_pair in param_list:
                 temp_pair = ['','']
                 temp_pair = param_pair.split("=")
@@ -77,6 +104,8 @@ class WebFilter:
 
     def domain(self):
         pass
+
+GWebfilter = WebFilter({})
 
 class FlowNode:
     def __init__(self) -> None:
@@ -278,6 +307,16 @@ class Flow:
         self.flow_time_list = []
         self.gap_time_list = []
 
+    def deepcopy(self, new_flow):
+        self.flow_list = copy.deepcopy(new_flow.flow_list)
+        self.domain_url = copy.deepcopy(new_flow.domain_url)
+        self.url_list = copy.deepcopy(new_flow.url_list)
+
+        self.gap_list = copy.deepcopy(new_flow.gap_list)
+        self.flow_list_with_gap = copy.deepcopy(new_flow.flow_list_with_gap)
+        self.flow_time_list = copy.deepcopy(new_flow.flow_time_list)
+        self.gap_time_list = copy.deepcopy(new_flow.gap_time_list)
+
     def getChromeExtensionLogGap(self, fp):
         self.gap_list = Tools.ChromeExtension.ChromeExtensionLogLoader.ChromeExtensionLoader(file_path = fp)
         # for gap_iterator in range(0, len(self.gap_list) - 1):
@@ -309,10 +348,22 @@ class Flow:
                         result_map[str(outside_count - 1)].append(inside_count - 1)
                     break
         for key in result_map:
-            self.flow_list_with_gap[self.gap_list[int(key)].changed_URL] = result_map[key]
+            temp_url = ""
+            if gap.gap_type == 1:
+                temp_url = self.gap_list[int(key)].activated_URL
+                if temp_url == "":
+                    temp_url = self.gap_list[int(key) + 1].activated_URL
+            elif gap.gap_type == 2:
+                temp_url = self.gap_list[int(key)].changed_URL
+                if temp_url == "":
+                    temp_url = self.gap_list[int(key) + 1].changed_URL
+            flag, temp_url = GWebfilter.sameURLFilter(temp_url)
+            if temp_url not in self.flow_list_with_gap:
+                self.flow_list_with_gap[temp_url] = [result_map[key]]
+            else:
+                self.flow_list_with_gap[temp_url].append(result_map[key])
         
         a = 1
-                    
         # if CONFIG_DICT["SELF_GET_HTML_FLAG"]:
         #     self.domain_url = ""
         # else:
@@ -410,7 +461,9 @@ class FlowSet:
         self.Flowset = {}
     
     def flowSetAppend(self, NewFlow: Flow):
-        self.Flowset.add(NewFlow)
+        flow_input = Flow()
+        flow_input.deepcopy(NewFlow)
+        self.Flowset.add(flow_input)
 
     def getSameFlowNode(self, sourceFlowNode: FlowNode):
         result = -1
@@ -524,7 +577,10 @@ class Global_Flow_Node_Analyser:
                     self.g_flow_node_container.content_type = ""
                 # self.g_flow_node_container.cookies = {}  
             if tempRequest.response.status != -1:
-                self.g_flow_node_container.response = tempRequest.response
+                # self.g_flow_node_container.response = tempRequest.response
+                tenp_resp = HTMLResponse()
+                tenp_resp.deepcopy(self.HRA.private_request.response)
+                self.g_flow_node_container.response = tenp_resp
                 self.g_flow_node_container.status = self.g_flow_node_container.response.status
 
     def getHRAInPath(self, req_path, resp_path):
@@ -652,11 +708,19 @@ class Global_Flow_Node_Analyser:
         self.g_flow_container.getChromeExtensionLogGap(fp)
         self.g_flow_container.Flow_Gap_Aligner(date_str)
 
+    def getFlow(self, role_num, role_name, burp_path, log_path):
+        self.BurpResultSuiterToFlow(burp_path)
+        self.GapAlign(log_path)
+        self.g_flow_role_group_container.role_name = role_name
+        self.g_flow_role_group_container.role_code = role_num
+        self.g_flow_role_group_container.flowset.flowSetAppend(self.g_flow_container)
+
 GFNA = Global_Flow_Node_Analyser()
+GWF = WebFilter()
 
 if __name__ == "__main__":
     config_init()
-    GFNA.BurpResultSuiterToFlow(r"D:\Suez_kip\研究生毕设\Data\jiangsuyi\recorder-jiangsuyi.txt")
-    date_str = "2024-01-18"
-    GFNA.GapAlign(r"D:\Suez_kip\研究生毕设\Data\jiangsuyi\console-jiangsuyi.log")
+    burp_path = r"D:\Suez_kip\研究生毕设\Data\jiangsuyi\recorder-jiangsuyi.txt"
+    log_path = r"D:\Suez_kip\研究生毕设\Data\jiangsuyi\console-jiangsuyi.log"
+    GFNA.getFlow(burp_path, log_path)
     a = 1

@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-30 19:03:32
-LastEditTime: 2024-01-19 14:00:29
+LastEditTime: 2024-01-25 15:27:55
 LastEditors: Suez_kip
 Description: 
 '''
@@ -20,6 +20,13 @@ class HTMLResponse:
     
     def headers_array(self):
         return self.headers_list
+
+    def deepcopy(self, new_resp):
+        self.status = new_resp.status
+        self.response_body = copy.deepcopy(new_resp.response_body)        
+        self.status_str = copy.deepcopy(new_resp.status_str)
+        self.protocol = copy.deepcopy(new_resp.protocol)
+        self.headers_list = copy.deepcopy(new_resp.headers_list)
     
     def clear(self):
         self.status = -1
@@ -37,6 +44,15 @@ class HTMLRequest:
         self.protocol = ""
         self.headers_list = []
         self.response = HTMLResponse()
+
+    def deepcopy(self, new_req) -> None:
+        self.url = copy.deepcopy(new_req.url)
+        self.post_data = copy.deepcopy(new_req.post_data)
+        self.method = copy.deepcopy(new_req.method)
+        self.method_flag = new_req.method_flag # 0为GET，1为POST
+        self.protocol = copy.deepcopy(new_req.protocol)
+        self.headers_list = copy.deepcopy(new_req.headers_list)
+        self.response.deepcopy(new_req.response)
 
     def headers_array(self):
         return self.headers_list

@@ -1,35 +1,52 @@
+'''
+Author: Suez_kip 287140262@qq.com
+Date: 2023-11-23 20:26:59
+LastEditTime: 2024-01-25 16:43:27
+LastEditors: Suez_kip
+Description: 
+'''
 import sys
 import os
 import copy
-from WebFlow import GFNA, Global_Flow_Node_Analyser
+from WebFlow import GFNA, Global_Flow_Node_Analyser,FlowNode,GWF
+from Tools.RequestsAnalyser.HTMLRequestAnalyzer.HTMLRequestAnalyzer import *
 
 class RequestWithResponse:
     def __init__(self) -> None:
         self.URL = ""
+        self.method = ""
+        self.status = ""
+        self.header = {}
+        self.params_get = {}
+        self.params_post = {}
+        self.param_body = ""
+        self.cookies = {}
+        self.response_text = ""
+        self.response = HTMLResponse()
 
-        self.request_raw_data_path = ""
-        self.request_raw_data = ""
-        self.request_header_map = {}
-        self.request_body = ""
-        self.param_in_URL_map = {}
-        self.param_in_body_map = {}
+    def setFromFlowNode(self, url, flow_node: FlowNode):
+        self.URL = copy.deepcopy(url)
+        self.method = copy.deepcopy(flow_node.method)
+        self.status = copy.deepcopy(flow_node.status)
+        self.header = copy.deepcopy(flow_node.header)
+        self.params_get = copy.deepcopy(flow_node.params_get)
+        self.params_post = copy.deepcopy(flow_node.params_post)
+        self.param_body = copy.deepcopy(flow_node.param_body)
+        self.cookies = copy.deepcopy(flow_node.cookies)
+        self.response_text = copy.deepcopy(flow_node.response_text)
+        self.response.deepcopy(flow_node.response)
 
-        self.response_raw_data_path = ""
-        self.response_raw_data = ""
-        self.response_status_code = 0
-    
     def deepcopy(self, new_Req_Resp):
         self.URL = copy.deepcopy(new_Req_Resp.URL)
-        self.request_raw_data_path = copy.deepcopy(new_Req_Resp.request_raw_data_path)
-        self.request_raw_data = copy.deepcopy(new_Req_Resp.request_raw_data)
-        self.request_header_map = copy.deepcopy(new_Req_Resp.request_header_map)
-        self.request_body = copy.deepcopy(new_Req_Resp.request_body)
-        self.param_in_URL_map = copy.deepcopy(new_Req_Resp.param_in_URL_map)
-        self.param_in_body_map = copy.deepcopy(new_Req_Resp.param_in_body_map)
-
-        self.response_raw_data_path = copy.deepcopy(new_Req_Resp.response_raw_data_path)
-        self.response_raw_data = copy.deepcopy(new_Req_Resp.response_raw_data)
-        self.response_status_code = new_Req_Resp.response_status_code
+        self.method = copy.deepcopy(new_Req_Resp.method)
+        self.status = new_Req_Resp.status
+        self.header = copy.deepcopy(new_Req_Resp.header)
+        self.params_get = copy.deepcopy(new_Req_Resp.params_get)
+        self.params_post = copy.deepcopy(new_Req_Resp.params_post)
+        self.param_body = copy.deepcopy(new_Req_Resp.param_body)
+        self.cookies = copy.deepcopy(new_Req_Resp.cookies)
+        self.response_text = copy.deepcopy(new_Req_Resp.response_text)
+        self.response.deepcopy(new_Req_Resp.response)
 
 class Action:
     def __init__(self) -> None:
@@ -49,8 +66,7 @@ class Action:
         self.key_num_action = newAction.key_num_action
         self.role = copy.deepcopy(newAction.role)
         self.src_node_key_num = newAction.src_node_key_num
-        for req in newAction.req_list:
-            self.req_list.append
+        self.req_list = copy.deepcopy(newAction.req_list)
 
 class Connection(Action):
     def __init__(self) -> None:
@@ -59,7 +75,13 @@ class Connection(Action):
         self.dest_node_key_num = -1
 
     def deepcopy(self, newConnection):
-        pass
+        self.isAction = newConnection.isAction
+        self.key_num_action = newConnection.key_num_action
+        self.role = copy.deepcopy(newConnection.role)
+        self.src_node_key_num = newConnection.src_node_key_num
+        self.req_list = copy.deepcopy(newConnection.req_list)
+        self.dest_node_key_num = newConnection.src_node_key_num
+
 
 class Node:
     def __init__(self) -> None:
@@ -70,21 +92,75 @@ class Node:
         self.WebSourceCodePath = ""
         self.action_map_from_self_node = {}
         self.connection_map_from_self_node = {}
+        
+    def set(self,
+            _key_num,
+            _role_name,
+            _url,
+            _web_source_code_path) -> None:
+        self.key_num_code = _key_num
+        self.Role = _role_name
+        self.URL = _url
+        self.WebSourceCodePath = _web_source_code_path
 
     # function will both recieve the normal action and the connection
-    def getNewAction(self, newAction: Action): 
-        if newAction.isAction == 1:
-            if newAction.key_num_action not in self.action_map_from_self_node:
-                self.connection_map_from_self_node[newAction.key_num_action] = 
-        elif newAction.isAction == 2:
-            pass
 
 class FSM:
     def __init__(self) -> None:
         self.NodeSet = {}
+        self.node_last_num = -1
         self.Action = {}
         self.Connection = {}
+        self.action_last_num = -1
+        self.Role = ""
 
-    def LoadWebFlow(self, localGFNA: Global_Flow_Node_Analyser):
-        Main_Data_Set = localGFNA.g_flow_set_container
+    def LoadWebFlow(self):
+        Main_Data_Set = GFNA.g_flow_set_container
+        for flow in Main_Data_Set:
+            for single_node in flow.flow_list_with_gap:
+                localNode = Node()
+                localNode.set(
+                    _key_num = self.node_last_num + 1,
+                    _role_name = "",
+                    _url = single_node,
+                    _web_source_code_path = ""
+                )
+                self.node_last_num = self.node_last_num + 1
+                self.NodeSet[str(self.node_last_num + 1)] = localNode
+
+                for req_seq in flow.flow_list_with_gap[single_node]:
+                    for req in GFNA.g_flow_container.flow_list[req_seq[0], req_seq[1]]:
+                        
+                        pass
+
+    def getAction(self, key_num, req_list):
+        if isinstance(key_num, list):
+            temp_action = Connection()
+            temp_action.isAction = 2 # 1 is normal Action, and 2 is Connection
+            self.action_last_num = self.action_last_num + 1
+            temp_action.key_num_action = self.action_last_num
+            temp_action.role = self.Role
+            temp_action.src_node_key_num = key_num[0]
+            temp_action.dest_node_key_num = key_num[1]
+            self.NodeSet[key_num].connection_map_from_self_node.add(self.action_last_num)
+        else:
+            temp_action = Action()
+            temp_action.isAction = 1 # 1 is normal Action, and 2 is Connection
+            self.action_last_num = self.action_last_num + 1
+            temp_action.key_num_action = self.action_last_num
+            temp_action.role = self.Role
+            temp_action.src_node_key_num = key_num
+            self.NodeSet[key_num].action_map_from_self_node.add(self.action_last_num)
         
+        for req in req_list:
+            r_r_container = RequestWithResponse()
+            r_r_container.setFromFlowNode(self.NodeSet[key_num].URL, req)
+            temp_action.add_Res_and_Resp(r_r_container)
+
+    def get_node_by_name(self, url) -> int:
+        for node_key_num in self.NodeSet:
+            if url == self.NodeSet[node_key_num].URL:
+                return node_key_num
+        return -1
+
+GFSM = FSM()
