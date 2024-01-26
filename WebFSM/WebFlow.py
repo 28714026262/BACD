@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-24 10:12:07
-LastEditTime: 2024-01-25 16:58:37
+LastEditTime: 2024-01-26 09:52:22
 LastEditors: Suez_kip
 Description: 
 '''
@@ -358,9 +358,13 @@ class Flow:
                 if temp_url == "":
                     temp_url = self.gap_list[int(key) + 1].changed_URL
             flag, temp_url = GWebfilter.sameURLFilter(temp_url)
+            result_map[key] = result_map[key] + [gap.gap_type, int(key) - 1]
             if temp_url not in self.flow_list_with_gap:
                 self.flow_list_with_gap[temp_url] = [result_map[key]]
             else:
+                # if self.flow_list_with_gap[temp_url][-1][1] + 1 == result_map[key][0]:
+                #     self.flow_list_with_gap[temp_url][-1][1] = result_map[key][1]
+                # else:
                 self.flow_list_with_gap[temp_url].append(result_map[key])
         
         a = 1
@@ -458,7 +462,7 @@ class Flow:
 
 class FlowSet:
     def __init__(self) -> None:
-        self.Flowset = {}
+        self.Flowset = set()
     
     def flowSetAppend(self, NewFlow: Flow):
         flow_input = Flow()
@@ -488,7 +492,6 @@ class Global_Flow_Node_Analyser:
     def __init__(self) -> None:
         self.g_flow_node_container = FlowNode()
         self.g_flow_container = Flow()
-        self.g_flow_set_container = FlowSet()
         self.g_flow_role_group_container = FlowRoleGroup()
         self.g_flow_analyser = FlowAnalysis()
         self.flow_node_stop_flag = True
@@ -716,11 +719,10 @@ class Global_Flow_Node_Analyser:
         self.g_flow_role_group_container.flowset.flowSetAppend(self.g_flow_container)
 
 GFNA = Global_Flow_Node_Analyser()
-GWF = WebFilter()
 
 if __name__ == "__main__":
     config_init()
     burp_path = r"D:\Suez_kip\研究生毕设\Data\jiangsuyi\recorder-jiangsuyi.txt"
     log_path = r"D:\Suez_kip\研究生毕设\Data\jiangsuyi\console-jiangsuyi.log"
-    GFNA.getFlow(burp_path, log_path)
+    GFNA.getFlow(0, "jiangsuyi", burp_path, log_path)
     a = 1

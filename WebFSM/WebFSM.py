@@ -1,15 +1,16 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-23 20:26:59
-LastEditTime: 2024-01-25 16:43:27
+LastEditTime: 2024-01-26 15:07:27
 LastEditors: Suez_kip
 Description: 
 '''
 import sys
 import os
 import copy
-from WebFlow import GFNA, Global_Flow_Node_Analyser,FlowNode,GWF
+from WebFlow import GFNA, Global_Flow_Node_Analyser,FlowNode
 from Tools.RequestsAnalyser.HTMLRequestAnalyzer.HTMLRequestAnalyzer import *
+from Tools.configloader import *
 
 class RequestWithResponse:
     def __init__(self) -> None:
@@ -115,8 +116,9 @@ class FSM:
         self.Role = ""
 
     def LoadWebFlow(self):
-        Main_Data_Set = GFNA.g_flow_set_container
+        Main_Data_Set = GFNA.g_flow_role_group_container.flowset
         for flow in Main_Data_Set:
+            last_single_node = -1
             for single_node in flow.flow_list_with_gap:
                 localNode = Node()
                 localNode.set(
@@ -127,11 +129,18 @@ class FSM:
                 )
                 self.node_last_num = self.node_last_num + 1
                 self.NodeSet[str(self.node_last_num + 1)] = localNode
-
+                
+                first_flag = True
                 for req_seq in flow.flow_list_with_gap[single_node]:
-                    for req in GFNA.g_flow_container.flow_list[req_seq[0], req_seq[1]]:
-                        
-                        pass
+                    if first_flag:
+                        first_flag = False
+                        if req_seq[2] == 2:
+                            self.getAction([last_single_node, localNode.key_num_code], flow.flow_list[req_seq[0], req_seq[1]])
+                        else:
+                            self.getAction(localNode.key_num_code, flow.flow_list[req_seq[0], req_seq[1]])
+                    else:
+                        self.getAction(localNode.key_num_code, flow.flow_list[req_seq[0], req_seq[1]])
+                last_single_node = self.node_last_num + 1
 
     def getAction(self, key_num, req_list):
         if isinstance(key_num, list):
@@ -164,3 +173,10 @@ class FSM:
         return -1
 
 GFSM = FSM()
+
+if __name__ == "__main__":
+    config_init()
+    burp_path = r"D:\Suez_kip\研究生毕设\Data\jiangsuyi\recorder-jiangsuyi.txt"
+    log_path = r"D:\Suez_kip\研究生毕设\Data\jiangsuyi\console-jiangsuyi.log"
+    GFNA.getFlow(0, "jiangsuyi", burp_path, log_path)
+    a = 1
