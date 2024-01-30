@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-30 19:03:32
-LastEditTime: 2024-01-25 15:27:55
+LastEditTime: 2024-01-30 16:49:40
 LastEditors: Suez_kip
 Description: 
 '''
@@ -16,24 +16,30 @@ class HTMLResponse:
         self.response_body = ""
         self.status_str = ""
         self.protocol = ""
-        self.headers_list = []
+        self.headers_map = []
+        self.content_type = ""
     
     def headers_array(self):
-        return self.headers_list
+        return self.headers_map
 
     def deepcopy(self, new_resp):
         self.status = new_resp.status
         self.response_body = copy.deepcopy(new_resp.response_body)        
         self.status_str = copy.deepcopy(new_resp.status_str)
         self.protocol = copy.deepcopy(new_resp.protocol)
-        self.headers_list = copy.deepcopy(new_resp.headers_list)
+        self.headers_map = copy.deepcopy(new_resp.headers_map)
+        self.content_type = copy.deepcopy(self.content_type)
     
     def clear(self):
         self.status = -1
         self.response_body = ""
         self.status_str = ""
         self.protocol = ""
-        self.headers_list = []
+        self.headers_map = []
+        self.content_type = ""
+
+    def is_same_response(self, input_resp):
+        pass
 
 class HTMLRequest:
     def __init__(self) -> None:
@@ -42,7 +48,7 @@ class HTMLRequest:
         self.method = ""
         self.method_flag = -1 # 0为GET，1为POST
         self.protocol = ""
-        self.headers_list = []
+        self.headers_map = []
         self.response = HTMLResponse()
 
     def deepcopy(self, new_req) -> None:
@@ -51,11 +57,11 @@ class HTMLRequest:
         self.method = copy.deepcopy(new_req.method)
         self.method_flag = new_req.method_flag # 0为GET，1为POST
         self.protocol = copy.deepcopy(new_req.protocol)
-        self.headers_list = copy.deepcopy(new_req.headers_list)
+        self.headers_map = copy.deepcopy(new_req.headers_map)
         self.response.deepcopy(new_req.response)
 
     def headers_array(self):
-        return self.headers_list
+        return self.headers_map
 
     def clear(self):
         self.url = ""
@@ -63,7 +69,7 @@ class HTMLRequest:
         self.method = ""
         self.method_flag = -1 # 0为GET，1为POST
         self.protocol = ""
-        self.headers_list = []
+        self.headers_map = []
         self.response.clear()
 
 class HTMLRequestAnalyzer:
@@ -127,13 +133,11 @@ class HTMLRequestAnalyzer:
                 if any(c.isalpha() for c in line) or any(c.isdigit() for c in line):
                     temp_list = self.lineToDictPair(line.strip())
                     logger.debug(temp_list)
-                    tempListPoint["name"] = temp_list[0]
+                    if len(temp_list) == 1:
+                        continue
                     if "content" in temp_list[0] or "Content" in temp_list[0] or "CONTENT" in temp_list[0]:
-                        content_flag = True
-                    tempListPoint["value"] = temp_list[1]
-                    new_list_node = copy.deepcopy(tempListPoint)
-                    tempListPoint = {"name": None, "value": None}
-                    self.private_request.response.headers_list.append(new_list_node)
+                        self.private_request.response.content_type = temp_list[1]
+                    self.private_request.response.headers_map.append(copy.deepcopy({"name": temp_list[0], "value": temp_list[1]}))
                 else:
                     content_start_flag = True
 
@@ -172,7 +176,7 @@ class HTMLRequestAnalyzer:
                         tempListPoint["value"] = temp_list[1]
                     new_list_node = copy.deepcopy(tempListPoint)
                     tempListPoint = {"name": None, "value": None}
-                    self.private_request.headers_list.append(new_list_node)
+                    self.private_request.headers_map.append(new_list_node)
                 else:
                     post_body_flag = True
                     continue

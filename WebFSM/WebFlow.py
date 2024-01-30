@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-24 10:12:07
-LastEditTime: 2024-01-26 09:52:22
+LastEditTime: 2024-01-30 17:07:31
 LastEditors: Suez_kip
 Description: 
 '''
@@ -28,9 +28,8 @@ global encoding
 encoding = "utf-8"
 default_date = "2024-01-23"
 
-# TODO
 class WebFilter:
-    def __init__(self, GLOBAL_CONFIG) -> None:
+    def __init__(self, GLOBAL_CONFIG = {}) -> None:
         self.domain = ""
         if "FILTER_TYPE" in GLOBAL_CONFIG:
             self.FILTER_TYPE = GLOBAL_CONFIG["FILTER_TYPE"]
@@ -54,7 +53,7 @@ class WebFilter:
         Flag = False
         res_URL = url
         for temp_url in self.sameURLFilterContainer:
-            flag, domain_name = self.is_Same_URL_Route(temp_url, url)
+            flag, domain_name = self.is_Same_URL_Route(url, temp_url)
             if domain_name not in self.url_list:
                 self.url_list.append(domain_name)
             if flag:
@@ -63,18 +62,25 @@ class WebFilter:
         
         if not Flag:
             self.sameURLFilterContainer.append(url)
-            
         return Flag, res_URL
         
-
     def is_Same_URL_Route(self, first_url: str, second_url: str):
         first_route_list, param_map_first = self.get_URL_Route(first_url)
         second_route_list, param_map_second = self.get_URL_Route(second_url)
         if len(first_route_list) != len(second_route_list):
-            return False, second_route_list[0]
+            return False, first_route_list[0]
         for list_iter in range(len(first_route_list)):
             if first_route_list[list_iter] != second_route_list[list_iter]:
-                return False, second_route_list[0]
+                return False, first_route_list[0]
+            return True, first_route_list[0]
+
+    def is_Same_URL_Route_by_list(self, first_list: list, second_list: list):
+        if len(first_list) != len(second_list):
+            return False, first_list[0]
+        for list_iter in range(len(first_list)):
+            if first_list[list_iter] != second_list[list_iter]:
+                return False, first_list[0]
+        return True, first_list[0]
 
         # 后面再分析param是否会影响页面新结构信息
 
@@ -105,7 +111,7 @@ class WebFilter:
     def domain(self):
         pass
 
-GWebfilter = WebFilter({})
+GWF = WebFilter()
 
 class FlowNode:
     def __init__(self) -> None:
@@ -357,7 +363,7 @@ class Flow:
                 temp_url = self.gap_list[int(key)].changed_URL
                 if temp_url == "":
                     temp_url = self.gap_list[int(key) + 1].changed_URL
-            flag, temp_url = GWebfilter.sameURLFilter(temp_url)
+            flag, temp_url = GWF.sameURLFilter(temp_url)
             result_map[key] = result_map[key] + [gap.gap_type, int(key) - 1]
             if temp_url not in self.flow_list_with_gap:
                 self.flow_list_with_gap[temp_url] = [result_map[key]]
@@ -462,12 +468,12 @@ class Flow:
 
 class FlowSet:
     def __init__(self) -> None:
-        self.Flowset = set()
+        self.FlowsetContainer = set()
     
     def flowSetAppend(self, NewFlow: Flow):
         flow_input = Flow()
         flow_input.deepcopy(NewFlow)
-        self.Flowset.add(flow_input)
+        self.FlowsetContainer.add(flow_input)
 
     def getSameFlowNode(self, sourceFlowNode: FlowNode):
         result = -1
@@ -581,9 +587,9 @@ class Global_Flow_Node_Analyser:
                 # self.g_flow_node_container.cookies = {}  
             if tempRequest.response.status != -1:
                 # self.g_flow_node_container.response = tempRequest.response
-                tenp_resp = HTMLResponse()
-                tenp_resp.deepcopy(self.HRA.private_request.response)
-                self.g_flow_node_container.response = tenp_resp
+                temp_resp = HTMLResponse()
+                temp_resp.deepcopy(self.HRA.private_request.response)
+                self.g_flow_node_container.response = temp_resp
                 self.g_flow_node_container.status = self.g_flow_node_container.response.status
 
     def getHRAInPath(self, req_path, resp_path):
