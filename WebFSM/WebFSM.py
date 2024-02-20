@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-23 20:26:59
-LastEditTime: 2024-01-30 14:42:50
+LastEditTime: 2024-02-20 17:32:35
 LastEditors: Suez_kip
 Description: 
 '''
@@ -99,6 +99,44 @@ class Action:
         self.src_node_key_num = newAction.src_node_key_num
         self.req_list = copy.deepcopy(newAction.req_list)
 
+    def isSameAction(self, anotherAction) -> bool:
+        if self.src_node_key_num != anotherAction.src_node_key_num:
+            return False
+        len_self = len(self.req_list)
+        len_another = len(anotherAction.req_list)
+        iter_self = 0
+        iter_another = 0
+        has_different_req_flag = False
+        # - 先查找first_req
+        # for iter_self in range(len_self):
+        #     for iter_another in range(len_another):
+        #         same_flag = self.req_list[iter_self].is_same_request(anotherAction.req_list[iter_another])
+        #         if same_flag:
+        #             first_req_founded_flag = True
+        #             break
+        # if not first_req_founded_flag:
+        #     return False
+
+        # 再按照first req进行遍历
+        # iter_self = iter_self + 1
+        # iter_another = iter_another + 1
+        # same_flag = self.req_list[iter_self].is_same_request(anotherAction.req_list[iter_another])
+        # if not same_flag:
+        #     pass
+        # - 不查找first_req
+        if len_self != len_another:
+            return False
+        for iter_self in range(len_self):
+            same_flag = self.req_list[iter_self].is_same_request(anotherAction.req_list[iter_self])
+            if not same_flag:
+                return False
+        return True
+                # 此处要考虑是否存在中间多余req，但这些req要首先考虑
+                # for iter_1 in range(len_self) - iter_self:
+                #     for iter_2 in range(len_another) - iter_another:
+                #         same_flag = self.req_list[iter_self + 1 + iter_1].is_same_request(anotherAction.req_list[iter_another + 1 + iter_2])
+            
+
 class Connection(Action):
     def __init__(self) -> None:
         super(Connection, self).__init__()
@@ -132,6 +170,7 @@ class Node:
             _url_list,
             _url_param,
             _web_source_code_path) -> None:
+        # function will both recieve the normal action and the connection
         self.key_num_code = _key_num
         self.Role = _role_name
         self.URL = _url
@@ -139,7 +178,8 @@ class Node:
         self.URL_param = copy.deepcopy(_url_param)
         self.WebSourceCodePath = _web_source_code_path
 
-    # function will both recieve the normal action and the connection
+    def isSameAction(self):
+        pass
 
 class FSM:
     def __init__(self) -> None:
