@@ -1,7 +1,7 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-23 20:26:59
-LastEditTime: 2024-02-20 17:32:35
+LastEditTime: 2024-02-26 10:12:48
 LastEditors: Suez_kip
 Description: 
 '''
@@ -178,8 +178,22 @@ class Node:
         self.URL_param = copy.deepcopy(_url_param)
         self.WebSourceCodePath = _web_source_code_path
 
-    def isSameAction(self):
-        pass
+    def isSameNode(self, another_node):
+        same_flag = True
+        if self.URL == another_node:
+            same_flag = False
+        self_keys_set = set(list(self.URL_param.keys()))
+        another_keys_set = set(list(another_node.URL_param.keys()))
+        if not bool(self_keys_set.intersection(another_keys_set)):
+            same_flag = False
+        if self.WebSourceCodePath != "" and another_node.WebSourceCodePath != "":
+            if not self.HTML_Similarity_Check(self.WebSourceCodePath, another_node.WebSourceCodePath):
+                same_flag = False
+        return same_flag
+        
+    def HTML_Similarity_Check(self, self_source_code_path, another_source_code_path) -> bool:
+        same_flag = True
+        return same_flag
 
 class FSM:
     def __init__(self) -> None:
@@ -258,6 +272,10 @@ class FSM:
             if flag:
                 return node_key_num
         return -1
+
+class RoleContainer:
+    def __init__(self) -> None:
+        pass
 
 GFSM = FSM()
 
