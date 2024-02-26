@@ -45,9 +45,9 @@ class HTMLSourceCodeAttacher:
         # 返回source code file path
         pass
 
-    def DynamicHTMLCodeExtract(self, callback_function):
+    def DynamicHTMLCodeExtract(self, callback_function, target_url, target_headers, waiting_time = 5):
         # 创建一个新线程，并传递回调函数作为参数
-        thread = threading.Thread(target=self.DynamicHTMLCodeExtractionThreadWorker, args=(callback_function,))
+        thread = threading.Thread(target=self.DynamicHTMLCodeExtractionThreadWorker, args=(target_url, target_headers, callback_function))
         # 启动线程
         thread.start()
 
@@ -56,3 +56,16 @@ class HTMLSourceCodeAttacher:
 
         # 等待新线程执行完成
         thread.join()
+
+GHTMLSCA = HTMLSourceCodeAttacher()
+
+def callback_func(source_code):
+    logger.debug("------------------"*3)
+    logger.debug(source_code)
+    logger.debug("------------------"*3)
+
+if __name__ == "__main__":
+    headers = {}
+    url = r"www.baidu.com"
+    GHTMLSCA.DynamicHTMLCodeExtract(callback_func, url, headers)
+    
