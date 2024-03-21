@@ -1,16 +1,18 @@
 '''
 Author: Suez_kip 287140262@qq.com
 Date: 2023-11-23 20:26:59
-LastEditTime: 2024-02-26 10:12:48
+LastEditTime: 2024-03-21 17:12:07
 LastEditors: Suez_kip
 Description: 
 '''
 import sys
 import os
 import copy
-from WebFlow import GFNA,FlowNode,GWF
+from WebFlow import GFNA,FlowNode,GWF,FlowSet
 from Tools.RequestsAnalyser.HTMLRequestAnalyzer.HTMLRequestAnalyzer import *
 from Tools.configloader import *
+from Tools.Enumeration import *
+import networkx as nx
 
 class RequestWithResponse:
     def __init__(self) -> None:
@@ -87,6 +89,11 @@ class Action:
         self.src_node_key_num = -1
         self.req_list = []
 
+        # 考虑对相似行为分析时提供一些冗余度
+        self.similarity_redundancy = 1.00
+
+        self.Type = -1
+
     def add_Res_and_Resp(self, new_request_and_response):
         temp_RR = RequestWithResponse()
         temp_RR.deepcopy(new_request_and_response)
@@ -98,6 +105,32 @@ class Action:
         self.role = copy.deepcopy(newAction.role)
         self.src_node_key_num = newAction.src_node_key_num
         self.req_list = copy.deepcopy(newAction.req_list)
+
+    def action_type_speculate(self):
+        # condition1
+        self.Type = FSM_ACTION_TYPE_ADD
+        # condition2
+        self.Type = FSM_ACTION_TYPE_DELETE
+        # condition3
+        self.Type = FSM_ACTION_TYPE_EDIT
+        # condition4
+        self.Type = FSM_ACTION_TYPE_READ
+
+    def boundaryAnalysis(self):
+        # 前边界对齐
+        pass
+
+        # 后边界对齐
+
+    def is_same_param_exist(self, single_request, request_list):
+        # 不在意request
+        pass
+
+    def get_request_list_param(self, request_list):
+        get_param = {}
+        post_param = {}
+        for req in request_list:
+            pass
 
     def isSameAction(self, anotherAction) -> bool:
         if self.src_node_key_num != anotherAction.src_node_key_num:
@@ -203,7 +236,12 @@ class FSM:
         self.Connection = {}
         self.action_last_num = -1
         self.Role = ""
+        self.Role_key_num = -1
 
+        # use networkX
+        self.NxContainer = nx.Graph()
+
+    # OLD GAP
     def LoadWebFlowSet(self):
         Main_Data_Set = GFNA.g_flow_role_group_container.flowset
         for flow in Main_Data_Set.FlowsetContainer:
@@ -237,6 +275,35 @@ class FSM:
                     else:
                         self.getAction(current_node_key_node, flow.flow_list[req_seq[0], req_seq[1]])
                 last_single_node = current_node_key_node
+
+    # NEW GAP
+    def LoadWebFlowSet(self, console_analyze_list, flow_with_gap):
+        source_node_key_num = -1
+        action_iter = 0
+        for console_event_iter in range(console_analyze_list):
+            NodeChanged = True
+            TabChanged = True
+            ClickAction = True
+            InputAction = True
+
+            if console_analyze_list[console_event_iter] is TabChanged:# 遇到节点切换
+                source_node_key_num = self.haveSameNode(console_analyze_list[console_event_iter].url)
+                continue
+            if console_analyze_list[console_event_iter] is ClickAction or console_analyze_list[console_event_iter] is InputAction: # 遇到用户点击行为
+                if console_analyze_list[console_event_iter + 1] is NodeChanged:
+                    is_connection_action = True
+                    dest_node_key_num = self.haveSameNode(console_analyze_list[console_event_iter + 1].url)
+                    if dest_node_key_num == -1:
+                        new_node = Node()
+                        # node param fill
+                        self.NxContainer.add_node(self.node_last_num)
+                        self.node_last_num += 1
+                        dest_node_key_num = self.node_last_num
+                    self.getAction([source_node_key_num, dest_node_key_num], flow_with_gap[action_iter])
+                    source_node_key_num = dest_node_key_num
+                else:
+                    self.getAction(source_node_key_num, flow_with_gap[action_iter])
+            action_iter += 1
 
     def getAction(self, key_num, req_list):
         if isinstance(key_num, list):
@@ -272,6 +339,9 @@ class FSM:
             if flag:
                 return node_key_num
         return -1
+
+    def haveSameNode(self):
+        pass
 
 class RoleContainer:
     def __init__(self) -> None:
