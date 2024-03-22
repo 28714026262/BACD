@@ -3,18 +3,29 @@
 {
     "Flow_Group":
     {
-        "user":
+        "user（实际名字会是账号user_group名）":
         {
-            "webpage_1":
+            "webpage_X(名字会是webpage对应的url)":
             {
-            "click" : ["self.HRA"]
-            "click" : ["self.HRA"]
-            ....
-            "input" : ["self.HRA"]
-            "input" : ["self.HRA"]
-            ....
-            },
-            "webpage_2":
+                {
+                    "action_list":
+                    {
+                    "click" : [request_list]
+                    "click" : [request_list]
+                    ....
+                    "input" : [request_list]
+                    "input" : [request_list]
+                    ....
+                    },
+                    
+                    #连接不同网页的action(这里暂定是前向跳转)
+                    "connection_node":
+                    {
+                        "webpage_Z(名字会是webpage对应的url)" = ["click" : [request_list] 或者 "input" : [request_list]]
+                    },
+                }
+            }
+            "webpage_Y":
             ....
         } ,
         "superuser":
@@ -44,6 +55,9 @@ class ActionFilter:
 
     def input_condition_check(self):
         #若匹配过滤元素则返还相应flag
+        pass
+
+    def extract_connection_node(self):
         pass
 
 #GAF = ActionFilter()
