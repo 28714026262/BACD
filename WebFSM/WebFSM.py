@@ -314,7 +314,12 @@ class FSM:
             temp_action.role = self.Role
             temp_action.src_node_key_num = key_num[0]
             temp_action.dest_node_key_num = key_num[1]
-            self.NodeSet[key_num].connection_map_from_self_node.add(self.action_last_num)
+            for req in req_list:
+                r_r_container = RequestWithResponse()
+                r_r_container.setFromFlowNode(self.NodeSet[key_num].URL, req)
+                temp_action.add_Res_and_Resp(r_r_container)
+            #换成action_node对应reqlist的map
+            self.NodeSet[key_num].connection_map_from_self_node.add[self.action_last_num] = temp_action.req_list
         else:
             temp_action = Action()
             temp_action.isAction = 1 # 1 is normal Action, and 2 is Connection
@@ -322,12 +327,17 @@ class FSM:
             temp_action.key_num_action = self.action_last_num
             temp_action.role = self.Role
             temp_action.src_node_key_num = key_num
-            self.NodeSet[key_num].action_map_from_self_node.add(self.action_last_num)
+            for req in req_list:
+                r_r_container = RequestWithResponse()
+                r_r_container.setFromFlowNode(self.NodeSet[key_num].URL, req)
+                temp_action.add_Res_and_Resp(r_r_container)
+            #换成action_node对应reqlist的map
+            self.NodeSet[key_num].action_map_from_self_node[self.action_last_num] = temp_action.req_list
         
-        for req in req_list:
-            r_r_container = RequestWithResponse()
-            r_r_container.setFromFlowNode(self.NodeSet[key_num].URL, req)
-            temp_action.add_Res_and_Resp(r_r_container)
+        # for req in req_list:
+        #     r_r_container = RequestWithResponse()
+        #     r_r_container.setFromFlowNode(self.NodeSet[key_num].URL, req)
+        #     temp_action.add_Res_and_Resp(r_r_container)
 
     def get_node_by_route_list(self, url_list) -> int:
         # for node_key_num in self.NodeSet:
@@ -349,6 +359,23 @@ class RoleContainer:
 
 GFSM = FSM()
 
+#key为role，value为各个网页node
+#action list 和 对应req list 可以调value.action_map_from_self_node，其中key为action node，value为req_list
+#connection list 和 对应req list 可以调value.connection_map_from_self_node，其中key为connection node，value为req_list
+class returnRoleNodeSet:
+    def __init__(self):
+        self.fsm = GFSM
+        self.NodeSet = {}
+        self.RoleNodeSet = {}
+
+    def return_data(self):
+        self.fsm.LoadWebFlowSet(console_analyze_list=None , flow_with_gap=None)
+        self.NodeSet = self.fsm.NodeSet
+        for key, node in self.NodeSet:
+            if self.fsm.Role not in self.RoleNodeSet:
+                self.RoleNodeSet[self.fsm.Role] = []
+            self.RoleNodeSet[self.fsm.Role].append(node)
+            
 if __name__ == "__main__":
     config_init()
     burp_path = r"D:\Suez_kip\研究生毕设\Data\jiangsuyi\recorder-jiangsuyi.txt"
