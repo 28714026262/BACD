@@ -208,14 +208,16 @@ def ChromeExtensionLoader(file_path):
                 elif key == 'ClickAction':
                     temp_gap.clear()
                     temp_gap.time = temp_gap_map['Time']
-                    temp_gap.ClickDetected = temp_gap_map['ClickAction']
+                    #更改参数
+                    temp_gap.click_action = temp_gap_map['ClickAction']
                     temp_gap.click_element = temp_gap_map['ElementDetails']
                     temp_gap.gap_type = CLICK_ACTION_HRG
                 #增加input判定，属性为InputAction
                 elif key == 'InputAction':
                     temp_gap.clear()
                     temp_gap.time = temp_gap_map['Time']
-                    temp_gap.InputDetected = temp_gap_map['InputAction']
+                    #更改参数
+                    temp_gap.input_action = temp_gap_map['InputAction']
                     temp_gap.input_element = temp_gap_map['InputDetails']
                     temp_gap.gap_type = INPUT_ACTION_HRG
             gap_append = HTTP_request_Gap()
