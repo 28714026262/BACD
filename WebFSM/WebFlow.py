@@ -22,11 +22,12 @@ from Tools.RequestsAnalyser.HTMLRequestAnalyzer.HTMLRequestAnalyzer import *
 from Tools.DynamicDecoding import *
 from Tools.DynamicPageResourceGetter import get_dynamic_page_content
 from Tools.configloader import *
+from Tools.Chrome_Log_Preprocess import *
 
 logger = get_logger(name = os.path.basename(__file__))
 global encoding
 encoding = "utf-8"
-default_date = "2024-01-23"
+default_date = "2024-02-29"
 
 class WebFilter:
     def __init__(self, GLOBAL_CONFIG = {}) -> None:
@@ -261,7 +262,7 @@ class FlowNode:
         # self.cookies = {}
         self.response = node.response
         self.response_text = node.response_text
-        
+
         self.content_type = node.content_type
 
         self.param_body = node.param_body
@@ -329,32 +330,42 @@ class Flow:
         #     if self.gap_list[gap_iterator].changed_URL == "" and self.gap_list[gap_iterator].activated_URL == "":
         #         self.gap_list.pop(gap_iterator)
 
-    def Flow_Gap_Aligner(self, date_str=""):
+    def Flow_Gap_Aligner(self, date_str):
         self.get_time_list()
         outside_count = -1
         inside_count = -1
         result_map = {}
+        #对齐gap和flow形成gapFlow
         for gap in self.gap_list:
+            #初始gap count为-1
             outside_count = outside_count + 1
             for req in self.flow_list[inside_count + 1:]:
+                #初始flow count为-1
                 inside_count = inside_count + 1
-
-                logger.debug("REQUEST URL IS: " + req.header["Host"] + req.url)
-
                 temp_req_time = req.date_string_to_milliseconds(date_str=date_str)
-                if temp_req_time > int(gap.time):
+                if int(temp_req_time) > int(gap.time):
+                    #gap对应的第一个req
                     result_map[str(outside_count)] = [inside_count]
-                    
+                    #debug用
                     if gap.gap_type == 1:
-                        logger.debug("GAP URL IS: " + gap.activated_URL)
+                         logger.debug("GAP URL IS: " + gap.activated_URL)
                     elif gap.gap_type == 2:
-                        logger.debug("GAP URL IS: " + gap.changed_URL)
+                         logger.debug("GAP URL IS: " + gap.changed_URL)
+                    #增加了gap_type 3,4
+                    elif gap.gap_type == 3:
+                         logger.debug("GAP CLICK IS: " + gap.click_element.className)
+                    elif gap.gap_type == 4:
+                         logger.debug("GAP INPUT IS: " + gap.input_element.className)
 
+                    '''代表第一个gap对应的req是0-2，第二个gap对用的req是3-6，result map对齐了gap和req之间的关系，但会被延迟等影响'''
                     if outside_count >= 1:
                         result_map[str(outside_count - 1)].append(inside_count - 1)
                     break
+            inside_count = -1
+        #对齐node和gapFlow
         for key in result_map:
             temp_url = ""
+            #这里不用对action作遍历，只对node感兴趣
             if gap.gap_type == 1:
                 temp_url = self.gap_list[int(key)].activated_URL
                 if temp_url == "":
@@ -363,7 +374,9 @@ class Flow:
                 temp_url = self.gap_list[int(key)].changed_URL
                 if temp_url == "":
                     temp_url = self.gap_list[int(key) + 1].changed_URL
+            #True为相同URL，false为新URL
             flag, temp_url = GWF.sameURLFilter(temp_url)
+            #加入标识说这个action为第一个发生的，list前两个为所涉及req顺序
             result_map[key] = result_map[key] + [gap.gap_type, int(key) - 1]
             if temp_url not in self.flow_list_with_gap:
                 self.flow_list_with_gap[temp_url] = [result_map[key]]
@@ -372,7 +385,8 @@ class Flow:
                 #     self.flow_list_with_gap[temp_url][-1][1] = result_map[key][1]
                 # else:
                 self.flow_list_with_gap[temp_url].append(result_map[key])
-        
+        #print(self.flow_list_with_gap)
+
         a = 1
         # if CONFIG_DICT["SELF_GET_HTML_FLAG"]:
         #     self.domain_url = ""
@@ -443,7 +457,7 @@ class Flow:
                 url_dict[url_str] = 1
             else:
                 url_dict[url_str] = url_dict[url_str] + 1
-        
+
         first_flag = True
         max_url_time = -1
         max_url = ""
@@ -469,7 +483,7 @@ class Flow:
 class FlowSet:
     def __init__(self) -> None:
         self.FlowsetContainer = set()
-    
+
     def flowSetAppend(self, NewFlow: Flow):
         flow_input = Flow()
         flow_input.deepcopy(NewFlow)
@@ -512,7 +526,7 @@ class Global_Flow_Node_Analyser:
     #     url_str = tempRequest.url
     #     if url_str.find("?") == -1:
     #         url = url_str
-    #     else: 
+    #     else:
     #         url = url_str[0:url_str.find("?")]
     #     if tempRequest.post_data:
     #         logger.debug(tempRequest.post_data)
@@ -536,7 +550,7 @@ class Global_Flow_Node_Analyser:
     #                 self.g_flow_node_container.params_post = self.g_flow_node_container.extract_param(self.g_flow_node_container.param_body, self.g_flow_node_container.content_type)
     #         else:
     #             self.g_flow_node_container.content_type = ""
-    #         # self.g_flow_node_container.cookies = {}  
+    #         # self.g_flow_node_container.cookies = {}
     #         self.g_flow_node_container.response = tempRequest.response()
     #         if self.g_flow_node_container.response:
     #             self.g_flow_node_container.status = self.g_flow_node_container.response.status
@@ -546,7 +560,7 @@ class Global_Flow_Node_Analyser:
     #     #     except Exception as e:
     #     #         self.g_flow_node_container.show()
     #     # else:
-    #     #     self.g_flow_node_container.response_text = ""        
+    #     #     self.g_flow_node_container.response_text = ""
     #     self.g_flow_container.append_new_flow_node(self.g_flow_node_container)
 
     def getDataFromTraffic(self):
@@ -558,7 +572,7 @@ class Global_Flow_Node_Analyser:
             url_str = tempRequest.url
             if url_str.find("?") == -1:
                 url = url_str
-            else: 
+            else:
                 url = url_str[0:url_str.find("?")]
             if tempRequest.post_data:
                 logger.debug(tempRequest.post_data)
@@ -584,7 +598,7 @@ class Global_Flow_Node_Analyser:
                         self.g_flow_node_container.params_post = self.g_flow_node_container.extract_param(self.g_flow_node_container.param_body, self.g_flow_node_container.content_type)
                 else:
                     self.g_flow_node_container.content_type = ""
-                # self.g_flow_node_container.cookies = {}  
+                # self.g_flow_node_container.cookies = {}
             if tempRequest.response.status != -1:
                 # self.g_flow_node_container.response = tempRequest.response
                 temp_resp = HTMLResponse()
@@ -601,7 +615,7 @@ class Global_Flow_Node_Analyser:
         self.HRA.getRequestInStr(req_str)
         self.HRA.getResponseInStr(resp_str)
         self.HRA_Init_Flag = True
-        
+
     def getHRAInLines(self, req_lines, resp_lines, resp_exist_flag):
         self.HRA.getHTMLRequestLines(req_lines)
         if resp_exist_flag:
@@ -685,7 +699,7 @@ class Global_Flow_Node_Analyser:
                     # filter on url
                     self.url_filter(host_url_sub_str)
         pass
-    
+
     def get_url_list(self):
         if not self.G_FLOW_LOADED_FLAG:
             return
@@ -727,8 +741,11 @@ class Global_Flow_Node_Analyser:
 GFNA = Global_Flow_Node_Analyser()
 
 if __name__ == "__main__":
+    ori_log_path = r"C:/Users/User/Downloads/BACD/BACD-main/source/console.log"
+    burp_path = r"C:/Users/User/Downloads/BACD/BACD-main/source/result2_29.txt"
+    log_path = r"C:/Users/User/Downloads/BACD/BACD-main/source/filtered_data.txt"
+    #为Tools/Chrome_Log_Preprocess底下的过滤工具
+    filter_clicks_and_write_to_new_file(ori_log_path, log_path)
     config_init()
-    burp_path = r"D:\Suez_kip\研究生毕设\Data\jiangsuyi\recorder-jiangsuyi.txt"
-    log_path = r"D:\Suez_kip\研究生毕设\Data\jiangsuyi\console-jiangsuyi.log"
     GFNA.getFlow(0, "jiangsuyi", burp_path, log_path)
     a = 1
