@@ -316,7 +316,7 @@ class Flow:
         #供WebFSM分析用
         self.gap_node_refer = {}
         self.req_node_refer = {}
-        self.url_node_refer = {}
+        self.url_node_refer = []
         self.connection_node_refer = {}
         self.flow_list_with_gap = {}
 
@@ -428,13 +428,12 @@ class Flow:
                 continue
 
         #解决url为""的情况，这里设定当url为""，将action归类为prev_url里
-        #对url序号作记录
-        #url_node_refer:{url:序号,...}
+        #对出现的url作记录
+        #url_node_refer:[url]
         prev_url = ""
-        url_count = -1
-        url_node_refer = {}
+        url_node_refer = []
         #对connection node作记录
-        #connection_node_refer:{action_node_num:[start_url_node_num, dest_url_node_num]}
+        #connection_node_refer:{action_node_num:[start_url, dest_url}
         connection_node_refer = {}
 
         #对齐node和gapFlow
@@ -459,13 +458,12 @@ class Flow:
                     self.flow_list_with_gap[prev_url].append(result_map[key])
                 else:
                     #对所出现url作统计
-                    url_count = url_count + 1
-                    url_node_refer[temp_url] = url_count
+                    url_node_refer.append(temp_url)
                     self.flow_list_with_gap[temp_url] = [result_map[key]]
                     #由于这里的if statement是判定新的url，所以可以直接当成是connection
                     if prev_url != "":
-                        start_url = url_node_refer[prev_url]
-                        dest_url = url_node_refer[temp_url]
+                        start_url = prev_url
+                        dest_url = temp_url
                         connection_node_refer[result_map[key][2]] = [start_url, dest_url]
                     prev_url = temp_url
             else:
@@ -475,8 +473,8 @@ class Flow:
                     self.flow_list_with_gap[temp_url].append(result_map[key])
                     #对prev和当前url作对比
                     if prev_url != temp_url:
-                        start_url = url_node_refer[prev_url]
-                        dest_url = url_node_refer[temp_url]
+                        start_url = prev_url
+                        dest_url = temp_url
                         connection_node_refer[result_map[key][2]] = [start_url, dest_url]
                     prev_url = temp_url
 
