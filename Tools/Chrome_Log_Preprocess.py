@@ -2,21 +2,15 @@ import re
 
 def filter_clicks_and_write_to_new_file(input_file_path, output_file_path):
     filtered_lines = []  # 存储符合条件的行
-    valid_id_pattern = re.compile(r"id: '(h\d|H\d)'")
+    pattern_1 = r"ActivatedURL: \{\s*\}"
     with open(input_file_path, 'r', encoding='utf-8') as file:
         for line in file:
-            if "ClickDetected" in line and "ElementDetails" in line:
-                # 提取ElementDetails部分
-                start_idx = line.find("ElementDetails: {") + len("ElementDetails: {")
-                end_idx = line.find("}", start_idx)
-                element_details_str = line[start_idx:end_idx+1]
-
-                # 尝试解析elementDetails中的tagName
-                if "tagName: 'DIV'" in element_details_str:
-                    # 使用正则表达式检查id是否符合条件
-                    #if valid_id_pattern.search(element_details_str) or "id: 'main'" in element_details_str or "id: ''" in element_details_str:
-                    if "id: ''" in element_details_str:
-                        filtered_lines.append(line)
+            #对ActivatedURL为{}的line进行过滤
+            match_1 = re.search(pattern_1, line)
+            if not match_1:
+                continue
+            else:
+                filtered_lines.append(line)
     # 将筛选后的行写入新文件
     with open(input_file_path, 'r', encoding='utf-8') as file:
         with open(output_file_path, 'w', encoding='utf-8') as output_file:
