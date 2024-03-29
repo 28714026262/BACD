@@ -310,9 +310,13 @@ class Flow:
         self.url_list = []
 
         self.gap_list = []
-        self.flow_list_with_gap = {}
         self.flow_time_list = []
         self.gap_time_list = []
+
+        #供WebFSM分析用
+        self.gap_node_refer = {}
+        self.req_node_refer = {}
+        self.flow_list_with_gap = {}
 
     def deepcopy(self, new_flow):
         self.flow_list = copy.deepcopy(new_flow.flow_list)
@@ -320,9 +324,13 @@ class Flow:
         self.url_list = copy.deepcopy(new_flow.url_list)
 
         self.gap_list = copy.deepcopy(new_flow.gap_list)
-        self.flow_list_with_gap = copy.deepcopy(new_flow.flow_list_with_gap)
         self.flow_time_list = copy.deepcopy(new_flow.flow_time_list)
         self.gap_time_list = copy.deepcopy(new_flow.gap_time_list)
+
+        #供WebFSM分析用
+        self.gap_node_refer = copy.deepcopy(new_flow.gap_node_refer)
+        self.req_node_refer = copy.deepcopy(new_flow.req_node_refer)
+        self.flow_list_with_gap = copy.deepcopy(new_flow.flow_list_with_gap)
 
     def getChromeExtensionLogGap(self, fp):
         self.gap_list = Tools.ChromeExtension.ChromeExtensionLogLoader.ChromeExtensionLoader(file_path = fp)
@@ -338,22 +346,34 @@ class Flow:
         outside_count = -1
         inside_count = -1
         result_map = {}
+
         action_node_with_req_list = []
         assigned_req_node_list = []
+        gap_node_refer = {}
+        req_node_refer = {}
+
         #对齐gap和flow形成gapFlow
         for gap in self.gap_list:
             #初始gap count为-1
             outside_count = outside_count + 1
+
+            #对gap_node进行存储，供WebFSM分析用
+            gap_node_refer[outside_count] = gap
+
             for req in self.flow_list[inside_count + 1:]:
                 ##初始flow count为-1
                 inside_count = inside_count + 1
                 temp_req_time = req.date_string_to_milliseconds(date_str=date_str)
+
+                ##对req_node进行存储，供WebFSM分析用
+                req_node_refer[inside_count] = req
 
                 ##暂时以1500ms作为间隔，在形成测试样例时每个action都空个几秒，就不会出现找到了a和b action时间相近，本该是b的action，最后放去a
                 if int(temp_req_time) - int(gap.time) <= 1500 and int(temp_req_time) - int(gap.time) > 0:
 
                     ##用于存储已经被赋予request的gap结点
                     action_node_with_req_list.append(outside_count)
+
                     ##用于存储已经被赋于的request结点，以防下次遍历再使用此结点
                     assigned_req_node_list.append(inside_count)
 
@@ -432,9 +452,16 @@ class Flow:
                 else:
                     self.flow_list_with_gap[temp_url].append(result_map[key])
 
-        print(result_map)
-        print(self.flow_list_with_gap)
-        a = 1
+        #装载gap_node_refer和req_node_refer
+        self.gap_node_refer = gap_node_refer
+        self.req_node_refer = req_node_refer
+        
+        #debug用
+        print("gap_node_refer: ", self.gap_node_refer)
+        print("req_node_refer: ", self.req_node_refer)
+        print("flow_list_with_gap: ", self.flow_list_with_gap)
+        
+        #a = 1
         # if CONFIG_DICT["SELF_GET_HTML_FLAG"]:
         #     self.domain_url = ""
         # else:
