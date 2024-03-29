@@ -316,6 +316,8 @@ class Flow:
         #供WebFSM分析用
         self.gap_node_refer = {}
         self.req_node_refer = {}
+        self.url_node_refer = {}
+        self.connection_node_refer = {}
         self.flow_list_with_gap = {}
 
     def deepcopy(self, new_flow):
@@ -330,6 +332,8 @@ class Flow:
         #供WebFSM分析用
         self.gap_node_refer = copy.deepcopy(new_flow.gap_node_refer)
         self.req_node_refer = copy.deepcopy(new_flow.req_node_refer)
+        self.url_node_refer = copy.deepcopy(new_flow.url_node_refer)
+        self.connection_node_refer = copy.deepcopy(new_flow.connection_node_refer)
         self.flow_list_with_gap = copy.deepcopy(new_flow.flow_list_with_gap)
 
     def getChromeExtensionLogGap(self, fp):
@@ -340,6 +344,7 @@ class Flow:
 
     #对齐思想：先对齐gap的request，再对前一个被赋予request的gap进行response对齐
     #目前区分了会产生request的action，以及解决了之前判定node为""而导致gap错位的情况
+    #现在也可以对connectionnode进行判定了
     #后续可以再对这里的算法进行优化，增加准确率
     def Flow_Gap_Aligner(self, date_str):
         self.get_time_list()
@@ -423,10 +428,17 @@ class Flow:
                 continue
 
         #解决url为""的情况，这里设定当url为""，将action归类为prev_url里
+        #对url序号作记录
+        #url_node_refer:{url:序号,...}
         prev_url = ""
+        url_count = -1
+        url_node_refer = {}
+        #对connection node作记录
+        #connection_node_refer:{action_node_num:[start_url_node_num, dest_url_node_num]}
+        connection_node_refer = {}
+
         #对齐node和gapFlow
         for key in result_map:
-            temp_url = ""
 
             if gap.gap_type == 1:
                 temp_url = self.gap_list[int(key)].activated_URL
@@ -436,6 +448,8 @@ class Flow:
                 temp_url = self.gap_list[int(key)].changed_URL
                 if temp_url == "":
                     temp_url = self.gap_list[int(key) + 1].changed_URL
+            else:
+                continue
             #True为sameurl，false为新url
             flag, temp_url = GWF.sameURLFilter(temp_url)
             #加入标识说这个action为第一个发生的，list前两个为所涉及req顺序
@@ -444,23 +458,39 @@ class Flow:
                 if temp_url == "":
                     self.flow_list_with_gap[prev_url].append(result_map[key])
                 else:
-                    prev_url = temp_url
+                    #对所出现url作统计
+                    url_count = url_count + 1
+                    url_node_refer[temp_url] = url_count
                     self.flow_list_with_gap[temp_url] = [result_map[key]]
+                    #由于这里的if statement是判定新的url，所以可以直接当成是connection
+                    if prev_url != "":
+                        start_url = url_node_refer[prev_url]
+                        dest_url = url_node_refer[temp_url]
+                        connection_node_refer[result_map[key][2]] = [start_url, dest_url]
+                    prev_url = temp_url
             else:
                 if temp_url == "":
                     self.flow_list_with_gap[prev_url].append(result_map[key])
                 else:
                     self.flow_list_with_gap[temp_url].append(result_map[key])
+                    #对prev和当前url作对比
+                    if prev_url != temp_url:
+                        start_url = url_node_refer[prev_url]
+                        dest_url = url_node_refer[temp_url]
+                        connection_node_refer[result_map[key][2]] = [start_url, dest_url]
+                    prev_url = temp_url
 
         #装载gap_node_refer和req_node_refer
         self.gap_node_refer = gap_node_refer
         self.req_node_refer = req_node_refer
-        
-        #debug用
+        self.url_node_refer = url_node_refer
+        self.connection_node_refer = connection_node_refer
+
         print("gap_node_refer: ", self.gap_node_refer)
         print("req_node_refer: ", self.req_node_refer)
+        print("url_node_refer: ", self.url_node_refer)
+        print("connection_node_refer: ", self.connection_node_refer)
         print("flow_list_with_gap: ", self.flow_list_with_gap)
-        
         #a = 1
         # if CONFIG_DICT["SELF_GET_HTML_FLAG"]:
         #     self.domain_url = ""
