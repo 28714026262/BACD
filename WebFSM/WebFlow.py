@@ -330,42 +330,84 @@ class Flow:
         #     if self.gap_list[gap_iterator].changed_URL == "" and self.gap_list[gap_iterator].activated_URL == "":
         #         self.gap_list.pop(gap_iterator)
 
+    #对齐思想：先对齐gap的request，再对前一个被赋予request的gap进行response对齐
+    #目前区分了会产生request的action，以及解决了之前判定node为""而导致gap错位的情况
+    #后续可以再对这里的算法进行优化，增加准确率
     def Flow_Gap_Aligner(self, date_str):
         self.get_time_list()
         outside_count = -1
         inside_count = -1
         result_map = {}
+        action_node_with_req_list = []
+        assigned_req_node_list = []
         #对齐gap和flow形成gapFlow
         for gap in self.gap_list:
             #初始gap count为-1
             outside_count = outside_count + 1
             for req in self.flow_list[inside_count + 1:]:
-                #初始flow count为-1
+                ##初始flow count为-1
                 inside_count = inside_count + 1
                 temp_req_time = req.date_string_to_milliseconds(date_str=date_str)
-                if int(temp_req_time) > int(gap.time):
-                    #gap对应的第一个req
+
+                ##暂时以1500ms作为间隔，在形成测试样例时每个action都空个几秒，就不会出现找到了a和b action时间相近，本该是b的action，最后放去a
+                if int(temp_req_time) - int(gap.time) <= 1500 and int(temp_req_time) - int(gap.time) > 0:
+
+                    ##用于存储已经被赋予request的gap结点
+                    action_node_with_req_list.append(outside_count)
+                    ##用于存储已经被赋于的request结点，以防下次遍历再使用此结点
+                    assigned_req_node_list.append(inside_count)
+
+                    ##gap对应的第一个req
                     result_map[str(outside_count)] = [inside_count]
-                    #debug用
+
+                    ##debug用
                     if gap.gap_type == 1:
-                         logger.debug("GAP URL IS: " + gap.activated_URL)
+                          logger.debug("GAP URL IS: " + gap.activated_URL)
                     elif gap.gap_type == 2:
-                         logger.debug("GAP URL IS: " + gap.changed_URL)
-                    #增加了gap_type 3,4
+                          logger.debug("GAP URL IS: " + gap.changed_URL)
+                    ###增加了gap_type 3,4
                     elif gap.gap_type == 3:
                          logger.debug("GAP CLICK IS: " + gap.click_element.className)
                     elif gap.gap_type == 4:
                          logger.debug("GAP INPUT IS: " + gap.input_element.className)
 
+                    ##debug用
+                    date_time = datetime.datetime.fromtimestamp(int(gap.time)/1000)
+                    formatted_date = date_time.strftime('%Y-%m-%d %H:%M:%S')
+                    ###burp和gap datetime对比
+                    print(f"req: {req.time}, gap: {formatted_date}")
+                    ###burp和gap 微秒对比
+                    print(f"req: {temp_req_time}, gap: {gap.time}")
+                    ###计算微妙差来验证resp gap对应
+                    print(f"difference: {int(temp_req_time) - int(gap.time)}")
+                    print(f"outside: {outside_count}, inside: {inside_count}\n")
+
                     '''代表第一个gap对应的req是0-2，第二个gap对用的req是3-6，result map对齐了gap和req之间的关系，但会被延迟等影响'''
                     if outside_count >= 1:
-                        result_map[str(outside_count - 1)].append(inside_count - 1)
+                        ##让前一个action可以填上对应的resp
+                        action_node = action_node_with_req_list[-2]
+                        result_map[str(action_node)].append(inside_count - 1)
                     break
-            inside_count = -1
+                else:
+                    if outside_count >= 0:
+                        result_map[str(outside_count)] = []
+
+            ##防止req和resp重叠情况，让下一个req node可以继上个赋予gap的req进行遍历
+            inside_count = assigned_req_node_list[-1] + 1
+
+        ##对不产生req resp的gap打入[-1, -1]
+        for gap_node, req_resp_list in result_map.items():
+            if not req_resp_list:
+                result_map[gap_node] = [-1, -1]
+            else:
+                continue
+
+        #解决url为""的情况，这里设定当url为""，将action归类为prev_url里
+        prev_url = ""
         #对齐node和gapFlow
         for key in result_map:
             temp_url = ""
-            #这里不用对action作遍历，只对node感兴趣
+
             if gap.gap_type == 1:
                 temp_url = self.gap_list[int(key)].activated_URL
                 if temp_url == "":
@@ -374,19 +416,24 @@ class Flow:
                 temp_url = self.gap_list[int(key)].changed_URL
                 if temp_url == "":
                     temp_url = self.gap_list[int(key) + 1].changed_URL
-            #True为相同URL，false为新URL
+            #True为sameurl，false为新url
             flag, temp_url = GWF.sameURLFilter(temp_url)
             #加入标识说这个action为第一个发生的，list前两个为所涉及req顺序
-            result_map[key] = result_map[key] + [gap.gap_type, int(key) - 1]
+            result_map[key] = result_map[key] + [int(key), int(key) - 1]
             if temp_url not in self.flow_list_with_gap:
-                self.flow_list_with_gap[temp_url] = [result_map[key]]
+                if temp_url == "":
+                    self.flow_list_with_gap[prev_url].append(result_map[key])
+                else:
+                    prev_url = temp_url
+                    self.flow_list_with_gap[temp_url] = [result_map[key]]
             else:
-                # if self.flow_list_with_gap[temp_url][-1][1] + 1 == result_map[key][0]:
-                #     self.flow_list_with_gap[temp_url][-1][1] = result_map[key][1]
-                # else:
-                self.flow_list_with_gap[temp_url].append(result_map[key])
-        #print(self.flow_list_with_gap)
+                if temp_url == "":
+                    self.flow_list_with_gap[prev_url].append(result_map[key])
+                else:
+                    self.flow_list_with_gap[temp_url].append(result_map[key])
 
+        print(result_map)
+        print(self.flow_list_with_gap)
         a = 1
         # if CONFIG_DICT["SELF_GET_HTML_FLAG"]:
         #     self.domain_url = ""
