@@ -1,11 +1,3 @@
-'''
-Author: Suez_kip 287140262@qq.com
-Date: 2023-11-24 10:12:07
-LastEditTime: 2024-01-30 17:07:31
-LastEditors: Suez_kip
-Description: 
-'''
-
 import os
 import sys
 sys.path.append(os.getcwd())
@@ -433,7 +425,7 @@ class Flow:
         prev_url = ""
         url_node_refer = []
         #对connection node作记录
-        #connection_node_refer:{action_node_num:[start_url, dest_url}
+        #connection_node_refer:{action_node_num:[start_url, dest_url]}
         connection_node_refer = {}
 
         #对齐node和gapFlow
@@ -464,7 +456,7 @@ class Flow:
                     if prev_url != "":
                         start_url = prev_url
                         dest_url = temp_url
-                        connection_node_refer[result_map[key][2]] = [start_url, dest_url]
+                        connection_node_refer[result_map[key][2]-1] = [start_url, dest_url]
                     prev_url = temp_url
             else:
                 if temp_url == "":
@@ -475,7 +467,7 @@ class Flow:
                     if prev_url != temp_url:
                         start_url = prev_url
                         dest_url = temp_url
-                        connection_node_refer[result_map[key][2]] = [start_url, dest_url]
+                        connection_node_refer[result_map[key][2]-1] = [start_url, dest_url]
                     prev_url = temp_url
 
         #装载gap_node_refer和req_node_refer
@@ -484,11 +476,14 @@ class Flow:
         self.url_node_refer = url_node_refer
         self.connection_node_refer = connection_node_refer
 
+        # debug
         print("gap_node_refer: ", self.gap_node_refer)
         print("req_node_refer: ", self.req_node_refer)
         print("url_node_refer: ", self.url_node_refer)
         print("connection_node_refer: ", self.connection_node_refer)
         print("flow_list_with_gap: ", self.flow_list_with_gap)
+        #
+
         #a = 1
         # if CONFIG_DICT["SELF_GET_HTML_FLAG"]:
         #     self.domain_url = ""
@@ -846,7 +841,6 @@ if __name__ == "__main__":
     ori_log_path = r"C:/Users/User/Downloads/BACD/BACD-main/source/console.log"
     burp_path = r"C:/Users/User/Downloads/BACD/BACD-main/source/result2_29.txt"
     log_path = r"C:/Users/User/Downloads/BACD/BACD-main/source/filtered_data.txt"
-    #为Tools/Chrome_Log_Preprocess底下的过滤工具
     filter_clicks_and_write_to_new_file(ori_log_path, log_path)
     config_init()
     GFNA.getFlow(0, "jiangsuyi", burp_path, log_path)
