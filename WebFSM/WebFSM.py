@@ -1,19 +1,17 @@
-'''
-Author: Suez_kip 287140262@qq.com
-Date: 2023-11-23 20:26:59
-LastEditTime: 2024-03-21 17:12:07
-LastEditors: Suez_kip
-Description: 
-'''
 import sys
 import os
 import copy
-from WebFlow import GFNA,FlowNode,GWF,FlowSet
+from WebFlow import GFNA, FlowNode, GWF, FlowSet
 from Tools.RequestsAnalyser.HTMLRequestAnalyzer.HTMLRequestAnalyzer import *
 from Tools.configloader import *
-from Tools.Enumeration import *
-import networkx as nx
+# from Tools.Enumeration import *
+from Tools.Chrome_Log_Preprocess import *
 
+# 制图用
+import networkx as nx
+import matplotlib.pyplot as plt
+
+#把node底下的action装成一个container
 class RequestWithResponse:
     def __init__(self) -> None:
         self.URL = ""
@@ -23,7 +21,7 @@ class RequestWithResponse:
         self.params_get = {}
         self.params_post = {}
         self.param_body = ""
-        self.cookies = {}
+        #self.cookies = {}
         self.response_text = ""
         self.response = HTMLResponse()
 
@@ -35,7 +33,7 @@ class RequestWithResponse:
         self.params_get = copy.deepcopy(flow_node.params_get)
         self.params_post = copy.deepcopy(flow_node.params_post)
         self.param_body = copy.deepcopy(flow_node.param_body)
-        self.cookies = copy.deepcopy(flow_node.cookies)
+        #self.cookies = copy.deepcopy(flow_node.cookies)
         self.response_text = copy.deepcopy(flow_node.response_text)
         self.response.deepcopy(flow_node.response)
 
@@ -47,7 +45,7 @@ class RequestWithResponse:
         self.params_get = copy.deepcopy(new_Req_Resp.params_get)
         self.params_post = copy.deepcopy(new_Req_Resp.params_post)
         self.param_body = copy.deepcopy(new_Req_Resp.param_body)
-        self.cookies = copy.deepcopy(new_Req_Resp.cookies)
+        #self.cookies = copy.deepcopy(new_Req_Resp.cookies)
         self.response_text = copy.deepcopy(new_Req_Resp.response_text)
         self.response.deepcopy(new_Req_Resp.response)
 
@@ -81,12 +79,14 @@ class RequestWithResponse:
     def is_same_response(self, input_response):
         pass
 
+
 class Action:
     def __init__(self) -> None:
-        self.isAction = 1 # 1 is normal Action, and 2 is Connection
+        self.isAction = 1  # 1 is normal Action, and 2 is Connection
+        self.ActionType = -1 # 1 is Tab Switch, 2 is URL Change, 3 is Click, 4 is Input
         self.key_num_action = -1
         self.role = ""
-        self.src_node_key_num = -1
+        self.src_node_key = ""
         self.req_list = []
 
         # 考虑对相似行为分析时提供一些冗余度
@@ -103,7 +103,7 @@ class Action:
         self.isAction = newAction.isAction
         self.key_num_action = newAction.key_num_action
         self.role = copy.deepcopy(newAction.role)
-        self.src_node_key_num = newAction.src_node_key_num
+        self.src_node_key = newAction.src_node_key
         self.req_list = copy.deepcopy(newAction.req_list)
 
     def action_type_speculate(self):
@@ -133,7 +133,7 @@ class Action:
             pass
 
     def isSameAction(self, anotherAction) -> bool:
-        if self.src_node_key_num != anotherAction.src_node_key_num:
+        if self.src_node_key != anotherAction.src_node_key:
             return False
         len_self = len(self.req_list)
         len_another = len(anotherAction.req_list)
@@ -164,29 +164,29 @@ class Action:
             if not same_flag:
                 return False
         return True
-                # 此处要考虑是否存在中间多余req，但这些req要首先考虑
-                # for iter_1 in range(len_self) - iter_self:
-                #     for iter_2 in range(len_another) - iter_another:
-                #         same_flag = self.req_list[iter_self + 1 + iter_1].is_same_request(anotherAction.req_list[iter_another + 1 + iter_2])
-            
+        # 此处要考虑是否存在中间多余req，但这些req要首先考虑
+        # for iter_1 in range(len_self) - iter_self:
+        #     for iter_2 in range(len_another) - iter_another:
+        #         same_flag = self.req_list[iter_self + 1 + iter_1].is_same_request(anotherAction.req_list[iter_another + 1 + iter_2])
+
 
 class Connection(Action):
     def __init__(self) -> None:
         super(Connection, self).__init__()
-        self.isAction = 2 # 1 is normal Action, and 2 is Connection
-        self.dest_node_key_num = -1
+        self.isAction = 2  # 1 is normal Action, and 2 is Connection
+        self.dest_node_key = ""
 
     def deepcopy(self, newConnection):
         self.isAction = newConnection.isAction
         self.key_num_action = newConnection.key_num_action
         self.role = copy.deepcopy(newConnection.role)
-        self.src_node_key_num = newConnection.src_node_key_num
+        self.src_node_key = newConnection.src_node_key
         self.req_list = copy.deepcopy(newConnection.req_list)
-        self.dest_node_key_num = newConnection.src_node_key_num
+        self.dest_node_key = newConnection.src_node_key
+
 
 class Node:
     def __init__(self) -> None:
-        self.key_num_code = -1
         self.Role = ""
 
         self.URL = ""
@@ -195,16 +195,14 @@ class Node:
         self.WebSourceCodePath = ""
         self.action_map_from_self_node = {}
         self.connection_map_from_self_node = {}
-        
+
     def set(self,
-            _key_num,
             _role_name,
             _url,
             _url_list,
             _url_param,
             _web_source_code_path) -> None:
         # function will both recieve the normal action and the connection
-        self.key_num_code = _key_num
         self.Role = _role_name
         self.URL = _url
         self.URL_list = copy.deepcopy(_url_list)
@@ -223,7 +221,7 @@ class Node:
             if not self.HTML_Similarity_Check(self.WebSourceCodePath, another_node.WebSourceCodePath):
                 same_flag = False
         return same_flag
-        
+
     def HTML_Similarity_Check(self, self_source_code_path, another_source_code_path) -> bool:
         same_flag = True
         return same_flag
@@ -231,113 +229,120 @@ class Node:
 class FSM:
     def __init__(self) -> None:
         self.NodeSet = {}
-        self.node_last_num = -1
         self.Action = {}
         self.Connection = {}
-        self.action_last_num = -1
         self.Role = ""
         self.Role_key_num = -1
 
-        # use networkX
-        self.NxContainer = nx.Graph()
+        self.req_node_refer = {}
+        self.url_node_refer = []
+        self.gap_node_refer = {}
+        self.connection_node_refer = {}
+        self.flow_list_with_gap ={}
 
-    # OLD GAP
+    #每一次装在一个role
     def LoadWebFlowSet(self):
-        Main_Data_Set = GFNA.g_flow_role_group_container.flowset
-        for flow in Main_Data_Set.FlowsetContainer:
-            last_single_node = -1
-            for single_node in flow.flow_list_with_gap:
-                current_node_key_node = -1
-                route_list, url_param = GWF.get_URL_Route(single_node)
-                current_node_key_node = self.get_node_by_route_list(route_list)
-                if current_node_key_node == -1:
-                    localNode = Node()
-                    localNode.set(
-                        _key_num = self.node_last_num + 1,
-                        _role_name = "",
-                        _url = single_node,
-                        _url_list = route_list,
-                        _url_param = url_param,
-                        _web_source_code_path = ""
-                    )
-                    self.node_last_num = self.node_last_num + 1
-                    self.NodeSet[str(self.node_last_num)] = localNode
-                    current_node_key_node = self.node_last_num
-                
-                first_flag = True
-                for req_seq in flow.flow_list_with_gap[single_node]:
-                    if first_flag:
-                        first_flag = False
-                        if req_seq[2] == 2:
-                            self.getAction([last_single_node, current_node_key_node], flow.flow_list[req_seq[0], req_seq[1]])
-                        else:
-                            self.getAction(current_node_key_node, flow.flow_list[req_seq[0], req_seq[1]])
-                    else:
-                        self.getAction(current_node_key_node, flow.flow_list[req_seq[0], req_seq[1]])
-                last_single_node = current_node_key_node
+        self.Role = GFNA.g_flow_role_group_container.role_name
+        for i in GFNA.g_flow_role_group_container.flowset.FlowsetContainer:
+            self.req_node_refer = i.req_node_refer
+            self.url_node_refer = i.url_node_refer
+            self.gap_node_refer = i.gap_node_refer
+            self.connection_node_refer = i.connection_node_refer
+            self.flow_list_with_gap = i.flow_list_with_gap
+            self.LoadContainer()
+            # try:
+            #     print(self.Role)
+            #     print(self.req_node_refer)
+            #     print(self.url_node_refer)
+            #     print(self.gap_node_refer)
+            #     print(self.connection_node_refer)
+            #     print(self.flow_list_with_gap)
+            # except:
+            #     print("Load Data Error")
 
-    # NEW GAP
-    def LoadWebFlowSet(self, console_analyze_list, flow_with_gap):
-        source_node_key_num = -1
-        action_iter = 0
-        for console_event_iter in range(console_analyze_list):
-            NodeChanged = True
-            TabChanged = True
-            ClickAction = True
-            InputAction = True
-
-            if console_analyze_list[console_event_iter] is TabChanged:# 遇到节点切换
-                source_node_key_num = self.haveSameNode(console_analyze_list[console_event_iter].url)
-                continue
-            if console_analyze_list[console_event_iter] is ClickAction or console_analyze_list[console_event_iter] is InputAction: # 遇到用户点击行为
-                if console_analyze_list[console_event_iter + 1] is NodeChanged:
-                    is_connection_action = True
-                    dest_node_key_num = self.haveSameNode(console_analyze_list[console_event_iter + 1].url)
-                    if dest_node_key_num == -1:
-                        new_node = Node()
-                        # node param fill
-                        self.NxContainer.add_node(self.node_last_num)
-                        self.node_last_num += 1
-                        dest_node_key_num = self.node_last_num
-                    self.getAction([source_node_key_num, dest_node_key_num], flow_with_gap[action_iter])
-                    source_node_key_num = dest_node_key_num
+    #装载log分析得到的 gap_list 和 flow_with_gap
+    #flow_with_gap->[start_req, end_req, action_node_num, sequence_num]
+    def LoadContainer(self):
+        # 对node和action进行装载
+        for url_node, list in self.flow_list_with_gap.items():
+            route_list, url_param = GWF.get_URL_Route(url_node)
+            current_node_key_node = self.get_node_by_route_list(route_list)
+            if current_node_key_node == -1:
+                localNode = Node()
+                localNode.set(
+                    _role_name="",
+                    _url=url_node,
+                    _url_list=route_list,
+                    _url_param = url_param,
+                    _web_source_code_path = ""
+                )
+                self.NodeSet[url_node] = localNode
+            #对action和connection进行装载
+            for req_seq in list:
+                if req_seq[2] in self.connection_node_refer.keys():
+                    self.getAction(self.connection_node_refer[req_seq[2]], req_seq[2], [req_seq[0], req_seq[1]])
                 else:
-                    self.getAction(source_node_key_num, flow_with_gap[action_iter])
-            action_iter += 1
+                    self.getAction(url_node, req_seq[2], [req_seq[0], req_seq[1]])
 
-    def getAction(self, key_num, req_list):
-        if isinstance(key_num, list):
+    def getAction(self, url_node, key_num, req_list):
+        if isinstance(url_node, list):
             temp_action = Connection()
-            temp_action.isAction = 2 # 1 is normal Action, and 2 is Connection
-            self.action_last_num = self.action_last_num + 1
-            temp_action.key_num_action = self.action_last_num
+            temp_action.isAction = 2  # 1 is normal Action, and 2 is Connection
+            temp_action.ActionType = self.gap_node_refer[key_num].gap_type
+            temp_action.key_num_action = key_num
             temp_action.role = self.Role
-            temp_action.src_node_key_num = key_num[0]
-            temp_action.dest_node_key_num = key_num[1]
-            for req in req_list:
-                r_r_container = RequestWithResponse()
-                r_r_container.setFromFlowNode(self.NodeSet[key_num].URL, req)
-                temp_action.add_Res_and_Resp(r_r_container)
-            #换成action_node对应reqlist的map
-            self.NodeSet[key_num].connection_map_from_self_node.add[self.action_last_num] = temp_action.req_list
+            temp_action.src_node_key = url_node[0]
+            temp_action.dest_node_key = url_node[1]
+
+            start_loading = False
+            for request_node in self.req_node_refer.keys():
+                if request_node == req_list[0]:
+                    start_loading = True
+                if start_loading == True:
+                    r_r_container = RequestWithResponse()
+                    # 若是NoneType报错，则跳过
+                    try:
+                        # 目前没对cookie做分析
+                        r_r_container.setFromFlowNode(self.NodeSet[url_node[0]].URL, self.req_node_refer[request_node])
+                        temp_action.add_Res_and_Resp(r_r_container)
+                    except:
+                        print(f"connection_req_node {request_node} is a NoneType, will not process")
+                        continue
+                if request_node == req_list[1]:
+                    break
+            # connection也当作action供生成图用
+            self.NodeSet[url_node[0]].action_map_from_self_node[key_num] = temp_action
+            # 生成图的edge用
+            self.NodeSet[url_node[0]].connection_map_from_self_node[key_num] = temp_action
         else:
             temp_action = Action()
-            temp_action.isAction = 1 # 1 is normal Action, and 2 is Connection
-            self.action_last_num = self.action_last_num + 1
-            temp_action.key_num_action = self.action_last_num
+            temp_action.isAction = 1  # 1 is normal Action, and 2 is Connection
+            temp_action.ActionType = self.gap_node_refer[key_num].gap_type
+            temp_action.key_num_action = key_num
             temp_action.role = self.Role
-            temp_action.src_node_key_num = key_num
-            for req in req_list:
-                r_r_container = RequestWithResponse()
-                r_r_container.setFromFlowNode(self.NodeSet[key_num].URL, req)
-                temp_action.add_Res_and_Resp(r_r_container)
-            #换成action_node对应reqlist的map
-            self.NodeSet[key_num].action_map_from_self_node[self.action_last_num] = temp_action.req_list
-        
-        # for req in req_list:
-        #     r_r_container = RequestWithResponse()
-        #     r_r_container.setFromFlowNode(self.NodeSet[key_num].URL, req)
-        #     temp_action.add_Res_and_Resp(r_r_container)
+            temp_action.src_node_key = url_node
+            #若action不造成req resp则直接等于[]
+            if req_list[0] == -1 and req_list[1] == -1:
+                self.NodeSet[url_node].action_map_from_self_node[key_num] = []
+            else:
+                #若有则进行分析
+                start_loading = False
+                for request_node in self.req_node_refer.keys():
+                    if request_node == req_list[0]:
+                        start_loading = True
+                    if start_loading == True:
+                        r_r_container = RequestWithResponse()
+                        #若是NoneType报错，则跳过
+                        try:
+                            # 目前没对cookie做分析
+                            r_r_container.setFromFlowNode(self.NodeSet[url_node].URL, self.req_node_refer[request_node])
+                            temp_action.add_Res_and_Resp(r_r_container)
+                        except:
+                            print(f"action_req_node {request_node} is a NoneType, will not process")
+                            continue
+                    if request_node == req_list[1]:
+                        break
+                self.NodeSet[url_node].action_map_from_self_node[key_num] = temp_action
 
     def get_node_by_route_list(self, url_list) -> int:
         # for node_key_num in self.NodeSet:
@@ -345,40 +350,103 @@ class FSM:
         #         return node_key_num
         # return -1
         for node_key_num in self.NodeSet:
-            flag, domian_name_useless = GWF.is_Same_URL_Route_by_list(url_list, self.NodeSet[node_key_num].URL_list)
+            flag, domain_name_useless = GWF.is_Same_URL_Route_by_list(url_list, self.NodeSet[node_key_num].URL_list)
             if flag:
                 return node_key_num
         return -1
 
+    #WebFlow已经处理了SameNode，个人感觉可以直接运用flow_with_gap的信息
     def haveSameNode(self):
         pass
+
 
 class RoleContainer:
     def __init__(self) -> None:
         pass
 
+
 GFSM = FSM()
 
-#key为role，value为各个网页node
-#action list 和 对应req list 可以调value.action_map_from_self_node，其中key为action node，value为req_list
-#connection list 和 对应req list 可以调value.connection_map_from_self_node，其中key为connection node，value为req_list
-class returnRoleNodeSet:
+class FSMGraph:
     def __init__(self):
-        self.fsm = GFSM
+        self.FSM = GFSM
         self.NodeSet = {}
-        self.RoleNodeSet = {}
+        self.Role = ""
+        self.NodeContainer = {}
+        self.EdgeContainer = {}
+        self.WeightContainer = {}
+        self.gap_node_refer = {}
 
-    def return_data(self):
-        self.fsm.LoadWebFlowSet(console_analyze_list=None , flow_with_gap=None)
-        self.NodeSet = self.fsm.NodeSet
-        for key, node in self.NodeSet:
-            if self.fsm.Role not in self.RoleNodeSet:
-                self.RoleNodeSet[self.fsm.Role] = []
-            self.RoleNodeSet[self.fsm.Role].append(node)
-            
+    def load_graph(self):
+        self.FSM.LoadWebFlowSet()
+        self.Role = self.FSM.Role
+        self.NodeSet = self.FSM.NodeSet
+        self.gap_node_refer = self.FSM.gap_node_refer
+        count = 0
+
+        for url_node, action in self.NodeSet.items():
+            # Node Container装载：StartURL->ActionNodeContainer
+            # for node_num, action_node in action.action_map_from_self_node.items():
+                # 结点太多了这里只装载url_list
+                # if url_node not in self.NodeContainer:
+                #     self.NodeContainer[url_node] = []
+                # else:
+                #     self.NodeContainer[url_node].append(node_num)
+                # self.NodeContainer.append(url_node)
+
+            self.NodeContainer[url_node] = f"Action Container {count + 1}"
+            count += 1
+            # Edge Container装载：SingleActionNode->NextURL
+            for node_num, url_list in action.connection_map_from_self_node.items():
+                if self.gap_node_refer[node_num].gap_type == 1:
+                    self.WeightContainer[node_num] = "TAB SWITCH"
+                elif self.gap_node_refer[node_num].gap_type == 2:
+                    self.WeightContainer[node_num] = "ACTIVATED URL"
+                elif self.gap_node_refer[node_num].gap_type == 3:
+                    self.WeightContainer[node_num] = f"CLICKED AT {self.gap_node_refer[node_num].click_element.className}"
+                elif self.gap_node_refer[node_num].gap_type == 4:
+                    self.WeightContainer[node_num] = f"INPUT AT {self.gap_node_refer[node_num].input_element.className}"
+                else:
+                    continue
+                self.EdgeContainer[node_num] = [url_list.src_node_key, url_list.dest_node_key]
+
+        print("Node Container: ", self.NodeContainer)
+        print("Edge Container: ", self.EdgeContainer)
+        print("Weight Container: ", self.WeightContainer)
+
+        self.create_graph()
+
+    def create_graph(self):
+        G = nx.DiGraph()
+
+        for url, container in self.NodeContainer.items():
+            G.add_node(url)
+            G.add_node(container)
+            G.add_edge(url, container, weight="STORES ACTION")
+
+        for node, urls in self.EdgeContainer.items():
+            if len(urls) == 2:
+                G.add_edge(urls[0], urls[1], weight=self.WeightContainer[node])
+
+        pos = nx.circular_layout(G)
+
+        nx.draw(G, pos, with_labels=True, node_size=2000, node_color='skyblue')
+        labels = nx.get_edge_attributes(G, 'weight')
+        nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
+
+        plt.title(f"Role Group: User", size=15)
+        plt.axis('off')
+        plt.show()
+
+
+Graph = FSMGraph()
+
 if __name__ == "__main__":
+    ori_log_path = r"C:/Users/User/Downloads/BACD/BACD-main/source/console.log"
+    burp_path = r"C:/Users/User/Downloads/BACD/BACD-main/source/result2_29.txt"
+    log_path = r"C:/Users/User/Downloads/BACD/BACD-main/source/filtered_data.txt"
+    filter_clicks_and_write_to_new_file(ori_log_path, log_path)
     config_init()
-    burp_path = r"D:\Suez_kip\研究生毕设\Data\jiangsuyi\recorder-jiangsuyi.txt"
-    log_path = r"D:\Suez_kip\研究生毕设\Data\jiangsuyi\console-jiangsuyi.log"
     GFNA.getFlow(0, "jiangsuyi", burp_path, log_path)
+    Graph.load_graph()
     a = 1
