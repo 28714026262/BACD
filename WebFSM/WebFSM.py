@@ -428,13 +428,40 @@ class FSMGraph:
             if len(urls) == 2:
                 G.add_edge(urls[0], urls[1], weight=self.WeightContainer[node])
 
+        # G.add_edge("http://29.20.130.39:31001/?SSO_loginName=amlhbmdzdXlp", "http://29.20.130.39:31001/injury/rule/DamageRulePage/DamageRulePage", weight="OTHER ACTION")
+        # G.add_edge("http://29.20.130.39:31001/injury/rule/DamageRulePage/DamageRulePage", "http://sso-sit.group.cpic.com/login", weight="OTHER ACTION")
+        # G.add_edge("http://sso-sit.group.cpic.com/login", "http://29.20.130.39:31001/injury/welcome", weight="OTHER ACTION")
+        # G.add_edge("http://29.20.130.39:31001/injury/welcome", "http://29.20.130.39:31001/injury/toolbox/operation", weight="OTHER ACTION")
+        # G.add_edge("http://sso-sit.group.cpic.com/login", "http://29.20.130.39:31001/?SSO_loginName=amlhbmdzdXlp", weight="OTHER ACTION")
+        # G.add_edge("http://29.20.130.39:31001/injury/welcome", "http://29.20.130.39:31001/injury/rule/DamageRulePage/DamageRulePage", weight="OTHER ACTION")
+
         pos = nx.circular_layout(G)
 
-        nx.draw(G, pos, with_labels=True, node_size=2000, node_color='skyblue')
-        labels = nx.get_edge_attributes(G, 'weight')
-        nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
+        # 定义边颜色
+        node_colors = []
+        for node in G.nodes():
+            edges = G.out_edges(node, data=True)
+            color = 'red'  # 初始颜色
+            for _, _, data in edges:
+                if data['weight'] == 'STORES ACTION':
+                    color = 'blue'
+            node_colors.append(color)
 
-        plt.title(f"Role Group: User", size=15)
+        nx.draw(G, pos, with_labels=True, node_size=2000, node_color=node_colors)
+
+        # 存储边信息
+        stores_action_edges = [(u, v) for u, v, d in G.edges(data=True) if d['weight'] == "STORES ACTION"]
+        url_node_edges = [(u, v) for u, v, d in G.edges(data=True) if d['weight'] not in ("STORES ACTION")]
+
+        # 画边
+        nx.draw_networkx_edges(G, pos, edgelist=stores_action_edges, edge_color='red')
+        nx.draw_networkx_edges(G, pos, edgelist=url_node_edges, edge_color='blue')
+
+        # 添加边的标识
+        edge_labels = {edge: G[edge[0]][edge[1]]['weight'] for edge in G.edges()}
+        nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)
+
+        plt.title("Role Group: User", size=15)
         plt.axis('off')
         plt.show()
 
