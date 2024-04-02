@@ -1,7 +1,7 @@
 import copy
 import os
 import re
-example_file_path = r'C:/Users/User/Downloads/BACD/BACD-main/source/filtered_data.txt'
+example_file_path = r'./source/filtered_data.txt'
 
 TAB_SWITCH_HRG = 1
 URL_UPDATED_HRG = 2
@@ -226,4 +226,5 @@ def ChromeExtensionLoader(file_path):
         print("HTTP_request_Gap_List", HTTP_request_Gap_List)
     return HTTP_request_Gap_List
 
-ChromeExtensionLoader(example_file_path)
+if __name__ == "__main__":
+    ChromeExtensionLoader(example_file_path)

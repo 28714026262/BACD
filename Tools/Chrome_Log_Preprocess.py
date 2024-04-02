@@ -1,3 +1,10 @@
+'''
+Author: Suez_kip 287140262@qq.com
+Date: 2024-04-02 10:01:03
+LastEditTime: 2024-04-02 10:23:29
+LastEditors: Suez_kip
+Description: 
+'''
 import re
 
 def filter_clicks_and_write_to_new_file(input_file_path, output_file_path):
@@ -26,9 +33,10 @@ def filter_clicks_and_write_to_new_file(input_file_path, output_file_path):
 
 
 
-# 输入文件和输出文件的路径
-input_file_path = "C:/Users/User/Downloads/BACD/BACD-main/source/console.log"
-output_file_path = "C:/Users/User/Downloads/BACD/BACD-main/source/filtered_data.txt"
+if __name__ == "__main__":
+    # 输入文件和输出文件的路径
+    input_file_path = "./source/console.log"
+    output_file_path = "./source/filtered_data.txt"
 
-# 执行函数，读取输入文件，筛选并写入输出文件
-filter_clicks_and_write_to_new_file(input_file_path, output_file_path)
+    # 执行函数，读取输入文件，筛选并写入输出文件
+    filter_clicks_and_write_to_new_file(input_file_path, output_file_path)

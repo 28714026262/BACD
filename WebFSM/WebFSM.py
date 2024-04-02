@@ -469,9 +469,9 @@ class FSMGraph:
 Graph = FSMGraph()
 
 if __name__ == "__main__":
-    ori_log_path = r"C:/Users/User/Downloads/BACD/BACD-main/source/console.log"
-    burp_path = r"C:/Users/User/Downloads/BACD/BACD-main/source/result2_29.txt"
-    log_path = r"C:/Users/User/Downloads/BACD/BACD-main/source/filtered_data.txt"
+    ori_log_path = r"./source/console.log"
+    burp_path = r"./source/result2_29.txt"
+    log_path = r"./source/filtered_data.txt"
     filter_clicks_and_write_to_new_file(ori_log_path, log_path)
     config_init()
     GFNA.getFlow(0, "jiangsuyi", burp_path, log_path)
