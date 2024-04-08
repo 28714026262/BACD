@@ -106,15 +106,15 @@ class Action:
         self.src_node_key = newAction.src_node_key
         self.req_list = copy.deepcopy(newAction.req_list)
 
-    def action_type_speculate(self):
-        # condition1
-        self.Type = FSM_ACTION_TYPE_ADD
-        # condition2
-        self.Type = FSM_ACTION_TYPE_DELETE
-        # condition3
-        self.Type = FSM_ACTION_TYPE_EDIT
-        # condition4
-        self.Type = FSM_ACTION_TYPE_READ
+    # def action_type_speculate(self):
+    #     # condition1
+    #     self.Type = FSM_ACTION_TYPE_ADD
+    #     # condition2
+    #     self.Type = FSM_ACTION_TYPE_DELETE
+    #     # condition3
+    #     self.Type = FSM_ACTION_TYPE_EDIT
+    #     # condition4
+    #     self.Type = FSM_ACTION_TYPE_READ
 
     def boundaryAnalysis(self):
         # 前边界对齐
