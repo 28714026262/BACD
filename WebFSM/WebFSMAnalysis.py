@@ -1,11 +1,10 @@
-from WebFSM import FSM
+from WebFSM import FSM, BaseFSM
 
 class UserGroup:
     def __init__(self) -> None:
         self.fsm = ""
         self.groupName = ""
         self.priority = -1
-
 
 class FSMAnalysis:
     def __init__(self) -> None:
@@ -17,11 +16,14 @@ class FSMAnalysis:
     def HorizontalBACDetected(self):
         pass
 
-    def diffFSM(self, FSM1, FSM2):
+    def diffFSM(self, FSM1: BaseFSM, FSM2: BaseFSM):
         # find diff node
         # get diff node connection and diff node interface
         # find same node diff interface
         return 0 # [node:[action,],]
+
+    def isSameNode(self) -> bool:
+        return True
 
     def childgraphfinder(self, FSM_input):
         res_fsm = None

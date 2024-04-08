@@ -226,7 +226,13 @@ class Node:
         same_flag = True
         return same_flag
 
-class FSM:
+class BaseFSM:
+    def __init__(self) -> None:
+        self.NodeSet = {}
+        self.Action = {}
+        self.Connection = {}
+
+class FSM(BaseFSM):
     def __init__(self) -> None:
         self.NodeSet = {}
         self.Action = {}
