@@ -6,6 +6,7 @@ from Tools.RequestsAnalyser.HTMLRequestAnalyzer.HTMLRequestAnalyzer import *
 from Tools.configloader import *
 # from Tools.Enumeration import *
 from Tools.Chrome_Log_Preprocess import *
+from WebCluster import URLCluster
 
 # 制图用
 import networkx as nx
@@ -365,12 +366,6 @@ class FSM(BaseFSM):
     def haveSameNode(self):
         pass
 
-
-class RoleContainer:
-    def __init__(self) -> None:
-        pass
-
-
 GFSM = FSM()
 
 class FSMGraph:
@@ -474,12 +469,104 @@ class FSMGraph:
 
 Graph = FSMGraph()
 
+# 存储每个fsm里各个Node的结点信息
+class FSMNodeContainer:
+    def __init__(self) -> None:
+        self.RoleFSM = GFSM
+        self.Role = GFSM.Role
+        self.flow_with_gap = GFSM.flow_list_with_gap
+        self.req_refer = GFSM.req_node_refer
+        self.gap_refer = GFSM.gap_node_refer
+        self.url_flow_list = []
+
+    def load_container(self,url_check):
+        for url, nodes in self.flow_with_gap.items():
+            if url == url_check:
+                self.url_flow_list = nodes
+
+# 各个Role的WebFSM存储用，用于进行WebFSMAnalysis
+# 每次调用此类一定会传去WebFSMCluster，里面进行图存储，并且为RoleFSMCluster里同个role不同FSM进行聚类后返回
+class RoleFSMContainer:
+    def __init__(self) -> None:
+        # 对单个Role的FSM进行初始装载
+        self.RoleFSM = GFSM
+        self.Role = GFSM.Role
+        self.URLClustering = URLCluster
+        self.URLClustered = []
+        # 把所有出现过的url都记录在这里，方便reCluster
+        self.existing_url_list = []
+        # 存储每个url对应的node container（action，connection。。。）
+        self.url_node_map = {}
+
+    # 进行初始URL聚类
+    def loadWebFSMCluster(self):
+        if self.URLClustered:
+            self.URLClustered = []
+        url_list = self.RoleFSM.url_node_refer
+        self.existing_url_list = url_list
+        self.URLClustering.get_cluster(url_list)
+        self.URLClustered = self.URLClustering.Cluster_final
+        self.loadFSMData()
+        print(self.URLClustered)
+
+    # 若进行过聚类，再次聚类
+    def reCluster(self):
+        if self.URLClustered:
+            self.URLClustered = []
+        for url in self.RoleFSM.url_node_refer:
+            if url in self.existing_url_list:
+                continue
+            else:
+                self.existing_url_list.append(url)
+        self.URLClustering.get_cluster(self.existing_url_list)
+        self.URLClustered = self.URLClustering.Cluster_final
+        self.loadFSMData()
+
+    # 装载URL的结点信息
+    def loadFSMData(self):
+        for url in self.existing_url_list:
+            DataContainer = FSMNodeContainer()
+            DataContainer.load_container(url)
+            self.url_node_map[url] = DataContainer
+        #print(self.url_node_map)
+
+# 记录Web的完整FSM结构
+class WebFSMCluster:
+    def __init__(self) -> None:
+        self.Role = ""
+        # [Role, Role...]
+        self.FSMClustering = []
+
+    def page_cluster(self, role):
+        self.Role = role
+        if self.FSMClustering:
+            flag = -1
+            for i in self.FSMClustering:
+                if i.Role == self.Role:
+                    flag = 1
+                    i.reCluster()
+            # 若还没存在这个Role
+            if flag == -1:
+                RoleCluster = RoleFSMContainer()
+                RoleCluster.loadWebFSMCluster()
+                self.FSMClustering.append(RoleCluster)
+        else:
+            RoleCluster = RoleFSMContainer()
+            RoleCluster.loadWebFSMCluster()
+            self.FSMClustering.append(RoleCluster)
+
+        print(self.FSMClustering)
+
+FSMCluster = WebFSMCluster()
+
 if __name__ == "__main__":
-    ori_log_path = r"./source/console.log"
-    burp_path = r"./source/result2_29.txt"
-    log_path = r"./source/filtered_data.txt"
+    ori_log_path = r"C:\Users\User\Downloads\BACD-v2\source\console\normal_log\console.log"
+    burp_path = r"C:\Users\User\Downloads\BACD-v2\source\burp\result2_29.txt"
+    log_path = r"C:\Users\User\Downloads\BACD-v2\source\console\filtered_log\filtered_data.txt"
     filter_clicks_and_write_to_new_file(ori_log_path, log_path)
     config_init()
     GFNA.getFlow(0, "jiangsuyi", burp_path, log_path)
     Graph.load_graph()
+    FSMCluster.page_cluster("jiangsuyi")
+
     a = 1
