@@ -1,6 +1,8 @@
 import math
 import re
 from collections import Counter
+from Tools.Page_Source_Crawler import Crawler
+from Tools.HTMLSimilarity import get_html_similarity
 
 # 简单对URL进行Protocol，domain，path和query进行区分，为的是在进行cosine相似性计算时仅对query和param部分进行计算
 # 前面的部分仅用来作是否进行相似性计算的判断
@@ -10,6 +12,7 @@ class URLFilter:
         self.domain = ""
         self.path = ""
         self.query_param = ""
+        self.flag = -1
 
     def get_URL_Route(self, url: str) -> list:
         if url.startswith("http"):
@@ -22,9 +25,42 @@ class URLFilter:
         route_list = url.split('/')
         self.domain = route_list[0]
         self.query_param = route_list[-1]
-        path_list_1 = url.split(self.domain)
-        path_list_2 = path_list_1[1].split(self.query_param)
+
+        try:
+            path_list_1 = url.split(self.domain)
+            path_list_2 = path_list_1[1].split(self.query_param)
+        except:
+            path_list_2 = url
         self.path = path_list_2[0]
+
+        index = self.query_param.find("?")
+        param_map = {}
+        if index != -1:
+            route_list[-1] = self.query_param[:index]
+            param_str = self.query_param[index + 1:]
+            param_list = param_str.split("&")
+            for param_pair in param_list:
+                temp_pair = param_pair.split("=")
+                param_map[temp_pair[0]] = temp_pair[1]
+
+        # 检测路径是否为乱码
+        pattern = r'([0-9A-Za-z\-\.@|,]{30,}|[a-zA-Z]+[0-9A-Za-z_\-\.@|,][0-9]+|[0-9]+[0-9A-Za-z_\-\.@|,][a-zA-Z]+|[0-9\.,\-]+|[\u4E00-\u9FA5]+)'
+
+        # 检测param对应的是字符串还是数字
+        if param_map:
+            for key, value in param_map.items():
+                # value为纯数字
+                if value.isdigit():
+                    self.flag = 1
+                else:
+                    self.flag = 3
+
+        # 检测路径是否为乱码
+        else:
+            if re.match(pattern, self.query_param):
+                self.flag = 2
+            else:
+                self.flag = 3
 
 # 将单个URL进行向量化后进行数据存储
 class URLVector:
@@ -101,39 +137,64 @@ class WebPageCluster:
                         self.length += 1
                     else:
                         cosine = self.calc_cosine(i, j)
-                        if cosine != 0.0:
-                            # 对URL pair进行聚类
-                            # 先对[url1, url2]这样的list进行存储
-                            if self.Cluster_final:
-                                for item in self.Cluster_final:
-                                    if isinstance(item, list):
-                                        if i.URL in item:
-                                            if j.URL not in item:
-                                                item.append(j.URL)
-                                                url_tmp_holder.append(j.URL)
-                                        elif j.URL in item:
-                                            if i.URL not in item:
-                                                item.append(i.URL)
-                                                url_tmp_holder.append(i.URL)
-                                        else:
-                                            self.Cluster_final.append([i.URL, j.URL])
-                                            url_tmp_holder.append(i.URL)
-                                            url_tmp_holder.append(j.URL)
+                        if cosine != 0.0 :
+                            # 若路径是乱码，路径是字符串，参数是字符串都需要做相似性匹配
+                            if i.filter_url.flag == 2 or i.filter_url.flag == 3:
+                                # 将page source爬下来进行对比相似性
+                                path_1 = Crawler(i.URL, 1)
+                                path_2 = Crawler(j.URL, 2)
+                                print(path_1, path_2)
+                                is_similarity, value = get_html_similarity(path_1, path_2)
+                                print(is_similarity, value)
+                                if is_similarity:
+                                    # 对URL pair进行聚类
+                                    # 先对[url1, url2]这样的list进行存储
+                                    if self.Cluster_final:
+                                        for item in self.Cluster_final:
+                                            if isinstance(item, list):
+                                                if i.URL in item:
+                                                    if j.URL not in item:
+                                                        item.append(j.URL)
+                                                        url_tmp_holder.append(j.URL)
+                                                elif j.URL in item:
+                                                    if i.URL not in item:
+                                                        item.append(i.URL)
+                                                        url_tmp_holder.append(i.URL)
+                                                else:
+                                                    self.Cluster_final.append([i.URL, j.URL])
+                                                    url_tmp_holder.append(i.URL)
+                                                    url_tmp_holder.append(j.URL)
+                                    else:
+                                        self.Cluster_final.append([i.URL, j.URL])
+                                        url_tmp_holder.append(i.URL)
+                                        url_tmp_holder.append(j.URL)
+                                    cluster_temp = ClusterData()
+                                    cluster_temp.append_data(self.length, [i,j], cosine)
+                                    self.Cluster_set.append(cluster_temp)
+                                    self.length += 1
+
+                                else:
+                                    cluster_temp = ClusterData()
+                                    cluster_temp.append_data(self.length, [i,j], 0.0)
+                                    self.Cluster_set.append(cluster_temp)
+                                    self.length += 1
+
+                            # 若参数是数字，则直接聚类
                             else:
                                 self.Cluster_final.append([i.URL, j.URL])
                                 url_tmp_holder.append(i.URL)
                                 url_tmp_holder.append(j.URL)
-                        cluster_temp = ClusterData()
-                        cluster_temp.append_data(self.length, [i,j], cosine)
-                        self.Cluster_set.append(cluster_temp)
-                        self.length += 1
+                                cluster_temp = ClusterData()
+                                cluster_temp.append_data(self.length, [i, j], cosine)
+                                self.Cluster_set.append(cluster_temp)
+                                self.length += 1
 
         # 再对单个URL进行存储
         for i in url_list:
             if i not in url_tmp_holder:
                 self.Cluster_final.append(i)
                 url_tmp_holder.append(i)
-        #print(self.Cluster_final)
+        print(self.Cluster_final)
 
     # 计算cosine相似性
     def calc_cosine(self, vec1, vec2):
