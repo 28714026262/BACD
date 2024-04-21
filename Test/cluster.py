@@ -1,9 +1,8 @@
 import math
 import re
-import numpy as np
-import matplotlib.pyplot as plt
 from collections import Counter
-from sklearn.cluster import KMeans
+from Tools.Page_Source_Crawler import Crawler
+from Tools.HTMLSimilarity import get_html_similarity
 
 # 简单对URL进行Protocol，domain，path和query进行区分，为的是在进行cosine相似性计算时仅对query和param部分进行计算
 # 前面的部分仅用来作是否进行相似性计算的判断
@@ -13,6 +12,7 @@ class URLFilter:
         self.domain = ""
         self.path = ""
         self.query_param = ""
+        self.flag = -1
 
     def get_URL_Route(self, url: str) -> list:
         if url.startswith("http"):
@@ -25,9 +25,42 @@ class URLFilter:
         route_list = url.split('/')
         self.domain = route_list[0]
         self.query_param = route_list[-1]
-        path_list_1 = url.split(self.domain)
-        path_list_2 = path_list_1[1].split(self.query_param)
+
+        try:
+            path_list_1 = url.split(self.domain)
+            path_list_2 = path_list_1[1].split(self.query_param)
+        except:
+            path_list_2 = url
         self.path = path_list_2[0]
+
+        index = self.query_param.find("?")
+        param_map = {}
+        if index != -1:
+            route_list[-1] = self.query_param[:index]
+            param_str = self.query_param[index + 1:]
+            param_list = param_str.split("&")
+            for param_pair in param_list:
+                temp_pair = param_pair.split("=")
+                param_map[temp_pair[0]] = temp_pair[1]
+
+        # 检测路径是否为乱码
+        pattern = r'([0-9A-Za-z\-\.@|,]{30,}|[a-zA-Z]+[0-9A-Za-z_\-\.@|,][0-9]+|[0-9]+[0-9A-Za-z_\-\.@|,][a-zA-Z]+|[0-9\.,\-]+|[\u4E00-\u9FA5]+)'
+
+        # 检测param对应的是字符串还是数字
+        if param_map:
+            for key, value in param_map.items():
+                # value为纯数字
+                if value.isdigit():
+                    self.flag = 1
+                else:
+                    self.flag = 3
+
+        # 检测路径是否为乱码
+        else:
+            if re.match(pattern, self.query_param):
+                self.flag = 2
+            else:
+                self.flag = 3
 
 # 将单个URL进行向量化后进行数据存储
 class URLVector:
@@ -48,7 +81,6 @@ class URLVector:
         WORD = re.compile(r"\w+")
         words = WORD.findall(self.filtered_url)
         self.vector = Counter(words)
-        print(self.vector)
 
 # 对比URL pair的相似性后，进行数据存储
 class ClusterData:
@@ -73,12 +105,8 @@ class WebPageCluster:
         # 将URL pair的Cluster Data进行存储
         self.Cluster_set = []
 
-        #self.load_data = []
-
         # 记录URL pair数目
         self.length = 1
-
-        #self.k_num = -1
 
         # 记录各个pair的cosine相似性
         self.cos_sim = []
@@ -105,89 +133,68 @@ class WebPageCluster:
                         cosine = 0.0
                         cluster_temp = ClusterData()
                         cluster_temp.append_data(self.length, [i, j], cosine)
-                        print(self.length, [i.URL, j.URL], cosine)
                         self.Cluster_set.append(cluster_temp)
                         self.length += 1
                     else:
                         cosine = self.calc_cosine(i, j)
-                        print(self.length, [i.URL, j.URL], cosine)
-                        if cosine != 0.0:
-                            # 对URL pair进行聚类
-                            # 先对[url1, url2]这样的list进行存储
-                            if self.Cluster_final:
-                                for item in self.Cluster_final:
-                                    if isinstance(item, list):
-                                        if i.URL in item:
-                                            if j.URL not in item:
-                                                item.append(j.URL)
-                                                url_tmp_holder.append(j.URL)
-                                        elif j.URL in item:
-                                            if i.URL not in item:
-                                                item.append(i.URL)
-                                                url_tmp_holder.append(i.URL)
-                                        else:
-                                            self.Cluster_final.append([i.URL, j.URL])
-                                            url_tmp_holder.append(i.URL)
-                                            url_tmp_holder.append(j.URL)
+                        if cosine != 0.0 :
+                            # 若路径是乱码，路径是字符串，参数是字符串都需要做相似性匹配
+                            if i.filter_url.flag == 2 or i.filter_url.flag == 3:
+                                # 将page source爬下来进行对比相似性
+                                path_1 = Crawler(i.URL, 1)
+                                path_2 = Crawler(j.URL, 2)
+                                print(path_1, path_2)
+                                is_similarity, value = get_html_similarity(path_1, path_2)
+                                print(is_similarity, value)
+                                if is_similarity:
+                                    # 对URL pair进行聚类
+                                    # 先对[url1, url2]这样的list进行存储
+                                    if self.Cluster_final:
+                                        for item in self.Cluster_final:
+                                            if isinstance(item, list):
+                                                if i.URL in item:
+                                                    if j.URL not in item:
+                                                        item.append(j.URL)
+                                                        url_tmp_holder.append(j.URL)
+                                                elif j.URL in item:
+                                                    if i.URL not in item:
+                                                        item.append(i.URL)
+                                                        url_tmp_holder.append(i.URL)
+                                                else:
+                                                    self.Cluster_final.append([i.URL, j.URL])
+                                                    url_tmp_holder.append(i.URL)
+                                                    url_tmp_holder.append(j.URL)
+                                    else:
+                                        self.Cluster_final.append([i.URL, j.URL])
+                                        url_tmp_holder.append(i.URL)
+                                        url_tmp_holder.append(j.URL)
+                                    cluster_temp = ClusterData()
+                                    cluster_temp.append_data(self.length, [i,j], cosine)
+                                    self.Cluster_set.append(cluster_temp)
+                                    self.length += 1
+
+                                else:
+                                    cluster_temp = ClusterData()
+                                    cluster_temp.append_data(self.length, [i,j], 0.0)
+                                    self.Cluster_set.append(cluster_temp)
+                                    self.length += 1
+
+                            # 若参数是数字，则直接聚类
                             else:
                                 self.Cluster_final.append([i.URL, j.URL])
                                 url_tmp_holder.append(i.URL)
                                 url_tmp_holder.append(j.URL)
-                        cluster_temp = ClusterData()
-                        cluster_temp.append_data(self.length, [i,j], cosine)
-                        self.Cluster_set.append(cluster_temp)
-                        self.length += 1
-        # self.kmeans_cluster()
-        
+                                cluster_temp = ClusterData()
+                                cluster_temp.append_data(self.length, [i, j], cosine)
+                                self.Cluster_set.append(cluster_temp)
+                                self.length += 1
+
         # 再对单个URL进行存储
         for i in url_list:
             if i not in url_tmp_holder:
                 self.Cluster_final.append(i)
                 url_tmp_holder.append(i)
         print(self.Cluster_final)
-
-    ## 计算相似性后进行k-means聚类
-    # def kmeans_cluster(self):
-    #     self.find_inertia()
-    #     self.load_data = [[cos_sim] for _, cos_sim in enumerate(self.cos_sim)]
-    #
-    #     kmeans = KMeans(n_clusters=2)
-    #     kmeans.fit(self.load_data)
-    #     plt.scatter(range(len(self.load_data)), self.cos_sim, c=kmeans.labels_)
-    #     plt.title("Cluster Plot Based on Cosine Similarity")
-    #     plt.show()
-    #     print(kmeans.labels_)
-
-    ## 找出最适配的k值（cluster number）
-    # def find_inertia(self):
-    #     inertias = []
-    #     for data in self.Cluster_set:
-    #         x = data.counter
-    #         y = data.cos_sim
-    #         self.cos_sim.append(y)
-    #         self.load_data.append([x,y])
-    #
-    #     for i in range(1, self.length):
-    #         kmeans = KMeans(n_clusters=i)
-    #         kmeans.fit(self.load_data)
-    #         inertias.append(kmeans.inertia_)
-    #     elbow_point = self.find_elbow_point(inertias)
-    #
-    #     plt.figure(figsize=(8, 4))
-    #     plt.plot(range(1, self.length), inertias, marker='o')
-    #     plt.plot(elbow_point, inertias[elbow_point - 1], 'ro')  # 标记 elbow point
-    #     plt.title('Elbow Method with Optimal k')
-    #     plt.xlabel('Number of Clusters')
-    #     plt.ylabel('Inertia')
-    #     plt.show()
-    #     print(elbow_point)
-    #
-    # def find_elbow_point(self, inertias):
-    #     gradients = np.diff(inertias)
-    #     for i in range(1, len(gradients)):
-    #         if abs(gradients[i]) < abs(gradients[i - 1]) * 0.5:
-    #             return i + 1
-    #     return len(gradients)
 
     # 计算cosine相似性
     def calc_cosine(self, vec1, vec2):
