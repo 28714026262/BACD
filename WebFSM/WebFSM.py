@@ -424,10 +424,12 @@ class FSMGraph:
             G.add_node(url)
             G.add_node(container)
             G.add_edge(url, container, weight="STORES ACTION")
+        # TODO 节点额外增加了内容节点，需要去除
 
         for node, urls in self.EdgeContainer.items():
             if len(urls) == 2:
                 G.add_edge(urls[0], urls[1], weight=self.WeightContainer[node])
+        # TODO 没有本页面行为
 
         # G.add_edge("http://29.20.130.39:31001/?SSO_loginName=amlhbmdzdXlp", "http://29.20.130.39:31001/injury/rule/DamageRulePage/DamageRulePage", weight="OTHER ACTION")
         # G.add_edge("http://29.20.130.39:31001/injury/rule/DamageRulePage/DamageRulePage", "http://sso-sit.group.cpic.com/login", weight="OTHER ACTION")
@@ -560,9 +562,9 @@ class WebFSMCluster:
 FSMCluster = WebFSMCluster()
 
 if __name__ == "__main__":
-    ori_log_path = r"C:\Users\User\Downloads\BACD-v2\source\console\normal_log\console.log"
-    burp_path = r"C:\Users\User\Downloads\BACD-v2\source\burp\result2_29.txt"
-    log_path = r"C:\Users\User\Downloads\BACD-v2\source\console\filtered_log\filtered_data.txt"
+    ori_log_path = r".\source\console.log"
+    burp_path = r".\source\result2_29.txt"
+    log_path = r".\source\filtered_data.txt"
     filter_clicks_and_write_to_new_file(ori_log_path, log_path)
     config_init()
     GFNA.getFlow(0, "jiangsuyi", burp_path, log_path)

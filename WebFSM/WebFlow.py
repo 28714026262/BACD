@@ -1,3 +1,10 @@
+'''
+Author: Suez_kip 287140262@qq.com
+Date: 2024-09-19 15:25:57
+LastEditTime: 2024-09-20 19:10:53
+LastEditors: Suez_kip
+Description: 
+'''
 import os
 import sys
 sys.path.append(os.getcwd())
@@ -350,6 +357,7 @@ class Flow:
         req_node_refer = {}
 
         #对齐gap和flow形成gapFlow
+        # 没有输入整合
         for gap in self.gap_list:
             #初始gap count为-1
             outside_count = outside_count + 1
