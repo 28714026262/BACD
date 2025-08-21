@@ -204,3 +204,5 @@ background.js:47 Time: {1709196372440} ClickDetected: [object Object] ElementDet
 background.js:47 Time: {1709196377077} ClickDetected: [object Object] ElementDetails: {tagName: 'SPAN', id: '', className: '', text: '取 消', path: 'SPAN > BUTTON > DIV > DIV > DIV > DIV > DIV > DIV …> DIV > DIV > DIV > DIV > DIV > BODY > HTML >  > ', …}
 background.js:31 Time: {1709196377077} TabID: {1926387271} URLChanged: {http://29.20.130.39:31001/injury/module/DiagnosticModelPage}
 background.js:31 Time: {1709196386351} TabID: {1926387271} URLChanged: {http://sso-sit.group.cpic.com/login}
+
+http://mp9f95qlr5w6g9:y1elpx1zic9qvx@p.proxik.cloud:8080
